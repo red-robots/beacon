@@ -1,0 +1,49 @@
+.acf-field-true-false[data-type="true_false"] {
+  position: relative; 
+  .acf-label {
+    padding-left: 23px;
+  }
+  .acf-input {
+    display: inline-block;
+    width: auto;
+    position: absolute;
+    top: 14px;
+    left: 16px;
+  }
+}
+
+[data-name="static_image_block"]:has([data-name="static_image_mobile"]) {
+  .acf-fields {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  div.acf-field {
+    width: 100%;
+  }
+  div.acf-field[data-name="static_image"] {
+    width: auto;
+  }
+  div.acf-field[data-name="static_image_mobile"] {
+    width: auto;
+    border-left: 1px solid #eaecf0;
+  }
+}
+
+[data-name="static_image_block"] [data-type="repeater"][data-name="buttons"] {
+  .mce-edit-area.mce-container iframe {
+    min-height: 80px!important;
+    height: 80px!important;
+  }
+  .mce-tinymce.mce-container  {
+    .mce-widget.mce-btn[aria-label*="Italic"],
+    .mce-widget.mce-btn[aria-label*="Underline"],
+    .mce-widget.mce-btn[aria-label*="Blockquote"],
+    .mce-widget.mce-btn[aria-label*="Strikethrough"],
+    .mce-widget.mce-btn[aria-label*="Bulleted"],
+    .mce-widget.mce-btn[aria-label*="Numbered"],
+    .mce-widget.mce-btn[aria-label*="Align"],
+    .mce-widget.mce-btn[aria-label*="Fullscreen"] {
+      display: none!important;
+    }
+  }
+}

@@ -1,0 +1,45 @@
+.acf-field-true-false[data-type=true_false] {
+  position: relative;
+}
+.acf-field-true-false[data-type=true_false] .acf-label {
+  padding-left: 23px;
+}
+.acf-field-true-false[data-type=true_false] .acf-input {
+  display: inline-block;
+  width: auto;
+  position: absolute;
+  top: 14px;
+  left: 16px;
+}
+
+[data-name=static_image_block]:has([data-name=static_image_mobile]) .acf-fields {
+  display: flex;
+  flex-wrap: wrap;
+}
+[data-name=static_image_block]:has([data-name=static_image_mobile]) div.acf-field {
+  width: 100%;
+}
+[data-name=static_image_block]:has([data-name=static_image_mobile]) div.acf-field[data-name=static_image] {
+  width: auto;
+}
+[data-name=static_image_block]:has([data-name=static_image_mobile]) div.acf-field[data-name=static_image_mobile] {
+  width: auto;
+  border-left: 1px solid #eaecf0;
+}
+
+[data-name=static_image_block] [data-type=repeater][data-name=buttons] .mce-edit-area.mce-container iframe {
+  min-height: 80px !important;
+  height: 80px !important;
+}
+[data-name=static_image_block] [data-type=repeater][data-name=buttons] .mce-tinymce.mce-container .mce-widget.mce-btn[aria-label*=Italic],
+[data-name=static_image_block] [data-type=repeater][data-name=buttons] .mce-tinymce.mce-container .mce-widget.mce-btn[aria-label*=Underline],
+[data-name=static_image_block] [data-type=repeater][data-name=buttons] .mce-tinymce.mce-container .mce-widget.mce-btn[aria-label*=Blockquote],
+[data-name=static_image_block] [data-type=repeater][data-name=buttons] .mce-tinymce.mce-container .mce-widget.mce-btn[aria-label*=Strikethrough],
+[data-name=static_image_block] [data-type=repeater][data-name=buttons] .mce-tinymce.mce-container .mce-widget.mce-btn[aria-label*=Bulleted],
+[data-name=static_image_block] [data-type=repeater][data-name=buttons] .mce-tinymce.mce-container .mce-widget.mce-btn[aria-label*=Numbered],
+[data-name=static_image_block] [data-type=repeater][data-name=buttons] .mce-tinymce.mce-container .mce-widget.mce-btn[aria-label*=Align],
+[data-name=static_image_block] [data-type=repeater][data-name=buttons] .mce-tinymce.mce-container .mce-widget.mce-btn[aria-label*=Fullscreen] {
+  display: none !important;
+}
+
+/*# sourceMappingURL=admin.css.map */

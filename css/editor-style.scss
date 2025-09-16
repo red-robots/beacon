@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Quicksand:wght@300..700&display=swap');
+@import '../assets/sass/fonts';
+@import '../assets/sass/variables';
+
+body {
+  font-family: $font_primary;
+}
+.custom-color {
+  color: #444;
+}
+.mce-widget.mce-btn[aria-label="Custom Button"] i.mce-ico {
+  position: relative;
+  background-image: none!important;
+  display: inline-block;
+}
+.mce-widget.mce-btn[aria-label="Custom Button"] i.mce-ico:before {
+  content: "\f11a";
+  font-family: dashicons;
+  display: inline-block;
+  line-height: 1;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: none;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+.custom-button-element {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  
+  a.button {
+    display: inline-block;
+    text-decoration: none;
+    appearance: none;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px 12px;
+    font-family: $font_secondary;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+    color: #FFF!important;
+    transition: all ease .4s;
+    background-color: $color_primary;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+  }
+}
+
+
+
+
+
+
+
