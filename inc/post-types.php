@@ -12,11 +12,11 @@ function js_custom_init() {
 
     $post_types = array(
       array(
-        'post_type' => 'portfolio',
-        'menu_name' => 'Portfolio',
-        'plural'    => 'Portfolio',
-        'single'    => 'Portfolio',
-        'menu_icon' => 'dashicons-format-gallery',
+        'post_type' => 'team',
+        'menu_name' => 'Team',
+        'plural'    => 'Team',
+        'single'    => 'Team',
+        'menu_icon' => 'dashicons-rest-api',
         'supports'  => array('title','editor')
       ),
     );
@@ -87,11 +87,11 @@ function build_taxonomies() {
 
   $post_types = array(
     array(
-      'post_type' => array('portfolio'),
-      'menu_name' => 'Artwork Category',
-      'plural'    => 'Artwork Categories',
-      'single'    => 'Artwork Category',
-      'taxonomy'  => 'artwork-category'
+      'post_type' => array('team'),
+      'menu_name' => 'Location',
+      'plural'    => 'Location',
+      'single'    => 'Location',
+      'taxonomy'  => 'location-category'
     )
   );
 
