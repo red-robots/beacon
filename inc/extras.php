@@ -407,6 +407,20 @@ function bw_hide_classic_editor() {
 }
 
 
+function custom_enter_title_here( $title ){
+  $screen = get_current_screen();
+
+  if ( 'team' == $screen->post_type ) { // For standard posts
+      $title = 'Employee name';
+  } elseif ( 'page' == $screen->post_type ) { // For pages
+      $title = 'Page title';
+  } elseif ( 'post' == $screen->post_type ) { // For a custom post type
+      $title = 'Post title';
+  }
+  return $title;
+}
+add_filter( 'enter_title_here', 'custom_enter_title_here' );
+
 /* Shortcode for Address */
 function get_contact_details_shortcode( $atts ){
   $a = shortcode_atts( array(
