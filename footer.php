@@ -1,5 +1,6 @@
 	</div><!-- #content -->
 
+  <?php if ( !is_front_page() && !is_home() ) { ?>
 	<footer id="colophon" class="site-footer" role="contentinfo">
     <div class="footerTop">
       <div class="wrapper">
@@ -91,6 +92,7 @@
     </div>
 
 	</footer><!-- #colophon -->
+  <?php } ?>
 	
 </div><!-- #page -->
 

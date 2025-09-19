@@ -49,6 +49,8 @@ if( is_single() || is_page() ) {
 <div id="page" class="site">
 	<div id="overlay"></div>
 	<a class="skip-link" href="#content"><?php esc_html_e( 'Skip to content', 'bellaworks' ); ?></a>
+
+  <?php if ( !is_front_page() && !is_home() ) { ?>
   <header id="masthead" class="site-header">
     <div class="wrapper">
       <div class="flexwrap">
@@ -89,10 +91,10 @@ if( is_single() || is_page() ) {
       </div>
     </div>
 	</header>
-
+  <?php } ?>
 
   <?php if ( is_front_page() || is_home() ) { ?>
-    <?php get_template_part("parts/hero-home"); ?>
+    <?php //get_template_part("parts/hero-home"); ?>
   <?php } else { ?>
     <?php get_template_part("parts/hero-internal"); ?>
   <?php } ?>
