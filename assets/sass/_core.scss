@@ -165,7 +165,7 @@ a,input,button,textarea,select {
           pointer-events: none;
           opacity: 1;
           transform: translateX(-100vw);
-          transition: transform ease-in .45s, opacity ease .2s;
+          transition: transform ease .45s, opacity ease .2s;
         }
       }
     }
