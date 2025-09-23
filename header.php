@@ -66,14 +66,14 @@ if( is_single() || is_page() ) {
         <div class="leftCol">
           <div class="site-logo">
             <?php if ($landingpageLogo && $page_template=='landing-page') { ?>
-              <a hef="<?php bloginfo('url'); ?>" class="lp-branding">
+              <a href="<?php bloginfo('url'); ?>" class="lp-branding">
                 <img src="<?php echo $landingpageLogo['url'] ?>" alt="<?php echo $pageTitle ?> Logo" />
               </a>
             <?php } else { ?>
               <?php if( get_custom_logo() ) { ?>
                 <?php the_custom_logo(); ?>
               <?php } else { ?>
-                <a hef="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a>
+                <a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a>
               <?php } ?>
             <?php } ?>
           </div>
