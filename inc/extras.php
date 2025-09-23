@@ -551,4 +551,17 @@ add_shortcode( 'page_title_here', 'page_title_here_shortcode' );
 
 
 
+function get_children_pages( $parent_id = 0, $order = 'ASC', $orderby = 'menu_order' ) {
+  $args = array(
+    'post_type'      => 'page',
+    'posts_per_page' => -1,
+    'post_status'    => 'publish',
+    'order'          => $order,
+    'orderby'        => $orderby,
+    'post_parent'    => $parent_id,
+  );
 
+  $children = get_children( $args );
+
+  return $children ? $children : array();
+}

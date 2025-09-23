@@ -13,6 +13,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script>var pageTitle = '<?php get_the_title(); ?>'</script>
 <?php 
+$page_template = ( get_page_template_slug() ) ? str_replace('.php','',get_page_template_slug()) : '';
+$landingpageLogo = '';
+$pageTitle = '';
 if ( is_single() || is_page() ) { 
 global $post;
 $post_id = $post->ID;
@@ -20,6 +23,10 @@ $thumbId = get_post_thumbnail_id($post_id);
 $featImg = wp_get_attachment_image_src($thumbId,'full'); 
 $altTitle = get_field('alternative_title',$post_id);
 $pageTitle = ($altTitle) ? $altTitle : get_the_title();
+if($page_template=='landing-page') {
+  $landingpageLogo = get_field('main_logo', $post_id);
+  $navigation = get_field('navigation');
+}
 ?>
 <!-- SOCIAL MEDIA META TAGS -->
 <meta property="og:site_name" content="<?php bloginfo('name'); ?>"/>
@@ -44,6 +51,8 @@ $extra_class = array();
 if( is_single() || is_page() ) {
   $extra_class[] = ( get_field('hero_image') ) ? 'has-hero-image' : 'no-hero-image';
 }
+
+
 ?>
 <body <?php body_class($extra_class); ?>>
 <div id="page" class="site">
@@ -56,19 +65,74 @@ if( is_single() || is_page() ) {
       <div class="flexwrap">
         <div class="leftCol">
           <div class="site-logo">
-            <?php if( get_custom_logo() ) { ?>
-              <?php the_custom_logo(); ?>
+            <?php if ($landingpageLogo && $page_template=='landing-page') { ?>
+              <a hef="<?php bloginfo('url'); ?>" class="lp-branding">
+                <img src="<?php echo $landingpageLogo['url'] ?>" alt="<?php echo $pageTitle ?> Logo" />
+              </a>
             <?php } else { ?>
-              <a hef="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>
+              <?php if( get_custom_logo() ) { ?>
+                <?php the_custom_logo(); ?>
+              <?php } else { ?>
+                <a hef="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a>
+              <?php } ?>
             <?php } ?>
           </div>
         </div>
 
-        <div class="rightCol">
-          <nav id="site-navigation" class="main-navigation" role="navigation">
-            <?php  wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu','container_class'=>false, 'link_before'=>'<span>','link_after'=>'</span><i aria-hidden="true"></i>') ); ?>
-          </nav>
-        </div>
+        <?php if ($page_template=='landing-page') {
+          $children = get_field('navigation', get_the_ID());
+          if($children) { ?>
+          <div class="rightCol">
+            <nav id="site-navigation" class="main-navigation" role="navigation">
+              <ul class="menu">
+                <?php foreach ($children as $p) { 
+                  $parent = $p['parent_link'];
+                  $wave = $p['parent_link_hover_img'];
+                  $waveHover = ($wave) ? '<b aria-hidden="true"><i class="wave" aria-hidden="true" style="background-image:url('.$wave['url'].')"></i></b>':'';
+                  $parentTitle = ( isset($parent['title']) && $parent['title'] ) ? $parent['title'] : '';
+                  $parentUrl = ( isset($parent['url']) && $parent['url'] ) ? $parent['url'] : '';
+                  $parentTarget = ( isset($parent['target']) && $parent['target'] ) ? $parent['target'] : '_self';
+                  $has_children = $p['has_children'];
+                  $dropdownLinks = $p['children_link'];
+                  $has_children_menu = ($has_children && $dropdownLinks) ? true : false;
+                  if($parentTitle) { ?>
+                    <?php if ($has_children_menu) { ?>
+                    <li class="menu-item menu-item-has-children" tabindex="0">
+                    <?php } else { ?>
+                    <li class="menu-item">
+                    <?php } ?>
+
+                    <?php if ($parentUrl=='#') { ?>
+                      <a role="button" class="parent-link"><span><?php echo $parentTitle ?><?php echo $waveHover ?></span></a>
+                    <?php } else { ?>
+                      <a href="<?php echo $parentUrl ?>" target="<?php echo $parentTarget ?>"><span><?php echo $parentTitle ?><?php echo $waveHover ?></span></a>
+                    <?php } ?>
+                    <?php if ($has_children_menu) { ?>
+                      <ul class="sub-menu">
+                        <?php foreach ($dropdownLinks as $d) { 
+                          $sub = $d['link'];
+                          $smTitle = ( isset($sub['title']) && $sub['title'] ) ? $sub['title'] : '';
+                          $smUrl = ( isset($sub['url']) && $sub['url'] ) ? $sub['url'] : '';
+                          $smTarget = ( isset($sub['target']) && $sub['target'] ) ? $sub['target'] : '';
+                          if($smTitle && $smUrl) { ?>
+                          <li class="sub-menu-item">
+                            <a href="<?php echo $smUrl ?>" target="<?php echo $smTarget ?>"><?php echo $smTitle ?></a>
+                          </li>
+                          <?php } ?>
+                        <?php } ?>
+                      </ul>
+                    <?php } ?>
+                  </li>
+                  <?php } ?>
+                <?php } ?>
+              </ul>
+            </nav>
+          </div>
+          <?php } ?>
+        <?php } else { ?>
+          <?php  wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu','container_class'=>false, 'link_before'=>'<span>','link_after'=>'</span><i aria-hidden="true"></i>') ); ?>
+        <?php } ?>
+
       </div>
     </div>
 
@@ -96,7 +160,13 @@ if( is_single() || is_page() ) {
   <?php if ( is_front_page() || is_home() ) { ?>
     <?php //get_template_part("parts/hero-home"); ?>
   <?php } else { ?>
-    <?php get_template_part("parts/hero-internal"); ?>
+
+    <?php if ( $page_template=='landing-page' ) { ?>
+      <?php get_template_part("parts/hero-landing-page"); ?>
+    <?php } else { ?>
+      <?php get_template_part("parts/hero-internal"); ?>
+    <?php } ?>
+
   <?php } ?>
 
 	<div id="content" class="site-content">

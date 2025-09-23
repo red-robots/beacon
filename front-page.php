@@ -25,7 +25,8 @@ get_header();
             $contact_details = get_field('contact_details', $locId);
             //$image = $a['featured_image'];
             $image = get_field('thumbnail_image', $locId);
-            $logo = get_field('location_logo', $locId);
+            //$logo = get_field('location_logo', $locId);
+            $logo = get_field('lp_logo', $locId);
             ?>
             <div class="infoBox">
               <div class="inside">
