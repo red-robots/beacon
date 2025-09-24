@@ -872,6 +872,9 @@ body.home {
       max-width: 880px;
       width: 100%;
       margin: 0 auto;
+      strong, b {
+        color: $color_secondary;
+      }
     }
   }
   .images {

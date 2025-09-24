@@ -1693,6 +1693,7 @@ body.home .site-main{padding-top:100px;padding-bottom:100px}
 .repeatable_layout2:has(.images) .textCol{margin-bottom:50px}
 .repeatable_layout2 .fxcol{position:relative;z-index:20}
 .repeatable_layout2 .textCol .textWrap{max-width:880px;width:100%;margin:0 auto}
+.repeatable_layout2 .textCol .textWrap strong,.repeatable_layout2 .textCol .textWrap b{color:#c56f3e}
 .repeatable_layout2 .images{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;margin-left:-15px;margin-right:-15px}
 .repeatable_layout2 .images .ctaWrap{width:48%;padding:15px;margin:10px 0}
 .repeatable_layout2 .images .ctaWrap .cta{display:block;text-decoration:none;color:#f9f5eb;position:relative;padding-bottom:100%;border-radius:0 0 10px 10px;overflow:hidden}
