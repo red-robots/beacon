@@ -12,7 +12,7 @@ get_header(); ?>
     <?php $ctr=1; while( have_rows('flexible_content') ): the_row(); ?>
       
       <?php include( locate_template('parts-flexible/landing-page/layout1.php') ); ?>
-      <?php //include( locate_template('parts/home-layout2.php') ); ?>
+      <?php include( locate_template('parts-flexible/landing-page/layout2.php') ); ?>
     
     <?php $ctr++; endwhile; ?>
 

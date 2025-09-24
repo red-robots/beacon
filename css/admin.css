@@ -42,4 +42,20 @@
   display: none !important;
 }
 
+@media screen and (min-width: 1481px) {
+  .acf-flexible-content [data-layout=layout1] div.acf-fields {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .acf-flexible-content [data-layout=layout1] div.acf-fields .acf-field {
+    width: 50%;
+  }
+}
+.acf-flexible-content [data-layout=layout2] [data-name=ctas] .acf-repeater .acf-image-uploader .image-wrap img[src$=".svg"],
+.acf-flexible-content [data-layout=layout2] [data-name=ctas] .acf-repeater .acf-image-uploader .image-wrap img {
+  min-height: 60px !important;
+  max-height: 60px !important;
+}
+
 /*# sourceMappingURL=admin.css.map */
