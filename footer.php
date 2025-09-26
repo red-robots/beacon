@@ -1,97 +1,116 @@
 	</div><!-- #content -->
 
-  <?php if ( !is_front_page() && !is_home() ) { ?>
-	<footer id="colophon" class="site-footer" role="contentinfo">
-    <div class="footerTop">
-      <div class="wrapper">
-        <div class="flexwrap">
-          <?php $portal = get_field('portal_links','option'); ?>
-          <?php if ($portal) { ?>
-           <?php foreach ($portal as $p) { 
-              $title = $p['title'];
-              $login_title = $p['login_title'];
-              $link = $p['url'];
-              $target = ($p['target']) ? ' target="_blank"':'';
-              if($title && $link) { ?>
-              <div class="portal-link">
-                <a href="<?php echo $link ?>"<?php echo $target ?>>
-                  <span class="inside">
-                    <span class="title"><?php echo $title ?></span>
-                    <?php if ($login_title) { ?>
-                    <span class="icon-text"><i class="fa-solid fa-circle-user"></i> <?php echo $login_title ?></span>
-                    <?php } ?>
-                  </span>
-                </a>
-              </div>
-              <?php } ?> 
-            <?php } ?> 
-          <?php } ?>
-        </div>
-      </div>
-    </div>
+  <?php  
+  $page_template = ( get_page_template_slug() ) ? str_replace('.php','',get_page_template_slug()) : '';
 
-    <?php 
-      $footer_logo = get_field('footer_logo','option'); 
-      $office_email = get_field('office_email','option'); 
-      $office_address = get_field('office_address','option'); 
-      $office_phone = get_field('office_phone','option'); 
+  ?>
+
+  <?php if ( !is_front_page() && !is_home() ) { 
+    if ( $page_template=='landing-page' && ( is_single() || is_page() ) ) { 
+      $foot = get_field('footer', get_the_ID() );
+      $footer_logo = ( isset($foot['footer_logo_image']) && $foot['footer_logo_image'] ) ? $foot['footer_logo_image'] : '';
+      $hours = ( isset($foot['hours_data']) && $foot['hours_data'] ) ? $foot['hours_data'] : '';
+      $address = ( isset($foot['address_data']) && $foot['address_data'] ) ? $foot['address_data'] : '';
+      $contact = ( isset($foot['contact_details']) && $foot['contact_details'] ) ? $foot['contact_details'] : '';
+      $social_media = ( isset($foot['social_media']) && $foot['social_media'] ) ? $foot['social_media'] : '';
     ?>
-
-    <div class="footerBottom">
-      <div class="wrapper">
-        <?php if ($footer_logo) { ?>
-        <figure class="footer-logo">
-          <img src="<?php echo $footer_logo['url'] ?>" alt="" />
-        </figure>  
-        <?php } ?>
-
-        <div class="office-details">
-          <?php if ($office_email) { ?>
-          <span class="info email">
-            <a href="mailto:<?php echo antispambot($office_email,true) ?>"><i class="fa-sharp fa-solid fa-envelope"></i> <?php echo antispambot($office_email) ?></a>
-          </span>
-          <?php } ?>
-
-          <?php if ($office_address) { ?>
-          <span class="info address">
-            <i class="fa-sharp fa-solid fa-location-dot"></i> <?php echo $office_address ?>
-          </span>
-          <?php } ?>
-
-          <?php if ($office_phone) { ?>
-          <span class="info phone">
-            <a href="tel:<?php echo format_phone_number($office_phone) ?>"><i class="fa-sharp fa-solid fa-phone"></i> <?php echo $office_phone ?></a>
-          </span>
-          <?php } ?>
-        </div>
-      
-    
-        <?php $social_media = get_field('social_media_links', 'option'); ?>
-        <?php if ($social_media) { ?>
-        <div class="social-media-links">
-          <?php foreach ($social_media as $s) { 
-            $s_url = $s['url'];
-            $s_icon = $s['icon'];
-            if($s_url && $s_icon) { 
-              $parts = parse_url($s_url);
-              $host = str_replace('www.','', $parts['host']);
-              $hostStr = explode('.', $host);
-              $hostName = ucwords($hostStr[0]); 
-              ?>
-              <a href="<?php echo $s_url ?>" target="_blank">
-                <span class="sr-only">Visit our <?php echo $hostName ?></span>
-                <?php echo $s_icon ?>
-              </a>
+  	<footer id="colophon" class="site-footer" role="contentinfo">
+      <div class="footer-inner">
+        <div class="wrapper">
+          <div class="flexwrap">
+            <?php if ($footer_logo) { ?>
+            <div class="footCol info--logo">
+              <img src="<?php echo $footer_logo['url'] ?>" alt="">
+            </div>
             <?php } ?>
-          <?php } ?>
-        </div>  
-        <?php } ?>
 
+            <?php if ($hours) { ?>
+            <div class="footCol info--hours">
+              <div class="inside">
+                <div class="infoTitle">Hours</div>
+                <div class="infoText">
+                  <?php foreach ($hours as $h) { 
+                    if( $hours_details = $h['hours_details'] ) { ?>
+                    <div class="hour-info">
+                      <?php echo anti_email_spam($hours_details); ?>
+                    </div>
+                    <?php } ?>
+                  <?php } ?>
+                </div>
+              </div>
+            </div>
+            <?php } ?>
+
+            <?php if ($address) { ?>
+            <div class="footCol info--address">
+              <div class="inside">
+                <div class="infoTitle">Address</div>
+                <div class="infoText">
+                  <?php foreach ($address as $a) { 
+                    if( $address_details = $a['address_details'] ) { ?>
+                    <div class="address-info">
+                      <?php echo anti_email_spam($address_details); ?>
+                    </div>
+                    <?php } ?>
+                  <?php } ?>
+                </div>
+              </div>
+            </div>
+            <?php } ?>
+
+
+            <?php if ($contact || $social_media) { ?>
+            <div class="footCol info--contact">
+              <div class="inside">
+
+                <?php if ($contact) { ?>
+                <div class="wrap contact-content">
+                  <div class="infoTitle">Contact Us</div>
+                  <div class="infoText">
+                    <div class="contact-info">
+                      <?php echo anti_email_spam($contact); ?>
+                    </div>
+                  </div>
+                </div>
+                <?php } ?>
+
+                <?php if ($social_media) { ?>
+                <div class="wrap social-media-links">
+                  <div class="infoTitle">Follow Us</div>
+                  <div class="infoText">
+                    <div class="social-media">
+                    <?php foreach ($social_media as $s) { 
+                      $link = $s['link'];
+                      $icon = $s['icon'];
+                      $host = '';
+                      if($link) {
+                        $parts = parse_url($link);
+                        $host = $parts['host'];
+                        $host = str_replace('www.','',$host);
+                        $host = str_replace('.com','',$host);
+                        $host = ucwords($host);
+                      }
+
+                      if($link && $icon) { ?>
+                      <a href="<?php echo $link ?>" target="_blank" class="social-item">
+                        <?php echo $icon ?>
+                        <span class="sr-only">Visit our <?php echo $host ?> page</span>
+                      </a>
+                      <?php } ?>
+                    <?php } ?>
+                    </div>
+                  </div>
+                </div>
+                <?php } ?>
+
+              </div>
+            </div>
+            <?php } ?>
+          </div>
+        </div>
       </div>
-
-    </div>
-
-	</footer><!-- #colophon -->
+  	</footer>
+    <?php } ?>
   <?php } ?>
 	
 </div><!-- #page -->

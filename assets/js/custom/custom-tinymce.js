@@ -1,4 +1,9 @@
 (function() {
+  // tinymce.init({
+  //     selector: 'textarea.wp-editor-area', // Or your specific editor selector
+  //     min_height: 100, 
+  // });
+
   tinymce.PluginManager.add( 'highlightblock', function( editor, url ) {
     var parts = url.split('assets');
     var themeURL = parts[0];

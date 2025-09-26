@@ -510,10 +510,29 @@ function myplugin_register_tinymce_javascript( $plugin_array ) {
   return $plugin_array;
 }
 
+add_filter( 'tiny_mce_before_init', function( $settings ) {
+  $screen = get_current_screen();
+  if ( $screen->is_block_editor() ) {
+    return $settings;
+  }        
 
-function get_flexible_templates() {
+  if( isset($_GET['page']) && $_GET['page']=='acf-options-global-options' ) {
+    $settings['height'] = '110';
+    $settings['autoresize_max_height'] = '110';
+  }
+
+  return $settings;  
+});
+
+
+
+function get_flexible_templates($subDIR=null) {
   $partsDIR = "parts-flexible";
-  $dir = get_template_directory() . "/".$partsDIR."/";
+  if($subDIR) {
+    $dir = get_template_directory()."/".$partsDIR."/".$subDIR."/";
+  } else {
+    $dir = get_template_directory() . "/".$partsDIR."/";
+  }
   $allFiles = scandir($dir,1);
   $files = array_diff($allFiles, array('.', '..'));
   $templates = [];
@@ -524,7 +543,11 @@ function get_flexible_templates() {
           //Skip....
         } else {
           if (strpos($file, '.php') !== false) {
-            $templates[] = $partsDIR . "/" . $file;
+            if($subDIR) {
+              $templates[] = $partsDIR . "/" . $subDIR . "/" . $file;
+            } else {
+              $templates[] = $partsDIR . "/" . $file;
+            }
           }
         }
       }

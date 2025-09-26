@@ -57,6 +57,9 @@
         justify-content: space-between;
         .acf-field {
           width: 50%;
+          &.acf-field-button-group {
+            width: 100%;
+          }
         }
       }
     }
@@ -67,6 +70,30 @@
       .acf-image-uploader .image-wrap img {
         min-height: 60px!important;
         max-height: 60px!important;
+      }
+    }
+  }
+  [data-layout="layout3"] {
+    .acf-fields {
+      @media screen and (min-width:1481px) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        .acf-field {
+          width: 50%;
+        }
+      }
+    }
+  }
+}
+
+#post-body:has([data-name="footer_information"][data-type="tab"]) {
+  [data-name="footer"] {
+    [data-name="hours_details"],
+    [data-name="contact_details"] {
+      .mce-edit-area iframe {
+        height: 150px!important;
+        min-height: 150px!important;
       }
     }
   }

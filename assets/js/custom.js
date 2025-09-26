@@ -1,6 +1,10 @@
 "use strict";
 
 (function () {
+  // tinymce.init({
+  //     selector: 'textarea.wp-editor-area', // Or your specific editor selector
+  //     min_height: 100, 
+  // });
   tinymce.PluginManager.add('highlightblock', function (editor, url) {
     var parts = url.split('assets');
     var themeURL = parts[0]; // Add Button to Visual Editor Toolbar
@@ -70,6 +74,14 @@ jQuery(document).ready(function ($) {
     $('a.button').each(function () {
       if ($(this).find('span').length == 0) {
         $(this).wrapInner('<span />');
+      }
+    });
+  }
+
+  if ($('.site-footer p').length) {
+    $('.site-footer p').each(function () {
+      if ($(this).text().trim().replace(/\s+/g, '') == '') {
+        $(this).addClass('blank--p');
       }
     });
   } // if( $('.main-navigation ul.sub-menu').length ) {

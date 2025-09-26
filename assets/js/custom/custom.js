@@ -17,6 +17,14 @@ jQuery(document).ready(function ($) {
     });
   }
 
+  if( $('.site-footer p').length ) {
+    $('.site-footer p').each(function(){
+      if( $(this).text().trim().replace(/\s+/g,'')=='' ) {
+        $(this).addClass('blank--p');
+      }
+    });
+  }
+
   // if( $('.main-navigation ul.sub-menu').length ) {
   //   $('.main-navigation ul.sub-menu').each(function(){
   //     var submenu = $(this);

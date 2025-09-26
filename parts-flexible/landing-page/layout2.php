@@ -1,6 +1,7 @@
 <?php if( get_row_layout() == 'layout2' ) {
   $text = get_sub_field('section_intro');
   $ctas = get_sub_field('ctas');
+  $buttons = get_sub_field('buttons');
   $has_content = ($text || $ctas) ? true : false;
   $custom_class = ($ctr==1) ? ' first':'';
   if ($has_content) { ?>
@@ -54,6 +55,20 @@
           <?php } ?>
         <?php } ?>
         </div>
+      </div>
+      <?php } ?>
+
+      <?php if ($buttons) { ?>
+      <div class="buttons-wrapper align-center">
+        <?php foreach ($buttons as $b) { 
+          $btn = $b['button'];
+          $btnTitle = (isset($btn['title']) && $btn['title']) ? $btn['title'] : '';
+          $btnLink = (isset($btn['url']) && $btn['url']) ? $btn['url'] : '';
+          $btnTarget = (isset($btn['target']) && $btn['target']) ? $btn['target'] : '_self';
+          if($btnTitle && $btnLink) { ?>
+          <a href="<?php echo $btnLink ?>" target="<?php echo $btnTarget ?>" class="button"><?php echo $btnTitle ?></a>
+          <?php } ?>
+        <?php } ?>
       </div>
       <?php } ?>
     </div>  
