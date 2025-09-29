@@ -23,10 +23,35 @@ $thumbId = get_post_thumbnail_id($post_id);
 $featImg = wp_get_attachment_image_src($thumbId,'full'); 
 $altTitle = get_field('alternative_title',$post_id);
 $pageTitle = ($altTitle) ? $altTitle : get_the_title();
-if($page_template=='landing-page') {
-  $landingpageLogo = get_field('main_logo', $post_id);
-  $navigation = get_field('navigation');
+$navigation = '';
+$landingpageLogo = '';
+$landing_page_home = '';
+$landing_page_home_title = '';
+if( isset($post->post_parent) && $post->post_parent ) {
+  $parent_id = $post->post_parent;
+  $landingpageLogo = get_field('main_logo', $parent_id);
+  $navigation = get_field('navigation', $parent_id);
+  $landing_page_home = get_permalink($parent_id);
+  $landing_page_home_title = get_the_title($parent_id);
+} else {
+  if($page_template=='landing-page') {
+    $landing_page_home = get_permalink($post_id);
+    $landingpageLogo = get_field('main_logo', $post_id);
+    $navigation = get_field('navigation', $post_id);
+    $landing_page_home_title = $post->post_title;
+  }
 }
+
+// if($page_template=='landing-page') {
+//   if( isset($post->post_parent) && $post->post_parent ) {
+//     $parent_id = $post->post_parent;
+//     $landingpageLogo = get_field('main_logo', $parent_id);
+//     $navigation = get_field('navigation', $parent_id);
+//   } else {
+//     $landingpageLogo = get_field('main_logo', $post_id);
+//     $navigation = get_field('navigation', $post_id);
+//   }
+// }
 ?>
 <!-- SOCIAL MEDIA META TAGS -->
 <meta property="og:site_name" content="<?php bloginfo('name'); ?>"/>
@@ -65,9 +90,9 @@ if( is_single() || is_page() ) {
       <div class="flexwrap">
         <div class="leftCol">
           <div class="site-logo">
-            <?php if ($landingpageLogo && $page_template=='landing-page') { ?>
-              <a href="<?php bloginfo('url'); ?>" class="lp-branding">
-                <img src="<?php echo $landingpageLogo['url'] ?>" alt="<?php echo $pageTitle ?> Logo" />
+            <?php if ($landingpageLogo && $landing_page_home) { ?>
+              <a href="<?php echo $landing_page_home ?>" class="lp-branding">
+                <img src="<?php echo $landingpageLogo['url'] ?>" alt="<?php echo $landing_page_home_title ?> Logo" />
               </a>
             <?php } else { ?>
               <?php if( get_custom_logo() ) { ?>
@@ -79,79 +104,64 @@ if( is_single() || is_page() ) {
           </div>
         </div>
 
-        <?php if ($page_template=='landing-page') {
-          $children = get_field('navigation', get_the_ID());
-          if($children) { ?>
-          <div class="rightCol">
-            <nav id="site-navigation" class="main-navigation" role="navigation">
-              <ul class="menu">
-                <?php foreach ($children as $p) { 
-                  $parent = $p['parent_link'];
-                  $wave = $p['parent_link_hover_img'];
-                  $waveHover = ($wave) ? '<b aria-hidden="true"><i class="wave" aria-hidden="true" style="background-image:url('.$wave['url'].')"></i></b>':'';
-                  $parentTitle = ( isset($parent['title']) && $parent['title'] ) ? $parent['title'] : '';
-                  $parentUrl = ( isset($parent['url']) && $parent['url'] ) ? $parent['url'] : '';
-                  $parentTarget = ( isset($parent['target']) && $parent['target'] ) ? $parent['target'] : '_self';
-                  $has_children = $p['has_children'];
-                  $dropdownLinks = $p['children_link'];
-                  $has_children_menu = ($has_children && $dropdownLinks) ? true : false;
-                  if($parentTitle) { ?>
-                    <?php if ($has_children_menu) { ?>
-                    <li class="menu-item menu-item-has-children" tabindex="0">
-                    <?php } else { ?>
-                    <li class="menu-item">
-                    <?php } ?>
-
-                    <?php if ($parentUrl=='#') { ?>
-                      <a role="button" class="parent-link"><span><?php echo $parentTitle ?><?php echo $waveHover ?></span></a>
-                    <?php } else { ?>
-                      <a href="<?php echo $parentUrl ?>" target="<?php echo $parentTarget ?>"><span><?php echo $parentTitle ?><?php echo $waveHover ?></span></a>
-                    <?php } ?>
-                    <?php if ($has_children_menu) { ?>
-                      <ul class="sub-menu">
-                        <?php foreach ($dropdownLinks as $d) { 
-                          $sub = $d['link'];
-                          $smTitle = ( isset($sub['title']) && $sub['title'] ) ? $sub['title'] : '';
-                          $smUrl = ( isset($sub['url']) && $sub['url'] ) ? $sub['url'] : '';
-                          $smTarget = ( isset($sub['target']) && $sub['target'] ) ? $sub['target'] : '';
-                          if($smTitle && $smUrl) { ?>
-                          <li class="sub-menu-item">
-                            <a href="<?php echo $smUrl ?>" target="<?php echo $smTarget ?>"><?php echo $smTitle ?></a>
-                          </li>
-                          <?php } ?>
-                        <?php } ?>
-                      </ul>
-                    <?php } ?>
-                  </li>
+        <?php if ($navigation) { ?>
+        <div class="rightCol">
+          <button class="mobile-menu-toggle" aria-expanded="false" aria-controls="site-navigation">
+            <span class="sr-only">Mobile Navigation</span>
+            <span class="bar"></span>
+          </button>
+          <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="mobile-menu-close"><span class="sr-only">Close Mobile Navigation</span></button>
+            <ul class="menu">
+              <?php foreach ($navigation as $p) { 
+                $parent = $p['parent_link'];
+                $wave = $p['parent_link_hover_img'];
+                $waveHover = ($wave) ? '<b aria-hidden="true"><i class="wave" aria-hidden="true" style="background-image:url('.$wave['url'].')"></i></b>':'';
+                $parentTitle = ( isset($parent['title']) && $parent['title'] ) ? $parent['title'] : '';
+                $parentUrl = ( isset($parent['url']) && $parent['url'] ) ? $parent['url'] : '';
+                $parentTarget = ( isset($parent['target']) && $parent['target'] ) ? $parent['target'] : '_self';
+                $has_children = $p['has_children'];
+                $dropdownLinks = $p['children_link'];
+                $has_children_menu = ($has_children && $dropdownLinks) ? true : false;
+                if($parentTitle) { ?>
+                  <?php if ($has_children_menu) { ?>
+                  <li class="menu-item menu-item-has-children" tabindex="0">
+                  <?php } else { ?>
+                  <li class="menu-item">
                   <?php } ?>
+
+                  <?php if ($parentUrl=='#') { ?>
+                    <a role="button" class="parent-link"><span><?php echo $parentTitle ?><?php echo $waveHover ?></span></a>
+                  <?php } else { ?>
+                    <a href="<?php echo $parentUrl ?>" target="<?php echo $parentTarget ?>"><span><?php echo $parentTitle ?><?php echo $waveHover ?></span></a>
+                  <?php } ?>
+
+                  <?php if ($has_children_menu) { ?>
+                    <button class="mobile-dropdown" aria-expanded="false"><i class="fa fa-chevron-down" aria-hidden="true"></i><span class="sr-only">Submenu Items</span></button>
+                    <ul class="sub-menu">
+                      <?php foreach ($dropdownLinks as $d) { 
+                        $sub = $d['link'];
+                        $smTitle = ( isset($sub['title']) && $sub['title'] ) ? $sub['title'] : '';
+                        $smUrl = ( isset($sub['url']) && $sub['url'] ) ? $sub['url'] : '';
+                        $smTarget = ( isset($sub['target']) && $sub['target'] ) ? $sub['target'] : '';
+                        if($smTitle && $smUrl) { ?>
+                        <li class="sub-menu-item">
+                          <a href="<?php echo $smUrl ?>" target="<?php echo $smTarget ?>"><?php echo $smTitle ?></a>
+                        </li>
+                        <?php } ?>
+                      <?php } ?>
+                    </ul>
+                  <?php } ?>
+                </li>
                 <?php } ?>
-              </ul>
-            </nav>
-          </div>
-          <?php } ?>
+              <?php } ?>
+            </ul>
+          </nav>
+        </div>
         <?php } else { ?>
           <?php  wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu','container_class'=>false, 'link_before'=>'<span>','link_after'=>'</span><i aria-hidden="true"></i>') ); ?>
         <?php } ?>
 
-      </div>
-    </div>
-
-
-    <div class="MobileHeader">
-      <button class="mobile-menu-bar" aria-expanded="false" aria-controls="mobile-navigation">
-        <span class="sr-only">Mobile Menu Toggle</span>
-        <span class="bar"></span>
-      </button>
-
-      <div id="mobile-navigation" class="mobile-navigation">
-        <div class="mobile-menu-overlay">
-          <nav class="mobile-primary-nav">
-            <?php  wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'mobile-primary-menu','container_class'=>false, 'link_before'=>'<span>','link_after'=>'</span><i aria-hidden="true"></i>') ); ?>
-          </nav>
-          <button class="mobile-menu-close">
-            <span class="sr-only">Close Mobile Navigation</span>
-          </button>
-        </div>
       </div>
     </div>
 	</header>

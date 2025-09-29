@@ -16,7 +16,15 @@ function js_custom_init() {
         'menu_name' => 'Team',
         'plural'    => 'Team',
         'single'    => 'Team',
-        'menu_icon' => 'dashicons-rest-api',
+        'menu_icon' => 'dashicons-buddicons-buddypress-logo',
+        'supports'  => array('title','editor')
+      ),
+      array(
+        'post_type' => 'resources',
+        'menu_name' => 'Resources',
+        'plural'    => 'Resources',
+        'single'    => 'Resource',
+        'menu_icon' => 'dashicons-archive',
         'supports'  => array('title','editor')
       ),
     );
@@ -87,7 +95,7 @@ function build_taxonomies() {
 
   $post_types = array(
     array(
-      'post_type' => array('team'),
+      'post_type' => array('team','resources'),
       'menu_name' => 'Location',
       'plural'    => 'Location',
       'single'    => 'Location',
