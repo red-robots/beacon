@@ -1751,6 +1751,13 @@ body.page-template-landing-page .repeatable.first{background:#fffdf4;padding-top
 body.page-template-landing-page .repeatable.first:before{content:"";display:block;width:95%;height:150%;position:absolute;top:-30%;left:-30%;pointer-events:none;background-image:url("images/wood-pattern.svg");background-position:top left;background-repeat:no-repeat;background-size:80%}
 body.page-template-landing-page .repeatable.first:after{content:"";display:block;width:85%;height:110%;position:absolute;top:30%;right:-70%;pointer-events:none;background-image:url("images/wood-pattern.svg");background-position:top left;background-repeat:no-repeat;background-size:contain}
 body.page-template-landing-page #primary{min-height:30em}
+.hero-internal{position:relative;height:350px;z-index:100;overflow:visible}
+.hero-internal .hero-title{position:absolute;top:0;left:0;width:100%;height:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-align:end;-ms-flex-align:end;align-items:flex-end;z-index:10}
+.hero-internal .hero-title .titlewrap{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;position:relative}
+.hero-internal .hero-title .titlewrap:after{pointer-events:none;content:"";display:block;position:absolute;bottom:-40px;left:0;width:100%;height:100px;background-image:url("images/hero-title-curve.svg");background-position:bottom center;background-size:135%;background-repeat:no-repeat}
+.hero-internal .hero-title h1{margin:0;font-size:clamp(35px,5vw,55px);font-weight:600;line-height:1.1;color:#fff;background:#527338;max-width:500px;min-width:500px;min-height:110px;border-radius:8px 8px 0 0;padding:20px 30px;position:relative;z-index:5}
+.hero-internal .hero-image{margin:0;position:absolute;top:0;left:0;width:100%;height:100%}
+.hero-internal .hero-image .image{position:absolute;top:0;left:0;width:100%;height:100%;background-size:cover;background-position:center;background-repeat:no-repeat}
 .site-footer{position:relative;z-index:200}
 .site-footer:before{content:"";display:block;width:100%;height:11vw;position:absolute;top:-10.5vw;left:0;background-image:url("images/footer-graphic.png");background-size:contain;background-position:bottom center;background-repeat:repeat-x;pointer-events:none}
 .site-footer .wrapper{max-width:1700px;position:relative}
