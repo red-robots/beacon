@@ -14,44 +14,21 @@
 <script>var pageTitle = '<?php get_the_title(); ?>'</script>
 <?php 
 $page_template = ( get_page_template_slug() ) ? str_replace('.php','',get_page_template_slug()) : '';
-$landingpageLogo = '';
-$pageTitle = '';
-if ( is_single() || is_page() ) { 
-global $post;
-$post_id = $post->ID;
-$thumbId = get_post_thumbnail_id($post_id); 
-$featImg = wp_get_attachment_image_src($thumbId,'full'); 
-$altTitle = get_field('alternative_title',$post_id);
-$pageTitle = ($altTitle) ? $altTitle : get_the_title();
-$navigation = '';
-$landingpageLogo = '';
-$landing_page_home = '';
-$landing_page_home_title = '';
-if( isset($post->post_parent) && $post->post_parent ) {
-  $parent_id = $post->post_parent;
-  $landingpageLogo = get_field('main_logo', $parent_id);
-  $navigation = get_field('navigation', $parent_id);
-  $landing_page_home = get_permalink($parent_id);
-  $landing_page_home_title = get_the_title($parent_id);
-} else {
-  if($page_template=='landing-page') {
-    $landing_page_home = get_permalink($post_id);
-    $landingpageLogo = get_field('main_logo', $post_id);
-    $navigation = get_field('navigation', $post_id);
-    $landing_page_home_title = $post->post_title;
-  }
-}
+$opt = get_landing_page_data();
+$navigation = ( isset($opt['navigation']) && $opt['navigation'] ) ? $opt['navigation'] : '';
+$landingpageLogo = ( isset($opt['logo']) && $opt['logo'] ) ? $opt['logo'] : '';
+$landing_page_home = ( isset($opt['home_url']) && $opt['home_url'] ) ? $opt['home_url'] : '';
+$landing_page_home_title = ( isset($opt['home_title']) && $opt['home_title'] ) ? $opt['home_title'] : '';
 
-// if($page_template=='landing-page') {
-//   if( isset($post->post_parent) && $post->post_parent ) {
-//     $parent_id = $post->post_parent;
-//     $landingpageLogo = get_field('main_logo', $parent_id);
-//     $navigation = get_field('navigation', $parent_id);
-//   } else {
-//     $landingpageLogo = get_field('main_logo', $post_id);
-//     $navigation = get_field('navigation', $post_id);
-//   }
-// }
+$post_name = '';
+if ( is_single() || is_page() ) { 
+  global $post;
+  $post_id = $post->ID;
+  $thumbId = get_post_thumbnail_id($post_id); 
+  $featImg = wp_get_attachment_image_src($thumbId,'full'); 
+  $altTitle = get_field('alternative_title',$post_id);
+  $pageTitle = ($altTitle) ? $altTitle : get_the_title();
+  $post_name = $post->post_name;
 ?>
 <!-- SOCIAL MEDIA META TAGS -->
 <meta property="og:site_name" content="<?php bloginfo('name'); ?>"/>
@@ -84,7 +61,17 @@ if( is_single() || is_page() ) {
 	<div id="overlay"></div>
 	<a class="skip-link" href="#content"><?php esc_html_e( 'Skip to content', 'bellaworks' ); ?></a>
 
-  <?php if ( !is_front_page() && !is_home() ) { ?>
+  <?php if ( is_front_page() || $post_name=='homepage' ) { ?>
+  <header id="masthead" class="site-header-home">
+    <div class="wrapper">
+      <div class="site-logo">
+        <?php if( get_custom_logo() ) { ?>
+          <?php the_custom_logo(); ?>
+        <?php } ?>
+      </div>
+    </div>
+  </header>
+  <?php } else { ?>
   <header id="masthead" class="site-header">
     <div class="wrapper">
       <div class="flexwrap">
@@ -94,12 +81,6 @@ if( is_single() || is_page() ) {
               <a href="<?php echo $landing_page_home ?>" class="lp-branding">
                 <img src="<?php echo $landingpageLogo['url'] ?>" alt="<?php echo $landing_page_home_title ?> Logo" />
               </a>
-            <?php } else { ?>
-              <?php if( get_custom_logo() ) { ?>
-                <?php the_custom_logo(); ?>
-              <?php } else { ?>
-                <a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a>
-              <?php } ?>
             <?php } ?>
           </div>
         </div>

@@ -588,3 +588,57 @@ function get_children_pages( $parent_id = 0, $order = 'ASC', $orderby = 'menu_or
 
   return $children ? $children : array();
 }
+
+function get_landing_page_data($data=null) {
+  $landingpageLogo = '';
+  $faviconUrl = '';
+  $options['logo'] = '';
+  $options['favicon'] = '';
+  $options['navigation'] = '';
+  $options['home_url'] = '';
+  $options['home_title'] = '';
+
+
+
+  if ( is_single() || is_page() ) { 
+    global $post;
+    $page_template = ( get_page_template_slug() ) ? str_replace('.php','',get_page_template_slug()) : '';
+    $post_id = $post->ID;
+    $thumbId = get_post_thumbnail_id($post_id); 
+    $featImg = wp_get_attachment_image_src($thumbId,'full'); 
+    $altTitle = get_field('alternative_title',$post_id);
+    $pageTitle = ($altTitle) ? $altTitle : get_the_title();
+    if( isset($post->post_parent) && $post->post_parent ) {
+      $parent_id = $post->post_parent;
+      $landingpageLogo = get_field('main_logo', $parent_id);
+      $favicon = get_field('favicon', $parent_id);
+      $navigation = get_field('navigation', $parent_id);
+      $landing_page_home = get_permalink($parent_id);
+      $landing_page_home_title = get_the_title($parent_id);
+      $options['logo'] = $landingpageLogo;
+      $options['favicon'] = $favicon;
+      $options['navigation'] = $navigation;
+      $options['home_title'] = $landing_page_home_title;
+      $options['home_url'] = $landing_page_home;
+    } else {
+      if($page_template=='landing-page') {
+        $landingpageLogo = get_field('main_logo', $post_id);
+        $favicon = get_field('favicon', $post_id);
+        $navigation = get_field('navigation', $post_id);
+        $landing_page_home = get_permalink($post_id);
+        $landing_page_home_title = get_the_title($post_id);
+        $options['logo'] = $landingpageLogo;
+        $options['favicon'] = $favicon;
+        $options['navigation'] = $navigation;
+        $options['home_title'] = $landing_page_home_title;
+        $options['home_url'] = $landing_page_home;
+      }
+    }
+  }
+
+  if($data) {
+    return (isset($options[$data]) && $options[$data]) ? $options[$data] : '';
+  } else {
+    return $options;
+  }
+}

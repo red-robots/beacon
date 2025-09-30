@@ -95,9 +95,9 @@ function build_taxonomies() {
 
   $post_types = array(
     array(
-      'post_type' => array('team','resources'),
-      'menu_name' => 'Location',
-      'plural'    => 'Location',
+      'post_type' => array('team','resources','post'),
+      'menu_name' => 'Locations',
+      'plural'    => 'Locations',
       'single'    => 'Location',
       'taxonomy'  => 'location-category'
     )

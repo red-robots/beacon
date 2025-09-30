@@ -1,8 +1,11 @@
 	</div><!-- #content -->
 
-  <?php if ( !is_front_page() && !is_home() ) { 
+  <?php 
+  $global_footer_text = get_field('footer_bottom_text','option');
+  if ( !is_front_page() && !is_home() ) { 
     $page_template = '';
     $foot = '';
+
     if ( is_single() || is_page() ) { 
       global $post;
       $page_template = ( get_page_template_slug() ) ? str_replace('.php','',get_page_template_slug()) : '';
@@ -113,6 +116,9 @@
               </div>
               <?php } ?>
             </div>
+            <?php if ($global_footer_text) { ?>
+            <div class="global-footer-text"><span><?php echo $global_footer_text ?></span></div>  
+            <?php } ?>
           </div>
         </div>
     	</footer>

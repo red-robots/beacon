@@ -13,6 +13,20 @@ function remove_wp_logo( $wp_admin_bar ) {
   $wp_admin_bar->remove_node( 'wp-logo' );
 }
 
+//add_filter( 'get_site_icon_url', '__return_false' );
+
+function add_favicon_to_head() {
+  if( is_front_page() || is_home() ) {
+    echo '<link rel="icon" type="image/png" href="' . esc_url( get_stylesheet_directory_uri() . '/images/favicon.png' ) . '" />';
+  } else {
+    $favicon = get_landing_page_data('favicon');
+    if($favicon) {
+      echo '<link rel="icon" href="'.$favicon['url'].'" type="image/x-icon">';
+    } 
+  } 
+}
+add_action('wp_head', 'add_favicon_to_head');
+
 /*-------------------------------------
   Custom client login, link and title.
 ---------------------------------------*/
