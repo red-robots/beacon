@@ -1498,14 +1498,13 @@ body:not(.home) {
       background-position: center;
       background-repeat: no-repeat;
       &.-map {
-        // background-image: url('images/icons/map.svg');
-        background-image: url('images/icon-map.png');
+        background-image: url('images/icon-map.svg');
       }
       &.-phone {
-        background-image: url('images/icons/phone.svg');
+        background-image: url('images/icon-phone.svg');
       }
       &.-hours {
-        background-image: url('images/icons/clock.svg');
+        background-image: url('images/icon-clock.svg');
       }
     }
     h3,.h3 {
