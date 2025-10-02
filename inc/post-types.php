@@ -95,6 +95,13 @@ function build_taxonomies() {
 
   $post_types = array(
     array(
+      'post_type' => array('resources'),
+      'menu_name' => 'Resources Categories',
+      'plural'    => 'Resources Categories',
+      'single'    => 'Resources Category',
+      'taxonomy'  => 'resources-category'
+    ),
+    array(
       'post_type' => array('team','resources','post'),
       'menu_name' => 'Locations',
       'plural'    => 'Locations',
