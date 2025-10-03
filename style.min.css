@@ -1790,6 +1790,34 @@ body:not(.home) .midcontent.wrapper .inner-content{position:relative;z-index:5}
 .contact-page-content .inner-content:has(.detailCol):has(.mapCol) .infoCol{width:100%}
 .contact-page-content .inner-content:has(.detailCol):has(.mapCol) .infoCol.mapCol{width:100%;margin-top:50px}
 .contact-page-content .info-row .group{margin-bottom:30px}
+.site:has(.sidebar.sticky){overflow:visible}
+.site:has(.sidebar.sticky) .site-main{overflow:visible}
+.form-page-content #main{background:#fff !important}
+.form-page-content .form-columns{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;position:relative}
+.form-page-content .form-columns .sidebar{width:100%;margin-bottom:50px}
+.form-page-content .form-columns .sidebar .widget-title{margin:0 0 10px;font-size:18px;font-weight:600;line-height:1.1;letter-spacing:.03em;text-transform:uppercase;color:#6ea6a7}
+.form-page-content .form-columns .sidebar ul{margin:0;padding:0;list-style:none;color:#797569}
+.form-page-content .form-columns .sidebar ul li{border-top:1px solid #cdcdcc}
+.form-page-content .form-columns .sidebar ul a{display:block;text-decoration:none;color:#797569;padding:10px 0;font-weight:500;-webkit-transition:all ease .3s;transition:all ease .3s}
+.form-page-content .form-columns .sidebar ul a:hover,.form-page-content .form-columns .sidebar ul a:focus{color:#c56f3e;padding-left:2px}
+.form-page-content .form-columns .sidebar .inside{position:relative;-webkit-transition:all ease .3s;transition:all ease .3s}
+.form-page-content .form-columns .content{width:100%}
+.form-page-content .form-columns .content .inforow{margin-top:70px}
+.form-page-content .form-columns .content .inforow:first-child{margin-top:0}
+.form-page-content .form-columns .content h2.title{font-family:"Merriweather",serif !important;color:#527338;margin:0 0 5px}
+.form-page-content .form-columns .content .description p{margin-top:0}
+.form-page-content .form-columns .content .files ul{margin:0;padding:0;list-style:none}
+.form-page-content .form-columns .content .files ul>li{margin:15px 0}
+.form-page-content .form-columns .content .files ul a.file-link{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-align:center;-ms-flex-align:center;align-items:center;text-decoration:none;padding:30px;border-radius:6px;background:#f2f7fa;-webkit-transition:all ease .3s;transition:all ease .3s;position:relative}
+.form-page-content .form-columns .content .files ul a.file-link:hover,.form-page-content .form-columns .content .files ul a.file-link:focus{background:#ecf4e5}
+.form-page-content .form-columns .content .files ul span.text{display:block;padding-right:100px}
+.form-page-content .form-columns .content .files ul span.icon{display:inline-block;width:40px;height:40px;border-radius:100px;background:#c56f3e;position:absolute;top:50%;right:30px;-webkit-transform:translateY(-50%);transform:translateY(-50%);overflow:hidden}
+.form-page-content .form-columns .content .files ul span.icon:before{content:"";display:block;width:100%;height:100%;position:absolute;top:0;left:0;background-size:42%;background-position:center;background-repeat:no-repeat}
+.form-page-content .form-columns .content .files ul span.icon.icon-pdf:before{background-image:url("images/icon-download.svg")}
+.form-page-content .form-columns .content .files ul span.icon.icon-link:before{background-size:60%;background-image:url("images/icon-external-link.svg")}
+.form-page-content .form-columns .content .files ul .file-title{font-size:20px;font-weight:600;line-height:1.2;letter-spacing:.02em;color:#073022;display:block;margin-bottom:10px}
+.form-page-content .form-columns .content .files ul .file-description p{margin-top:0;color:#000}
+.form-page-content .form-columns .content .files ul .file-description p:last-child{margin-bottom:0}
 .site-footer{position:relative;z-index:200}
 .site-footer:before{content:"";display:block;width:100%;height:11vw;position:absolute;top:-10.5vw;left:0;background-image:url("images/footer-graphic.png");background-size:contain;background-position:bottom center;background-repeat:repeat-x;pointer-events:none}
 .site-footer .wrapper{max-width:1700px;position:relative}
@@ -1836,6 +1864,9 @@ body:not(.home) .midcontent.wrapper{padding:50px}
 .contact-page-content .inner-content:has(.detailCol):has(.mapCol) .infoCol{width:60%}
 .contact-page-content .inner-content:has(.detailCol):has(.mapCol) .infoCol.detailCol{padding-right:3vw}
 .contact-page-content .inner-content:has(.detailCol):has(.mapCol) .infoCol.mapCol{width:40%;margin-top:0}
+.form-page-content .form-columns .sidebar{width:30%;margin-bottom:0}
+.form-page-content .form-columns .sidebar.sticky .inside{position:sticky;top:100px}
+.form-page-content .form-columns .content{width:62%}
 }@media(min-width:1250px){.columns-locations .wrapper{max-width:1700px}
 .columns-locations .flexwrap .infoBox{width:25%}
 body:not(.home) .midcontent.wrapper{padding:clamp(40px,8vw,80px)}

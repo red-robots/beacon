@@ -597,11 +597,14 @@ function get_landing_page_data($data=null) {
   $options['navigation'] = '';
   $options['home_url'] = '';
   $options['home_title'] = '';
-
-
+  $options['footer'] = '';
 
   if ( is_single() || is_page() ) { 
     global $post;
+    // echo "<pre>";
+    // print_r($post);
+    // echo "</pre>";
+
     $page_template = ( get_page_template_slug() ) ? str_replace('.php','',get_page_template_slug()) : '';
     $post_id = $post->ID;
     $thumbId = get_post_thumbnail_id($post_id); 
@@ -609,17 +612,32 @@ function get_landing_page_data($data=null) {
     $altTitle = get_field('alternative_title',$post_id);
     $pageTitle = ($altTitle) ? $altTitle : get_the_title();
     if( isset($post->post_parent) && $post->post_parent ) {
-      $parent_id = $post->post_parent;
+      $parent_id = $post->post_parent; /* Level 1 */
+      
+      //Check the grand parent
+      $g_post = get_post($parent_id);
+      if($g_post && $g_post->post_parent ) {
+        $parent_id = $g_post->post_parent; /* Level 2 */
+
+        $gg_post = get_post($parent_id); /* Level 3 */
+        if($gg_post && $gg_post->post_parent) {
+          $parent_id = $gg_post->post_parent;
+        }
+      }
+
       $landingpageLogo = get_field('main_logo', $parent_id);
       $favicon = get_field('favicon', $parent_id);
       $navigation = get_field('navigation', $parent_id);
       $landing_page_home = get_permalink($parent_id);
       $landing_page_home_title = get_the_title($parent_id);
+
       $options['logo'] = $landingpageLogo;
       $options['favicon'] = $favicon;
       $options['navigation'] = $navigation;
       $options['home_title'] = $landing_page_home_title;
       $options['home_url'] = $landing_page_home;
+      $options['footer'] = get_field('footer', $parent_id);
+
     } else {
       if($page_template=='landing-page') {
         $landingpageLogo = get_field('main_logo', $post_id);
@@ -632,6 +650,7 @@ function get_landing_page_data($data=null) {
         $options['navigation'] = $navigation;
         $options['home_title'] = $landing_page_home_title;
         $options['home_url'] = $landing_page_home;
+        $options['footer'] = get_field('footer', $post_id);
       }
     }
   }

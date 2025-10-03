@@ -27,13 +27,16 @@ get_header(); ?>
             $staffName = $staff->post_title;
             $staffPhoto = get_field('photo', $staff->ID);
             $staffJobTitle = get_field('job_title', $staff->ID);
+            $photo_placeholder = get_stylesheet_directory_uri() . '/images/photo-coming-soon.jpg';
             ?>
             <div class="staff-info">
-              <?php if ($staffPhoto) { ?>
               <figure class="photo">
-                <img src="<?php echo $staffPhoto['url'] ?>" alt="" />
-              </figure>    
-              <?php } ?>
+                <?php if ($staffPhoto) { ?>
+                  <img src="<?php echo $staffPhoto['url'] ?>" alt="" />
+                <?php } else { ?>
+                  <img src="<?php echo $photo_placeholder ?>" alt="" />
+                <?php } ?>
+              </figure>
               <div class="info">
                 <?php if ($staffJobTitle) { ?>
                 <h3 class="h3 jobtitle"><?php echo $staffJobTitle ?></h3>

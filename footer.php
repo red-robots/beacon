@@ -7,15 +7,16 @@
     $foot = '';
 
     if ( is_single() || is_page() ) { 
-      global $post;
-      $page_template = ( get_page_template_slug() ) ? str_replace('.php','',get_page_template_slug()) : '';
-      $post_id = $post->ID;
-      if( isset($post->post_parent) && $post->post_parent ) {
-        $parent_id = $post->post_parent;
-        $foot = get_field('footer', $parent_id);
-      } else {
-        $foot = get_field('footer', $post_id);
-      }
+      //global $post;
+      // $page_template = ( get_page_template_slug() ) ? str_replace('.php','',get_page_template_slug()) : '';
+      // $post_id = $post->ID;
+      // if( isset($post->post_parent) && $post->post_parent ) {
+      //   $parent_id = $post->post_parent;
+      //   $foot = get_field('footer', $parent_id);
+      // } else {
+      //   $foot = get_field('footer', $post_id);
+      // }
+      $foot = get_landing_page_data('footer');
     }
     if ( $foot ) { 
       $footer_logo = ( isset($foot['footer_logo_image']) && $foot['footer_logo_image'] ) ? $foot['footer_logo_image'] : '';
