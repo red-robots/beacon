@@ -1,0 +1,51 @@
+<?php if( get_row_layout() == 'layout_3' ) {
+  $sidebar_title = get_sub_field('sidebar_title');
+  $topics = get_sub_field('topics');
+
+  //print_r($topics);
+
+  if ($topics) { ?>
+  <section id="repeatable_<?php echo get_row_layout() ?>_<?php echo $ctr ?>" data-group="<?php echo get_row_layout() ?>" class="repeatable repeatable_<?php echo get_row_layout() ?><?php echo $custom_class; ?> form-page-content">
+    <div class="wrapper">
+      <div class="form-columns">
+        <aside class="sidebar">
+          <div class="inside">
+            <?php if ($sidebar_title) { ?>
+            <h3 class="widget-title"><?php echo $sidebar_title ?></h3>
+            <?php } ?>
+            <ul class="quickLinks">
+            <?php foreach ($topics as $topic) { 
+              if( $title = $topic['title'] ) { 
+                $slug = sanitize_title($title); ?>
+                <li>
+                  <a href="#<?php echo $slug ?>"><?php echo $title ?></a>
+                </li>
+              <?php } ?>
+            <?php } ?>
+            </ul>
+          </div>
+        </aside>
+
+        <div class="content">
+          <?php foreach ($topics as $topic) { 
+            $title = $topic['title'];
+            $description = $topic['text'];
+            $form_slug = ($title) ? sanitize_title($title) : '';
+            $content_id = ($form_slug) ? ' id="'.$form_slug.'"' : '';
+            if($title || $files) { ?>
+            <div class="inforow"<?php echo $content_id ?>>
+              <?php if ($title) { ?>
+              <h2 class="title"><?php echo $title ?></h2>
+              <?php } ?>
+              <?php if ($description) { ?>
+              <div class="description"><?php echo anti_email_spam($description); ?></div>
+              <?php } ?>
+            </div>
+            <?php } ?>
+          <?php } ?>
+        </div>
+      </div>
+      <?php } ?>
+    </div>
+  </section>
+<?php } ?>

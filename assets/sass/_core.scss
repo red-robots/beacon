@@ -193,6 +193,7 @@ a,input,button,textarea,select {
 
     ul.menu > li > a:hover,
     ul.menu > li > a:focus,
+    ul.menu > li.current-menu-item > a,
     ul.menu > li.menu-item-has-children:hover > a,
     ul.menu > li.menu-item-has-children:focus-within > a {
       color: $color_secondary;
@@ -1203,7 +1204,204 @@ body.home {
       
     }
   }
+}
+
+/*** Patient Experience ***/
+body:not(.home) .patient-experience-content #main {
+  padding-bottom: 0;
+}
+
+.repeatable_layout_1 {
+  .imageCol {
+    text-align: center;
+  }
+  .textCol {
+    .textWrap {
+      max-width: 510px;
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+  .flexwrap {
+    gap: 30px;
+    align-items: center;
+    justify-content: space-around;
+    max-width: 930px;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 60px;
+
+    .col {
+      border-radius: 5px;
+      padding: 30px;
+      width: 47%;
+
+      @media screen and (max-width: 768px) {
+        width: 100%;
+      }
+
+      &-inner {
+        background-color: $color_cream;
+        border-radius: 5px;
+        padding: 50px;
+      }
+
+      .address {
+        position: relative;
+        padding-bottom: 45px;
+
+        h3{
+          font-family: $font-secondary;
+          margin-top: 0;
+        }
+
+         &:before {
+          content:"";
+          display: block;
+          width: 100%;
+          height: 5px;
+          position: absolute;
+          left: 0;
+          bottom: 30px;
+          background-image: url('images/wave-line.png');
+          background-size: contain;
+          background-repeat: repeat-x;
+        }
+      }
+
+      .gmaps {
+        border-radius: 5px;
+        overflow: hidden;
+
+        .contact-map-embed iframe {
+          border-radius: 5px;
+          height: 125px;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.repeatable_layout_2 {
+  margin-right: -20px;
+  margin-left: -20px;
+  position: relative;
+  padding-top: 100px;
+  padding-bottom: 100px;
+
+  .flexwrap {
+    align-items: center;
+    justify-content: space-between;
+    @include tab {
+      align-items: stretch;
+    }
+  }
+
+  .fxcol {
+    padding: 50px;
+    width: 100%;
+
+    @include tab {
+      padding: 100px;
+      width: 50%;
+    }
+
+    @include xl {
+      padding: 120px 160px;
+    }
+  }
+
+  .leftCol {
+    display: flex;
+    align-items: center;
+
+    h2 {
+      color: inherit;
+      line-height: 1.4;
+    }
+  }
+
+  @include tab{
+    .rightCol {
+      background-image: url('images/arrow.png');
+      background-size: auto;
+      background-position: left center;
+      background-repeat: no-repeat;
+    }
+  }
+
+  .iconList {
+    li {
+      list-style: none;
+      display: flex;
+      align-items: flex-start;
+      gap: 2rem;
+      margin-bottom: 60px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    h3 {
+      font-family: $font-secondary;
+      font-size: 24px;
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+
+    .icon-image {
+      display: flex;
+
+      span {
+        width: 45px;
+        height: 45px;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+}
+
+.repeatable_layout_3 {
+  position: relative;
+  padding-top: 100px;
+  padding-bottom: 100px;
+
+  &.form-page-content .form-columns .content {
+    h2.title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 25px;
+    }
+    a {
+      color: $color_secondary;
+      font-weight: bold;
+
+      &:hover {
+        color: $color_primary;
+      }
+    }
+  }
+}
+
+.repeatable_layout_4 {
+  margin-right: -20px;
+  margin-left: -20px;
+  position: relative;
+  padding-top: 100px;
+  padding-bottom: 100px !important;
   
+  .flexwrap {
+    justify-content: center;
+  }
+
+  h2 {
+    color: inherit;
+    line-height: 1.4;
+  }
 }
 
 body.page-template-landing-page {
@@ -1803,9 +2001,10 @@ body:not(.home) {
             letter-spacing: 0.02em;
             color: $color_green;
             display: block;
-            margin-bottom: 10px;
           }
           .file-description {
+            display: block;
+            margin-top: 10px;
             p {
               margin-top: 0;
               color: #000;

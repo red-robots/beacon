@@ -53,7 +53,7 @@ $extra_class = array();
 if( is_single() || is_page() ) {
   $extra_class[] = ( get_field('hero_image') ) ? 'has-hero-image' : 'no-hero-image';
 }
-
+$getPageTitle = get_the_title();
 
 ?>
 <body <?php body_class($extra_class); ?>>
@@ -106,9 +106,9 @@ if( is_single() || is_page() ) {
                 $has_children_menu = ($has_children && $dropdownLinks) ? true : false;
                 if($parentTitle) { ?>
                   <?php if ($has_children_menu) { ?>
-                  <li class="menu-item menu-item-has-children" tabindex="0">
+                  <li class="menu-item menu-item-has-children <?php if($parentTitle==$getPageTitle){ echo "current-menu-item"; } ?>" tabindex="0">
                   <?php } else { ?>
-                  <li class="menu-item">
+                  <li class="menu-item <?php if($parentTitle==$getPageTitle){ echo "current-menu-item"; } ?>">
                   <?php } ?>
 
                   <?php if ($parentUrl=='#') { ?>
