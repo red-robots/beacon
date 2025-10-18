@@ -8,12 +8,13 @@
   <section id="repeatable_<?php echo get_row_layout() ?>_<?php echo $ctr ?>" data-group="<?php echo get_row_layout() ?>" class="repeatable repeatable_<?php echo get_row_layout() ?><?php echo $custom_class; ?> form-page-content">
     <div class="wrapper">
       <div class="form-columns">
-        <aside class="sidebar">
+        <aside class="sidebar sidebarSticky">
           <div class="inside">
             <?php if ($sidebar_title) { ?>
             <h3 class="widget-title"><?php echo $sidebar_title ?></h3>
+            <button onclick="dropDownNav()" class="dropbtn widget-title" id="dropbtn"><?php echo $sidebar_title ?> <span class="chevron right"></span></button>
             <?php } ?>
-            <ul class="quickLinks">
+            <ul id="myDropdown" class="quickLinks stickyNav">
             <?php foreach ($topics as $topic) { 
               if( $title = $topic['title'] ) { 
                 $slug = sanitize_title($title); ?>
@@ -49,3 +50,25 @@
     </div>
   </section>
 <?php } ?>
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function dropDownNav() {
+  document.getElementById("myDropdown").classList.toggle("show");
+  document.getElementById("dropbtn").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(e) {
+	if (!e.target.matches('.dropbtn')) {
+		var myDropdown = document.getElementById("myDropdown");
+		var dropdownBtn = document.getElementById("dropbtn");
+		if (myDropdown.classList.contains('show')) {
+			myDropdown.classList.remove('show');
+		}
+		if (dropdownBtn.classList.contains('show')) {
+			dropdownBtn.classList.remove('show');
+		}
+	}
+}
+</script>

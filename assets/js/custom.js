@@ -395,5 +395,29 @@ jQuery(document).ready(function ($) {
         ;
       });
     }
+  } // QuickLinks sticky legends
+
+
+  if ($('.sidebarSticky').length) {
+    $(window).on('scroll', function () {
+      var s = $('.repeatable.form-page-content'),
+          sn = s.find('.sidebarSticky'),
+          windowWidth = $(window).width(),
+          windowScrollTop = $(window).scrollTop(),
+          elementOffset = s.offset().top + 150;
+
+      if (elementOffset <= windowScrollTop && windowWidth >= 1140) {//sn.css({position:'fixed',top:'0',width:'100%',padding:'15px 0'});
+      } else if (elementOffset <= windowScrollTop && windowWidth < 1140) {
+        sn.css({
+          position: 'fixed',
+          top: '40px',
+          width: '80vw'
+        });
+      } else {
+        sn.css({
+          position: 'initial'
+        });
+      }
+    });
   }
 });
