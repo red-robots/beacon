@@ -306,20 +306,21 @@ jQuery(document).ready(function ($) {
     doSmoothScrolling(ElementID);
   });
 
-
-  let stickyNav = $(".sidebar");
-  let stickyTop = stickyNav.offset().top;
-  let mainTopPadding = 0;
-  $(document).on("scroll", function() {
-    let scrollTop = $(this).scrollTop();
-    stickyNav.removeClass('sticky');
-    if (window.innerWidth > mobileBreakPoint) {
-      scrollTop > stickyTop ? stickyNav.addClass('sticky'): stickyNav.removeClass('sticky');
-      //$('.sticky').css('top', mainTopPadding);
-    } else {
-      stickyNav.removeClass('sticky').removeAttr('style');
-    }
-  });
+  if($(".sidebar").length) {
+    let stickyNav = $(".sidebar");
+    let stickyTop = stickyNav.offset().top;
+    let mainTopPadding = 0;
+    $(document).on("scroll", function() {
+      let scrollTop = $(this).scrollTop();
+      stickyNav.removeClass('sticky');
+      if (window.innerWidth > mobileBreakPoint) {
+        scrollTop > stickyTop ? stickyNav.addClass('sticky'): stickyNav.removeClass('sticky');
+        //$('.sticky').css('top', mainTopPadding);
+      } else {
+        stickyNav.removeClass('sticky').removeAttr('style');
+      }
+    });
+  }
 
   function doSmoothScrolling(ElementID) {
     var target = $(ElementID);
@@ -341,8 +342,9 @@ jQuery(document).ready(function ($) {
   }
 
   // QuickLinks sticky legends
-  if( $('.sidebarSticky').length) {
+  if( $('.sidebarSticky').length ) {
     $(window).on('scroll', function() {
+      console.log($('.repeatable.form-page-content').length);
       let s = $('.repeatable.form-page-content'),
           sn = s.find('.sidebarSticky'),
           windowWidth = $(window).width(),
@@ -357,5 +359,20 @@ jQuery(document).ready(function ($) {
       }
     });
   }
+
+  // Patient Education Resource filtering
+  $('.resource-filter').on('click', '.resource-filter-choice', function(e) {
+    e.preventDefault();
+    let target = $(this).data('target');
+    if($(this).hasClass('active')) return;
+    $('.resource-filter-choice').removeClass('active');
+    $(this).addClass('active');
+    if(target == 'all') {
+      $('.resource-container').show();
+    } else {
+      $('.resource-container').hide();
+      $('.resource-container'+target).show();
+    }
+  });
 
 }); 

@@ -360,19 +360,22 @@ jQuery(document).ready(function ($) {
     var ElementID = $(this).attr('href');
     doSmoothScrolling(ElementID);
   });
-  var stickyNav = $(".sidebar");
-  var stickyTop = stickyNav.offset().top;
-  var mainTopPadding = 0;
-  $(document).on("scroll", function () {
-    var scrollTop = $(this).scrollTop();
-    stickyNav.removeClass('sticky');
 
-    if (window.innerWidth > mobileBreakPoint) {
-      scrollTop > stickyTop ? stickyNav.addClass('sticky') : stickyNav.removeClass('sticky'); //$('.sticky').css('top', mainTopPadding);
-    } else {
-      stickyNav.removeClass('sticky').removeAttr('style');
-    }
-  });
+  if ($(".sidebar").length) {
+    var stickyNav = $(".sidebar");
+    var stickyTop = stickyNav.offset().top;
+    var mainTopPadding = 0;
+    $(document).on("scroll", function () {
+      var scrollTop = $(this).scrollTop();
+      stickyNav.removeClass('sticky');
+
+      if (window.innerWidth > mobileBreakPoint) {
+        scrollTop > stickyTop ? stickyNav.addClass('sticky') : stickyNav.removeClass('sticky'); //$('.sticky').css('top', mainTopPadding);
+      } else {
+        stickyNav.removeClass('sticky').removeAttr('style');
+      }
+    });
+  }
 
   function doSmoothScrolling(ElementID) {
     var target = $(ElementID);
@@ -400,6 +403,7 @@ jQuery(document).ready(function ($) {
 
   if ($('.sidebarSticky').length) {
     $(window).on('scroll', function () {
+      console.log($('.repeatable.form-page-content').length);
       var s = $('.repeatable.form-page-content'),
           sn = s.find('.sidebarSticky'),
           windowWidth = $(window).width(),
@@ -419,5 +423,21 @@ jQuery(document).ready(function ($) {
         });
       }
     });
-  }
+  } // Patient Education Resource filtering
+
+
+  $('.resource-filter').on('click', '.resource-filter-choice', function (e) {
+    e.preventDefault();
+    var target = $(this).data('target');
+    if ($(this).hasClass('active')) return;
+    $('.resource-filter-choice').removeClass('active');
+    $(this).addClass('active');
+
+    if (target == 'all') {
+      $('.resource-container').show();
+    } else {
+      $('.resource-container').hide();
+      $('.resource-container' + target).show();
+    }
+  });
 });
