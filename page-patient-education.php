@@ -111,15 +111,22 @@ get_header(); ?>
                 if( $allPostInLocation->have_posts() ):
                   while( $allPostInLocation->have_posts() ) : 
                     $allPostInLocation->the_post();
-
-                    $post_url = get_permalink( get_the_ID() );
+                    $post_id = get_the_ID();
+                    $post_url = get_permalink( $post_id );
                     $post_content = get_the_content();
+                    $post_excerpt = get_field('excerpt_shorten', $post_id);
               ?>
                   <div class="fxcol resource-item">
                     <h3><?php the_title(); ?></h3>
-                    <?php if( $post_content  ){ ?>
+                    <?php if( $post_content || $post_excerpt ){ ?>
                       <div class="resource-content">
-                        <?php echo wp_trim_words( $post_content, 22 ); ?>
+                        <?php 
+                          if( !empty($post_excerpt) ){
+                            echo 'adadad'. $post_excerpt;
+                          } else {
+                            echo wp_trim_words( $post_content, 22 );
+                          }
+                        ?>
                       </div>
                     <?php } ?>
                     <a href="<?php echo $post_url; ?>">Read more <span class="arrow"></span></a>
