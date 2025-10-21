@@ -1858,6 +1858,8 @@ body:not(.home) .midcontent.wrapper .inner-content{position:relative;z-index:5}
 .form-page-content .form-columns .content .inforow:first-child{margin-top:0}
 .form-page-content .form-columns .content h2.title{font-family:"Merriweather",serif !important;color:#527338;margin:0 0 5px}
 .form-page-content .form-columns .content .description p{margin-top:0}
+.form-page-content .form-columns .content .description a{display:inline-block;text-decoration:underline;color:#c56f3e;-webkit-transition:all ease .3s;transition:all ease .3s}
+.form-page-content .form-columns .content .description a:hover,.form-page-content .form-columns .content .description a:focus{color:#527338}
 .form-page-content .form-columns .content .files ul{margin:0;padding:0;list-style:none}
 .form-page-content .form-columns .content .files ul>li{margin:15px 0}
 .form-page-content .form-columns .content .files ul a.file-link{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-align:center;-ms-flex-align:center;align-items:center;text-decoration:none;padding:30px;border-radius:6px;background:#f2f7fa;-webkit-transition:all ease .3s;transition:all ease .3s;position:relative}

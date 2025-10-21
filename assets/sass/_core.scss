@@ -2151,6 +2151,15 @@ body:not(.home) {
         p {
           margin-top: 0;
         }
+        a {
+          display: inline-block;
+          text-decoration: underline;
+          color: $color_secondary;
+          transition: all ease .3s;
+          &:hover, &:focus {
+            color: $color_primary;
+          }
+        }
       }
       .files {
         ul {

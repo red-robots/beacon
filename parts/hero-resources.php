@@ -1,6 +1,6 @@
 <?php 
-$hero = get_field('hero_image', 'options');
-$alt_page_title = get_field('alt_page_title', 'options');
+$hero = get_field('hero_image', 'option');
+$alt_page_title = get_field('alt_page_title', 'option');
 $custom_page_title = ($alt_page_title) ? $alt_page_title : get_the_title();
 if ($hero) { ?>
 <section class="hero-internal">
