@@ -129,7 +129,7 @@ get_header(); ?>
                         ?>
                       </div>
                     <?php } ?>
-                    <a href="<?php echo $post_url; ?>">Read more <span class="arrow"></span></a>
+                    <a href="<?php echo $post_url; ?>?location=<?php echo $location; ?>">Read more <span class="arrow"></span></a>
                   </div>
               <?php
                   wp_reset_postdata();
@@ -143,27 +143,6 @@ get_header(); ?>
 
           endforeach;
         }
-
-        // if ( $custom_posts_query->have_posts() ) {
-        //   while ( $custom_posts_query->have_posts() ) {
-        //       $custom_posts_query->the_post();
-        //       // Display post content here
-        //       the_title( '<h2>', '</h2>' );
-        //       the_content();
-        //       // You can also retrieve taxonomy terms associated with the current post
-        //       $terms = get_the_terms( get_the_ID(), 'your_custom_taxonomy' );
-        //       if ( $terms && ! is_wp_error( $terms ) ) {
-        //           // echo '<ul>';
-        //           // foreach ( $terms as $term ) {
-        //           //     echo '<li>' . $term->name . '</li>';
-        //           // }
-        //           // echo '</ul>';
-        //       }
-        //   }
-        //   wp_reset_postdata(); // Restore original post data
-        // } else {
-        //     echo 'No posts found matching the criteria.';
-        // }
       ?>
 
     </div>
