@@ -122,7 +122,7 @@ get_header(); ?>
                       <div class="resource-content">
                         <?php 
                           if( !empty($post_excerpt) ){
-                            echo 'adadad'. $post_excerpt;
+                            echo $post_excerpt;
                           } else {
                             echo wp_trim_words( $post_content, 22 );
                           }
