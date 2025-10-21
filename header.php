@@ -151,13 +151,13 @@ $getPageTitle = get_the_title();
   <?php if ( is_front_page() || is_home() ) { ?>
     <?php //get_template_part("parts/hero-home"); ?>
   <?php } else { ?>
-
     <?php if ( $page_template=='landing-page' ) { ?>
       <?php get_template_part("parts/hero-landing-page"); ?>
+    <?php } elseif ( $post_name=='about' ) { ?>
+      <?php get_template_part("parts/hero-about-page"); ?>
     <?php } else { ?>
       <?php get_template_part("parts/hero-internal"); ?>
     <?php } ?>
-
   <?php } ?>
 
 	<div id="content" class="site-content">
