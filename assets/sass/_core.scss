@@ -829,7 +829,8 @@ body.home {
   }
 }
 
-.repeatable_layout1 {
+.repeatable_layout1,
+.repeatable_layout_1 {
   position: relative;
   z-index: 10;
   .flexwrap {
@@ -1095,6 +1096,11 @@ body.home {
   padding-bottom: 150px;
   .flexwrap {
     align-items: center;
+    flex-direction: column-reverse;
+
+    @include tab {
+      flex-direction: row;
+    }
   }
   .fxcol {
     position: relative;
@@ -1103,7 +1109,10 @@ body.home {
   }
   &:has(.textCol):has(.imageCol) {
     .fxcol {
-      width: 50%;
+      width: 100%;
+      @include tab {
+        width: 50%;
+      }
     }
   }
 
@@ -1501,6 +1510,380 @@ body:not(.home) .patient-experience-content #main {
   h2 {
     color: inherit;
     line-height: 1.4;
+  }
+}
+
+/*** About Page ***/
+body:not(.home) .about-page-content #main {
+  padding-bottom: 0;
+}
+
+.about-page-content {
+  position: relative;
+  &:before {
+    content:"";
+    display: block;
+    width: 85%;
+    height: 110%;
+    position: absolute;
+    top: 30%;
+    right: -70%;
+    pointer-events: none;
+    background-image: url('images/about-wood-1.svg');
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .repeatable_layout_1 {
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: -20px;
+      width: 267px;
+      height: 531px;
+      background-image: url('images/half-circle.png');
+      background-position: -20px center;
+      background-size: contain;
+      background-repeat: no-repeat;
+
+      @include mid {
+        width: 350px;
+        height: 583px;
+      }
+    }
+
+    .imgFeat {
+      position: relative;
+      display: none;
+      
+      @include tab {
+        display: block;
+        position: absolute;
+        left: -60px;
+        top: -50%;
+        transform: translateY(12%);
+        width: 55vw;
+      }
+
+      @include mid {
+        transform: translateY(0%);
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+
+    @include tab {
+      .flexwrap {
+        margin-top: 120px;
+        margin-bottom: 120px;
+      }
+      .imageCol .images {
+        display: none;
+      }
+    }
+  }
+
+  .repeatable_layout_2 {
+    position: relative;
+    padding-top: 150px;
+    padding-bottom: 150px;
+    .wrapper {
+      background: $color_cream;
+      border-radius: 5px;
+      max-width: 1024px;
+    }
+    .flexwrap {
+      align-items: center;
+      flex-direction: column-reverse;
+
+      @include tab {
+        flex-direction: row;
+      }
+    }
+    .fxcol {
+      position: relative;
+      z-index: 20;
+      width: 100%;
+      padding: 0 50px;
+    }
+    &:has(.textCol):has(.imageCol) {
+      .fxcol {
+        width: 100%;
+
+        @include tab {
+          width: 50%;
+
+          strong{
+            color: $color_secondary;
+          }
+
+          &.imageCol {
+            margin: -100px -30px 0 0;
+            padding: 0;
+
+            img {
+              width: auto;
+            }
+          }
+        }
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .repeatable_layout_3 {
+    margin-right: -20px;
+    margin-left: -20px;
+    position: relative;
+    padding-top: 0;
+    padding-bottom: 0;
+  
+    .flexwrap {
+      align-items: center;
+      justify-content: space-between;
+      @include tab {
+        align-items: stretch;
+      }
+    }
+  
+    .fxcol {
+      padding: 50px;
+      width: 100%;
+  
+      @include tab {
+        padding: 100px;
+        width: 50%;
+      }
+  
+      @include xl {
+        padding: 120px 160px;
+      }
+    }
+  
+    .leftCol {
+      align-items: center;
+      background-color: $color_green;
+      color: #FFF;
+      display: flex;
+      
+      h2 {
+        color: inherit;
+        line-height: 1.4;
+      }
+
+      p {
+        font-size: 24px;
+      }
+
+      strong {
+        color: $color_yellow;
+        font-weight: 400;
+      }
+    }
+
+    .rightCol {
+      background-color: $color_light_yellow;
+      color: $color_green;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .icon-image {
+        text-align: center;
+      }
+
+      h2, h3, h4 {
+        font-family: $font-secondary;
+        font-size: 32px;
+        margin: 0;
+      }
+
+      p {
+        margin-top: 0;
+      }
+
+      a {
+        color: $color_green;
+      }
+
+      @include tab{
+        background-image: url('images/arrow.png');
+        background-size: auto;
+        background-position: left center;
+        background-repeat: no-repeat;
+      }
+    }
+  
+    .iconList {
+      li {
+        list-style: none;
+        display: flex;
+        align-items: flex-start;
+        gap: 2rem;
+        margin-bottom: 60px;
+  
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+  
+      h3 {
+        font-family: $font-secondary;
+        font-size: 24px;
+        margin-top: 0;
+        margin-bottom: 20px;
+      }
+  
+      .icon-image {
+        display: flex;
+  
+        span {
+          width: 45px;
+          height: 45px;
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+      }
+    }
+  }
+
+  .repeatable_layout_4 {
+    background-color: #FFF;
+
+    @include tab {
+      padding-top: 160px;
+      padding-bottom: 160px !important;
+    }
+
+    h2 {
+      color: $color_primary;
+      margin-bottom: 60px;
+      text-align: center;
+    }
+
+    @include sm {
+      .imageCol {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+
+    .ctaWrap {
+      width: 100%;
+      padding: 15px;
+      margin: 10px 0;
+      @include sm {
+        width: 31%;
+      }
+      .cta {
+        display: block;
+        position: relative;
+
+        .icon-content {
+          background-image: url('images/hex-bg.png');
+          background-position: center center;
+          background-size: contain;
+          background-repeat: no-repeat;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 144px;
+          height: 162px;
+
+          figure {
+            margin: 0 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all ease .4s;
+            img {
+              width: auto;
+              height: auto;
+            }
+          }
+        }
+        .title {
+          position: relative;
+          padding-bottom: 20px;
+          font-family: $font_secondary;
+          font-size: 18px;
+          font-weight: bold;
+          display: block;
+          padding: 20px 0 30px;
+          color: $color_green;
+    
+          &:after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 5px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            background-image: url(images/wave-line.png);
+            background-size: contain;
+            background-repeat: repeat-x;
+          }
+        }
+        .content {
+          color: $color_green;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
+  .repeatable_layout_5 {
+    position: relative;
+    padding-top: 100px;
+    padding-bottom: 100px;
+
+    @include tab {
+      padding-top: 160px;
+      padding-bottom: 160px;
+    }
+
+    h2 {
+      text-align: center;
+    }
+  }
+
+  .repeatable_layout_6 {
+    margin-right: -20px;
+    margin-left: -20px;
+    position: relative;
+    padding-top: 100px;
+    padding-bottom: 100px !important;
+    
+    .flexwrap {
+      justify-content: center;
+    }
+
+    .textCol {
+      text-align: center;
+    }
+  
+    h2, h3 {
+      color: inherit;
+      line-height: 1.4;
+      margin: 0;
+    }
+    p {
+      margin: 0;
+    }
   }
 }
 
@@ -2787,8 +3170,3 @@ body:not(.home) {
     }
   }
 }
-
-
-
-
-

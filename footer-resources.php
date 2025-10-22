@@ -2,7 +2,10 @@
 
   <?php 
   $global_footer_text = get_field('footer_bottom_text','option');
-  if ( !is_front_page() && !is_home() ) { 
+
+  if ( !is_front_page() && !is_home() ) {
+    global $post;
+    $post_id = $post->ID;
     $page_template = '';
     $foot = '';
 
@@ -13,7 +16,7 @@
       } else {
         $taxonomy_name = 'location-category';
         $terms = wp_get_post_terms( $post_id, $taxonomy_name );
-        $location_name = $terms[0];
+        $location_name = $terms[0]->slug;
       }
 
       $foot = get_location_resrouces_page($location_name, true);

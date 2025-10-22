@@ -4,16 +4,14 @@
  *
  */
 get_header(); ?>
-<div id="primary" class="content-area-full patient-experience-content">
+<div id="primary" class="content-area-full about-page-content">
 	<main id="main" class="site-main" role="main">
-    <div class="wrapper">
-      <?php while ( have_posts() ) : the_post(); ?>
-      <?php endwhile; ?>
-    </div>
+    <?php while ( have_posts() ) : the_post(); ?>
+    <?php endwhile; ?>
     <?php if( have_rows('flexible_content') ) {  ?>
       <div class="flexible-content-wrapper">
         <?php $ctr=1; while( have_rows('flexible_content') ): the_row();
-          $templates = get_flexible_templates('patient-exp');
+          $templates = get_flexible_templates('about-page');
 
           if($templates) {
             foreach($templates as $template) {
