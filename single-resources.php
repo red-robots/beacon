@@ -4,7 +4,35 @@
 	<main id="main" class="site-main" role="main">
     <div class="wrapper">
     <?php while ( have_posts() ) : the_post(); ?>
-      <?php the_content(); ?>
+      <?php
+        $main_content = get_the_content();
+
+        if( $main_content ){
+          echo "<div class='main-content'>". $main_content ."</div>";
+        }
+
+        $resource_pdf = get_field('pdf');
+        
+        if( $resource_pdf ){
+          $resource_pdf_title = $resource_pdf['title'];
+          $resource_pdf_descrption = $resource_pdf['caption'];
+          $pdf_resrouce = $resource_pdf['url'];
+      ?>
+        <div class="main-pdf">
+          <a href="<?php echo $pdf_resrouce ?>" class="file-link type-pdf" download>
+            <span class="text">
+              <?php if ($resource_pdf_title) { ?>
+              <span class="file-title"><?php echo $resource_pdf_title ?></span>
+              <?php } ?>
+              <?php if ($resource_pdf_descrption) { ?>
+              <span class="file-description"><?php echo $resource_pdf_descrption ?></span>
+              <?php } ?>
+            </span>
+            <span class="icon icon-pdf"></span>
+          </a>
+        </div> 
+      <?php } ?>
+      
       <?php  
         $sidebar_title = get_field('sidebar_title');
         $forms = get_field('forms');

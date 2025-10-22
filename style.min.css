@@ -1899,6 +1899,19 @@ body:not(.home) .midcontent.wrapper .inner-content{position:relative;z-index:5}
 .site:has(.sidebar.sticky){overflow:visible}
 .site:has(.sidebar.sticky) .site-main{overflow:visible}
 .form-page-content #main{background:#fff !important}
+.form-page-content #main .main-content{margin-bottom:50px}
+.form-page-content .main-pdf{margin:15px 0}
+.form-page-content .main-pdf a.file-link{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-align:center;-ms-flex-align:center;align-items:center;text-decoration:none;padding:30px;border-radius:6px;background:#f2f7fa;-webkit-transition:all ease .3s;transition:all ease .3s;position:relative}
+.form-page-content .main-pdf a.file-link:hover,.form-page-content .main-pdf a.file-link:focus{background:#ecf4e5}
+.form-page-content .main-pdf span.text{display:block;padding-right:100px}
+.form-page-content .main-pdf span.icon{display:inline-block;width:40px;height:40px;border-radius:100px;background:#c56f3e;position:absolute;top:50%;right:30px;-webkit-transform:translateY(-50%);transform:translateY(-50%);overflow:hidden}
+.form-page-content .main-pdf span.icon:before{content:"";display:block;width:100%;height:100%;position:absolute;top:0;left:0;background-size:42%;background-position:center;background-repeat:no-repeat}
+.form-page-content .main-pdf span.icon.icon-pdf:before{background-image:url("images/icon-download.svg")}
+.form-page-content .main-pdf span.icon.icon-link:before{background-size:60%;background-image:url("images/icon-external-link.svg")}
+.form-page-content .main-pdf .file-title{font-size:20px;font-weight:600;line-height:1.2;letter-spacing:.02em;color:#073022;display:block}
+.form-page-content .main-pdf .file-description{display:block;margin-top:10px}
+.form-page-content .main-pdf .file-description p{margin-top:0;color:#000}
+.form-page-content .main-pdf .file-description p:last-child{margin-bottom:0}
 .form-page-content .form-columns{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;position:relative}
 .form-page-content .form-columns .sidebar{width:100%;margin-bottom:50px}
 .form-page-content .form-columns .sidebar .widget-title{margin:0 0 10px;font-size:18px;font-weight:600;line-height:1.1;letter-spacing:.03em;text-transform:uppercase;color:#6ea6a7}

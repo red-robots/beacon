@@ -2542,7 +2542,84 @@ body:not(.home) {
 .form-page-content {
   #main {
     background: #FFF!important;
+
+    .main-content {
+      margin-bottom: 50px;
+    }
   }
+  .main-pdf {
+    margin: 15px 0;
+
+    a.file-link {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      text-decoration: none;
+      padding: 30px;
+      border-radius: 6px;
+      background: #F2F7FA;
+      transition: all ease .3s;
+      position: relative;
+      &:hover, &:focus {
+        background: #ecf4e5;
+      }
+    }
+    span.text {
+      display: block;
+      padding-right: 100px;
+    }
+    span.icon {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      border-radius: 100px;
+      background: $color_secondary;
+      position: absolute;
+      top: 50%;
+      right: 30px;
+      transform: translateY(-50%);
+      overflow: hidden;
+      &:before {
+        content:"";
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-size: 42%;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      &.icon-pdf:before {
+        background-image: url('images/icon-download.svg');
+      }
+      &.icon-link:before {
+        background-size: 60%;
+        background-image: url('images/icon-external-link.svg');
+      }
+    }
+    .file-title {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+      color: $color_green;
+      display: block;
+    }
+    .file-description {
+      display: block;
+      margin-top: 10px;
+      p {
+        margin-top: 0;
+        color: #000;
+      }
+      p:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  
   .form-columns {
     display: flex;
     flex-wrap: wrap;
