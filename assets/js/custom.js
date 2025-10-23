@@ -403,8 +403,7 @@ jQuery(document).ready(function ($) {
 
   if ($('.sidebarSticky').length) {
     $(window).on('scroll', function () {
-      console.log($('.repeatable.form-page-content').length);
-      var s = $('.repeatable.form-page-content'),
+      var s = $('.page-has-sidebarSticky'),
           sn = s.find('.sidebarSticky'),
           windowWidth = $(window).width(),
           windowScrollTop = $(window).scrollTop(),

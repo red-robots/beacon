@@ -1395,18 +1395,11 @@ body:not(.home) .patient-experience-content #main {
         }
       }
     }
-    .quickLinks {
-      width: 100%;
-      
-      @media screen and (max-width: 1023px) {
-        li a {
-          padding: 10px 15px;
-        }
-      }
-    }
+    
     .sidebar {
       ul {
         background-color: $color_white_bg;
+        width: 100%;;
       }
       
       h3.widget-title {
@@ -1418,80 +1411,100 @@ body:not(.home) .patient-experience-content #main {
       }
 
       .dropbtn {
-        background: $color_white_bg;
-        border: 0;
-        border-top: 1px solid $color_primary;
-        border-bottom: 1px solid $color_primary;
-        color: $color_light_blue;
-        padding: 16px;
-        cursor: pointer;
-        width: 100%;
-        text-align: left;
-        position: relative;
-    
-        @include tab {
-          display: none;
-        }
-
-        &.show {
-          margin-bottom: 0;
-        }
-    
-        .chevron {
-          display: inline-block;
-          width: 12px; /* Adjust size as needed */
-          height: 12px; /* Adjust size as needed */
-          position: absolute;
-          top: 19px;
-          right: 15px;
-          z-index: 2;
-          transition: all ease .3s;
-        }
-        
-        .chevron.right::before {
-          content: ""; /* Required for pseudo-elements */
-          border-style: solid;
-          border-width: 2px 2px 0 0; /* Top and right borders only */
-          display: inline-block;
-          width: inherit; /* Inherit width from parent .chevron */
-          height: inherit; /* Inherit height from parent .chevron */
-          position: absolute; /* Position relative to the parent .chevron */
-          top: -1px;
-          left: 0;
-          transform: rotate(135deg); /* Rotate to form the right-facing chevron */
-          transition: all ease .3s;
-        }
-    
-        &.show {
-          .chevron.right::before {
-            top: 3px;
-            transform: rotate(-45deg);
-          }
-        }
+        background-color: $color_white_bg;
       }
     }
   }
+}
 
-  .stickyNav {
-    display: none;
-    position: absolute;
-    z-index: 1;
-    @include animateThis(0.5s);
-
-    &.show {
-      display: block;
-      @include animateEffect('fadeIn');
+.single-resource-page {
+  .sidebar {
+    ul {
+      background-color: $color_white;
     }
+    
+    h3.widget-title {
+      display: none;
+  
+      @include tab {
+        display: block;
+      }
+    }
+  }
+  .quickLinks {
+    width: 100%;
+  }
+}
+.stickyNav {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  @include animateThis(0.5s);
+
+  &.show {
+    display: block;
+    @include animateEffect('fadeIn');
   }
 
   @include tab {
-    .stickyNav {
-      display: block !important;
-      max-height: calc(100vh - 5.5rem);
-      position: -webkit-sticky;
-      position: sticky;
-      top: 5rem;
-      z-index: 5;
+    display: block !important;
+    max-height: calc(100vh - 5.5rem);
+    position: -webkit-sticky;
+    position: sticky;
+    top: 5rem;
+    z-index: 5;
+  }
+}
+
+.dropbtn {
+  background-color: $color_white;
+  border: 0;
+  border-top: 1px solid $color_primary;
+  border-bottom: 1px solid $color_primary;
+  color: $color_light_blue;
+  padding: 16px;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  position: relative;
+
+  @include tab {
+    display: none;
+  }
+
+  &.show {
+    margin-bottom: 0 !important;
+  }
+
+  .chevron {
+    display: inline-block;
+    width: 12px; /* Adjust size as needed */
+    height: 12px; /* Adjust size as needed */
+    position: absolute;
+    top: 19px;
+    right: 15px;
+    z-index: 2;
+    transition: all ease .3s;
+  }
+  
+  .chevron.right::before {
+    content: ""; /* Required for pseudo-elements */
+    border-style: solid;
+    border-width: 2px 2px 0 0; /* Top and right borders only */
+    display: inline-block;
+    width: inherit; /* Inherit width from parent .chevron */
+    height: inherit; /* Inherit height from parent .chevron */
+    position: absolute; /* Position relative to the parent .chevron */
+    top: -1px;
+    left: 0;
+    transform: rotate(135deg); /* Rotate to form the right-facing chevron */
+    transition: all ease .3s;
+  }
+
+  &.show {
+    .chevron.right::before {
+      top: 3px;
+      transform: rotate(-45deg);
     }
   }
 }
@@ -2628,6 +2641,7 @@ body:not(.home) {
     .sidebar {
       width: 100%;
       margin-bottom: 50px;
+      z-index: 10;
       @include tab {
         width: 30%;
         margin-bottom: 0;
@@ -2672,6 +2686,11 @@ body:not(.home) {
         &.sticky .inside {
           position: sticky;
           top: 100px;
+
+          ul {
+            max-height: 80vh;
+            overflow-y: scroll;
+          }
         }
       }
     }

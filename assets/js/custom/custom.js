@@ -344,8 +344,7 @@ jQuery(document).ready(function ($) {
   // QuickLinks sticky legends
   if( $('.sidebarSticky').length ) {
     $(window).on('scroll', function() {
-      console.log($('.repeatable.form-page-content').length);
-      let s = $('.repeatable.form-page-content'),
+      let s = $('.page-has-sidebarSticky'),
           sn = s.find('.sidebarSticky'),
           windowWidth = $(window).width(),
           windowScrollTop = $(window).scrollTop(),

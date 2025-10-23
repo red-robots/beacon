@@ -1,6 +1,6 @@
 <?php get_header('resources'); ?>
 
-<div id="primary" class="content-area-full form-page-content">
+<div id="primary" class="content-area-full form-page-content single-resource-page page-has-sidebarSticky">
 	<main id="main" class="site-main" role="main">
     <div class="wrapper">
     <?php while ( have_posts() ) : the_post(); ?>
@@ -39,12 +39,13 @@
         $forms = get_field('forms');
         if($forms) { ?>
         <div class="form-columns">
-          <aside class="sidebar">
+          <aside class="sidebar sidebarSticky">
             <div class="inside">
               <?php if ($sidebar_title) { ?>
               <h3 class="widget-title"><?php echo $sidebar_title ?></h3>
+              <button onclick="dropDownNav()" class="dropbtn widget-title" id="dropbtn"><?php echo $sidebar_title ?> <span class="chevron right"></span></button>
               <?php } ?>
-              <ul class="quickLinks">
+              <ul id="myDropdown" class="quickLinks stickyNav">
               <?php foreach ($forms as $frm) { 
                 if( $title = $frm['title'] ) { 
                   $slug = sanitize_title($title); ?>
@@ -133,6 +134,29 @@
     </div>
   </main>
 </div><!-- #primary -->
+
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function dropDownNav() {
+  document.getElementById("myDropdown").classList.toggle("show");
+  document.getElementById("dropbtn").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(e) {
+	if (!e.target.matches('.dropbtn')) {
+		var myDropdown = document.getElementById("myDropdown");
+		var dropdownBtn = document.getElementById("dropbtn");
+		if (myDropdown.classList.contains('show')) {
+			myDropdown.classList.remove('show');
+		}
+		if (dropdownBtn.classList.contains('show')) {
+			dropdownBtn.classList.remove('show');
+		}
+	}
+}
+</script>
 
 <?php
 get_footer('resources');

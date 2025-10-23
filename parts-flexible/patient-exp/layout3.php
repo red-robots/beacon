@@ -5,7 +5,7 @@
   //print_r($topics);
 
   if ($topics) { ?>
-  <section id="repeatable_<?php echo get_row_layout() ?>_<?php echo $ctr ?>" data-group="<?php echo get_row_layout() ?>" class="repeatable repeatable_<?php echo get_row_layout() ?><?php echo $custom_class; ?> form-page-content">
+  <section id="repeatable_<?php echo get_row_layout() ?>_<?php echo $ctr ?>" data-group="<?php echo get_row_layout() ?>" class="repeatable repeatable_<?php echo get_row_layout() ?><?php echo $custom_class; ?> form-page-content page-has-sidebarSticky">
     <div class="wrapper">
       <div class="form-columns">
         <aside class="sidebar sidebarSticky">
