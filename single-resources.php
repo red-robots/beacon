@@ -6,9 +6,10 @@
     <?php while ( have_posts() ) : the_post(); ?>
       <?php
         $main_content = get_the_content();
+        $formatted_content = apply_filters('the_content', $main_content);
 
         if( $main_content ){
-          echo "<div class='main-content'>". $main_content ."</div>";
+          echo "<div class='main-content'>". $formatted_content ."</div>";
         }
 
         $resource_pdf = get_field('pdf');
