@@ -1788,7 +1788,7 @@ body:not(.home) .patient-experience-content #main{padding-bottom:0}
 .repeatable_layout_4 h2{color:inherit;line-height:1.4}
 body:not(.home) .about-page-content #main{padding-bottom:0}
 .about-page-content{position:relative}
-.about-page-content:before{content:"";display:block;width:85%;height:110%;position:absolute;top:30%;right:-70%;pointer-events:none;background-image:url("images/about-wood-1.svg");background-position:top left;background-repeat:no-repeat;background-size:contain}
+.about-page-content:before{content:"";display:block;width:85%;height:110%;position:absolute;top:30%;right:-70%;pointer-events:none;background-image:url("images/about-wood-1.png");background-position:top left;background-repeat:no-repeat;background-size:contain}
 .about-page-content .repeatable_layout_1:before{content:"";display:block;position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);left:-20px;width:267px;height:531px;background-image:url("images/half-circle.png");background-position:-20px center;background-size:contain;background-repeat:no-repeat}
 .about-page-content .repeatable_layout_1 .imgFeat{position:relative;display:none}
 .about-page-content .repeatable_layout_1 .imgFeat img{width:100%}
@@ -1825,12 +1825,26 @@ body:not(.home) .about-page-content #main{padding-bottom:0}
 .about-page-content .repeatable_layout_4 .ctaWrap .cta .title{position:relative;padding-bottom:20px;font-family:"Merriweather",serif;font-size:18px;font-weight:bold;display:block;padding:20px 0 30px;color:#073022}
 .about-page-content .repeatable_layout_4 .ctaWrap .cta .title:after{content:"";display:block;width:100%;height:5px;position:absolute;left:0;bottom:0;background-image:url(images/wave-line.png);background-size:contain;background-repeat:repeat-x}
 .about-page-content .repeatable_layout_4 .ctaWrap .cta .content{color:#073022;font-size:18px}
-.about-page-content .repeatable_layout_5{position:relative;padding-top:100px;padding-bottom:100px}
-.about-page-content .repeatable_layout_5 h2{text-align:center}
+.about-page-content .repeatable_layout_5{background-image:url("images/about-wood-2.png");background-position:65vw 115px;background-repeat:no-repeat;background-size:contain;position:relative;padding-top:100px;padding-bottom:100px}
+.about-page-content .repeatable_layout_5 h2{text-align:center;margin-bottom:60px}
+.about-page-content .repeatable_layout_5 .flexwrap{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;margin-bottom:60px}
+.about-page-content .repeatable_layout_5 .flexwrap:has(.imageCol):has(.textCol){-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+.about-page-content .repeatable_layout_5 .flexwrap:last-child{margin-bottom:60px}
+.about-page-content .repeatable_layout_5 .fxcol{width:100%}
+.about-page-content .repeatable_layout_5 .fxcol.textCol strong{color:#c56f3e}
+.about-page-content .repeatable_layout_5 .fxcol.imageCol{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;margin:15px 0;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
+.about-page-content .repeatable_layout_5 .fxcol.imageCol figure{width:320px;height:320px;margin:0;position:relative;padding:15px}
+.about-page-content .repeatable_layout_5 .fxcol.imageCol figure img{display:block;width:100%;height:100%;position:absolute;top:0;left:0;-o-object-fit:contain;object-fit:contain;-o-object-position:center;object-position:center}
+.about-page-content .repeatable_layout_5 .fxcol.imageCol figure .inner{width:100%;height:100%;padding-bottom:60%;float:left;overflow:hidden;position:relative}
+.about-page-content .repeatable_layout_5 .fxcol.imageCol figure .inner img{-webkit-mask-image:url("images/story-image-2.png");mask-image:url("images/story-image-2.png");-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:100%;mask-size:100%;width:290px;height:290px}
+.about-page-content .repeatable_layout_5 .fxcol.image-1 figure{padding:6px;width:100%;height:auto}
+.about-page-content .repeatable_layout_5 .fxcol.image-1 figure .inner{width:81%;height:100%;margin-left:15%;margin-bottom:15px}
+.about-page-content .repeatable_layout_5 .fxcol.image-1 figure .inner img{-webkit-mask-image:url("images/story-image-1-mask.png");mask-image:url("images/story-image-1-mask.png");width:100% !important;height:100% !important;-o-object-fit:cover;object-fit:cover}
+.about-page-content .repeatable_layout_5 .fxcol.image-1 figure img{width:100%;height:100%}
 .about-page-content .repeatable_layout_6{margin-right:-20px;margin-left:-20px;position:relative;padding-top:100px;padding-bottom:100px !important}
 .about-page-content .repeatable_layout_6 .flexwrap{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
 .about-page-content .repeatable_layout_6 .textCol{text-align:center}
-.about-page-content .repeatable_layout_6 h2,.about-page-content .repeatable_layout_6 h3{color:inherit;line-height:1.4;margin:0}
+.about-page-content .repeatable_layout_6 h2,.about-page-content .repeatable_layout_6 h3{color:inherit;font-family:"Merriweather",serif;font-size:32px;line-height:1.4;margin:0}
 .about-page-content .repeatable_layout_6 p{margin:0}
 .patient-education-content .term-title{color:#527338;font-family:"Merriweather",serif;font-size:32px;text-align:center}
 .patient-education-content .flexwrap{gap:28px;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}
@@ -2008,6 +2022,14 @@ body:not(.home) .midcontent.wrapper .inner-content{position:relative;z-index:5}
 .about-page-content .repeatable_layout_3 .rightCol{background-image:url("images/arrow.png");background-size:auto;background-position:left center;background-repeat:no-repeat}
 .about-page-content .repeatable_layout_4{padding-top:160px;padding-bottom:160px !important}
 .about-page-content .repeatable_layout_5{padding-top:160px;padding-bottom:160px}
+.about-page-content .repeatable_layout_5 .flexwrap.image-right{-webkit-box-orient:horizontal;-webkit-box-direction:reverse;-ms-flex-direction:row-reverse;flex-direction:row-reverse}
+.about-page-content .repeatable_layout_5 .fxcol{width:47%}
+.about-page-content .repeatable_layout_5 .fxcol.textCol{padding-left:3vw}
+.about-page-content .repeatable_layout_5 .fxcol.imageCol figure{width:430px;height:430px}
+.about-page-content .repeatable_layout_5 .fxcol.imageCol figure .inner img{width:400px;height:400px}
+.about-page-content .repeatable_layout_5 .fxcol.image-1 figure{width:100%}
+.about-page-content .repeatable_layout_5 .fxcol.image-1 figure .hexagon{top:-30px}
+.about-page-content .repeatable_layout_5 .fxcol.image-1 figure .inner{overflow:visible;width:100%}
 .patient-education-content .term-title{font-size:40px;margin-bottom:50px}
 .patient-education-content .resource-container{margin-top:120px}
 body:not(.home) .midcontent.wrapper{padding:50px}
@@ -2023,6 +2045,8 @@ body:not(.home) .midcontent.wrapper{padding:50px}
 .columns-locations .flexwrap .infoBox{width:25%}
 .about-page-content .repeatable_layout_1:before{width:350px;height:583px}
 .about-page-content .repeatable_layout_1 .imgFeat{-webkit-transform:translateY(0);transform:translateY(0)}
+.about-page-content .repeatable_layout_5 .fxcol.imageCol figure{width:460px;height:460px}
+.about-page-content .repeatable_layout_5 .fxcol.imageCol figure .inner img{width:430px;height:430px}
 .patient-education-content .resource-item{padding:30px;width:31.3%}
 body:not(.home) .midcontent.wrapper{padding:clamp(40px,8vw,80px)}
 }@media(min-width:1380px){.repeatable_layout_2 .fxcol{padding:120px 160px}

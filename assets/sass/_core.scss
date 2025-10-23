@@ -1542,7 +1542,7 @@ body:not(.home) .about-page-content #main {
     top: 30%;
     right: -70%;
     pointer-events: none;
-    background-image: url('images/about-wood-1.svg');
+    background-image: url('images/about-wood-1.png');
     background-position: top left;
     background-repeat: no-repeat;
     background-size: contain;
@@ -1860,6 +1860,10 @@ body:not(.home) .about-page-content #main {
   }
 
   .repeatable_layout_5 {
+    background-image: url('images/about-wood-2.png');
+    background-position: 65vw 115px;
+    background-repeat: no-repeat;
+    background-size: contain;
     position: relative;
     padding-top: 100px;
     padding-bottom: 100px;
@@ -1871,6 +1875,136 @@ body:not(.home) .about-page-content #main {
 
     h2 {
       text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .flexwrap {
+      justify-content: center;
+      margin-bottom: 60px;
+      &:has(.imageCol):has(.textCol) {
+        justify-content: space-between;
+        align-items: center;
+      }
+      &:last-child {
+        margin-bottom: 60px;
+      }
+      @include tab {
+        &.image-right {
+          flex-direction: row-reverse;
+        }
+      }
+    }
+    .fxcol {
+      width: 100%;
+      @include tab {
+        width: 47%;
+      }
+      &.textCol {
+        strong {
+          color: $color_secondary;
+        }
+        @include tab {
+          padding-left: 3vw;
+        }
+      }
+      &.imageCol {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 15px 0;
+        justify-content: center;
+
+        figure {
+          width: 320px;
+          height: 320px;
+          margin: 0 0;
+          position: relative;
+          padding: 15px;
+
+          img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            object-fit: contain;
+            object-position: center;
+          }
+
+          .inner {
+            width: 100%;
+            height: 100%;
+            padding-bottom: 60%;
+            float: left;
+            overflow: hidden;
+            position: relative;
+
+            img {
+              mask-image: url('images/story-image-2.png');
+              mask-repeat: no-repeat;
+              mask-size: 100%;
+              width: 290px;
+              height: 290px;
+            }
+          }
+
+          @include tab {
+            width: 430px;
+            height: 430px;
+
+            .inner img {
+              width: 400px;
+              height: 400px;
+            }
+          }
+
+          @include mid {
+            width: 460px;
+            height: 460px;
+
+            .inner img {
+              width: 430px;
+              height: 430px;
+            }
+          }
+        }
+      }
+
+      &.image-1 {
+        figure {
+          padding: 6px;
+          width: 100%;
+          height: auto;
+          @include tab {
+            width: 100%;
+
+            .hexagon {
+              top: -30px;
+            }
+          }
+          .inner {
+            width: 81%;
+            height: 100%;
+            margin-left: 15%;
+            margin-bottom: 15px;
+
+            @include tab {
+              overflow: visible;
+              width: 100%;
+            }
+          }
+          .inner img {
+            mask-image: url('images/story-image-1-mask.png');
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover;
+          }
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
     }
   }
 
@@ -1891,6 +2025,8 @@ body:not(.home) .about-page-content #main {
   
     h2, h3 {
       color: inherit;
+      font-family: $font-secondary;
+      font-size: 32px;
       line-height: 1.4;
       margin: 0;
     }
