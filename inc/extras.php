@@ -715,3 +715,26 @@ function get_location_resrouces_page ($location_name, $is_footer=false) {
     return $options;
   }
 }
+
+/*** Team popup content ***/
+add_action( 'wp_ajax_nopriv_get_team_content', 'get_team_content' );
+add_action( 'wp_ajax_get_team_content', 'get_team_content' );
+function get_team_content() {
+  if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+    $post_id = ($_POST['postid']) ? $_POST['postid'] : 0;
+    $post = get_post($post_id);
+    $html = '';
+    if($post) {
+      ob_start();
+      include(locate_template('parts/popup_content_team.php'));
+      $html = ob_get_contents();
+      ob_end_clean();
+    }
+    $response['content'] = $html;
+    echo json_encode($response);
+  }
+  else {
+    header("Location: ".$_SERVER["HTTP_REFERER"]);
+  }
+  die();
+}
