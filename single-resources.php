@@ -59,6 +59,17 @@
           </aside>
 
           <div class="content">
+            <?php
+              $top_content = get_field('top_content');
+              $bottom_content = get_field('bottom_content');
+
+              $formatted_top_content= apply_filters('the_content', $top_content);
+              $formatted_bottom_content= apply_filters('the_content', $bottom_content);
+
+              if($top_content){
+                echo $formatted_top_content;
+              }
+            ?>
             <?php foreach ($forms as $frm) { 
               $title = $frm['title'];
               $description = $frm['description'];
@@ -126,7 +137,11 @@
                 <?php } ?>
               </div>
               <?php } ?>
-            <?php } ?>
+            <?php }
+              if($bottom_content){
+                echo '<div class="inforow">'. $formatted_bottom_content .'</div>';
+              }
+            ?>
           </div>
         </div>
         <?php } ?>
