@@ -443,7 +443,7 @@ jQuery(document).ready(function ($) {
 
   $('.popup-activity').on("click", function (e) {
     e.preventDefault();
-    var id = $(this).attr('data-id');
+    var id = $(this).attr('data-postid');
     $.ajax({
       url: frontajax.ajaxurl,
       type: 'post',
@@ -481,4 +481,11 @@ jQuery(document).ready(function ($) {
     e.preventDefault();
     closeCustomPopUp();
   });
+
+  function closeCustomPopUp() {
+    $('#popup-content').removeClass('show');
+    $('body').removeClass('popup-open');
+    $('#overlay').removeClass('show');
+    $('#popup-content .popup-content').remove();
+  }
 });

@@ -54,9 +54,11 @@ if( is_single() || is_page() ) {
   $extra_class[] = ( get_field('hero_image') ) ? 'has-hero-image' : 'no-hero-image';
 }
 $getPageTitle = get_the_title();
-
 ?>
 <body <?php body_class($extra_class); ?>>
+<div id="overlay"></div>
+<div id="popup-content"></div>
+
 <div id="page" class="site">
 	<div id="overlay"></div>
 	<a class="skip-link" href="#content"><?php esc_html_e( 'Skip to content', 'bellaworks' ); ?></a>

@@ -2158,6 +2158,39 @@ body:not(.home) .about-page-content #main {
 
 /*** Team Page ***/
 .team-page {
+ #main {
+  position: relative;
+  z-index: 20;
+  &:before {
+    content:"";
+    display: block;
+    width: 95%;
+    height: 150%;
+    position: absolute;
+    top: -30%;
+    left: -40%;
+    pointer-events: none;
+    background-image: url('images/wood-pattern.svg');
+    background-position: bottom left;
+    background-repeat: no-repeat;
+    background-size: 80%;
+  }
+  &:after {
+    content:"";
+    display: block;
+    width: 85%;
+    height: 110%;
+    position: absolute;
+    top: 2%;
+    left: 70%;
+    pointer-events: none;
+    background-image: url('images/wood-pattern.svg');
+    background-position: top right;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+ }
+  
   h1 {
     font-size: 42px;
     margin-bottom: 45px;
@@ -2174,11 +2207,14 @@ body:not(.home) .about-page-content #main {
     margin-bottom: 60px;
     width: 100%;
 
-    @include tab {
+    @include sm {
       width: 50%;
     }
-    @include mid {
+    @include tab {
       width: 33%;
+    }
+    @include mid {
+      width: 25%;
     }
 
     figure.photo {
@@ -3496,11 +3532,15 @@ body.popup-open {
   .popup-content {
     max-width: 900px;
     width: 100%;
-    min-height: 15em;
-    background: $color_primary;
+    // min-height: 15em;
+    background-color: $color_cream;
+    background-image: url(images/team-popup-bg.png);
+    background-position: bottom left;
+    background-repeat: no-repeat;
+    background-size: auto;
     box-shadow: 0 4px 14px rgba(0,0,0,0.2);
     position: relative;
-    color: $color_secondary;
+    color: $color_green;
     @include animateThis(1s);
     @include animateEffect('fadeIn');
     .flex-wrap {
@@ -3508,15 +3548,12 @@ body.popup-open {
       .text {
         padding: 20px;
         width: 100%;
-        @include tab {
-          width: 60%;
-          padding: 4vw;
-        }
       }
       .photo {
+        border-radius: 5px;
         width: 100%;
-        @include tab {
-          width: 40%;
+        @include sm {
+          width: 35%;
         }
         figure {
           width: 100%;
@@ -3525,6 +3562,7 @@ body.popup-open {
           @include backgroundImage(center);
         }
         img {
+          border-radius: 5px;
           width: 100%;
           height: auto;
         }
@@ -3536,26 +3574,33 @@ body.popup-open {
       }
     }
     .title {
-      font-family: $font-secondary;
-      font-size: 25px;
+      font-family: $font_primary;
+      color: $color_secondary;
+      font-size: 40px;
       line-height: 1.2;
       margin: 0 0;
       text-transform: uppercase;
       letter-spacing: 1px;
     }
-    .other-info {
-      margin-top: 30px;
-      border-left: 1px solid #000;
-      padding-left: 15px;
+    .position {
+      font-family: $font_secondary;
+      color: $color_primary;
+      font-size: 24px;
       line-height: 1.3;
+    }
+    .wave {
+      background-image: url('images/team-wave.png');
+      background-size: auto;
+      background-position: left center;
+      background-repeat: repeat-x;
+      margin-top: 30px;
       margin-bottom: 30px;
-      .time {
-      	margin-bottom: 20px;
-      }
+      height: 5px;
+      width: 100%;
     }
 
     &.activity {
-      max-width: 900px;
+      max-width: 930px;
       .title {
         margin: 0 0 20px;
       }
@@ -3570,6 +3615,7 @@ body.popup-open {
         }
       }
       .description p {
+        font-size: 18px;
         margin: 15px 0;
       }
       a {
@@ -3588,13 +3634,15 @@ body.popup-open {
       }
       .flex-wrap.full {
         .text {
-          padding: 0 0;
+          padding: 0;
         }
       }
       .flex-wrap.half {
-        .text {
-          @include tab {
-            padding: 0 30px 0 0;
+        justify-content: space-between;
+        @include sm {
+          .text {
+            width: 63%;
+            padding: 0 0 0 30px;
           }
         }
       }
@@ -3687,7 +3735,7 @@ body.popup-open {
   top: 0;
   left: 0;
   z-index: 500;
-  background-color: rgba($color_green,50%);
+  background-color: rgba($color_green,80%);
   .lds-ring {
     position: absolute;
     top: 50%;
@@ -3728,5 +3776,21 @@ body.popup-open {
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+#overlay {
+  display: none;
+  cursor: pointer;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color_green,80%);
+  z-index: 300;
+  @include animateThis(0.5s);
+  &.show {
+    display: block;
+    @include animateEffect('fadeIn');
   }
 }

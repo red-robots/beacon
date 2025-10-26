@@ -33,8 +33,6 @@ get_header(); ?>
           }
         }
 
-        //print_r($location);
-
         // Get all post matching the location
         $locationArg = array(
             'post_type' => 'team', // Replace with your custom post type slug
@@ -49,8 +47,6 @@ get_header(); ?>
         );
         $allTeams = new WP_Query( $locationArg );
 
-        //print_r($allTeams);
-
         if( $allTeams->have_posts() ):
             echo '<div class="flexwrap">';
 
@@ -64,7 +60,7 @@ get_header(); ?>
                 $team_img = get_field('photo', $post_id);
                 $photo_placeholder = get_stylesheet_directory_uri() . '/images/photo-coming-soon.jpg';
         ?>
-            <div class="fxcol flexwrap" data-postid="<?php echo $post_id ?>">
+            <div class="popup-activity fxcol flexwrap" data-postid="<?php echo $post_id ?>">
                 <figure class="photo">
                     <?php if ($team_img) { ?>
                         <img src="<?php echo $team_img['url'] ?>" alt="" />
@@ -78,7 +74,6 @@ get_header(); ?>
                         <div class="jobTitle"><?php echo $job_title; ?></div>
                     </div>
                 <?php } ?>
-                <!-- <a href="<?php echo $post_url; ?>" data-postid="<?php echo $post_id ?>">See Details</a> -->
             </div>
         <?php
             wp_reset_postdata();
