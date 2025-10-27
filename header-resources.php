@@ -157,6 +157,10 @@ var params={};location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(s,k,v){
     </div>
 	</header>
 
-  <?php get_template_part("parts/hero-resources"); ?>
+  <?php  
+      if(!is_singular('post')){
+        get_template_part("parts/hero-resources");
+      }      
+  ?>
 
 	<div id="content" class="site-content">

@@ -32,42 +32,6 @@ if ($categories) {
 }
 $categories = false;
 ?>
-<?php if ($categories) { ?>
-<div class="category-container">
-  <div class="desktop-category-selection">
-    <div class="flexwrap">
-      <a href="<?php echo get_permalink() ?>" class="link all<?php echo (empty($filter_category)) ? ' current':''; ?>">All</a>
-      <?php foreach ($categories as $term) { 
-        $termId = $term->term_id;
-        $termSlug = $term->slug;
-        $termName = $term->name;
-        $pagelink = get_permalink() . '?category=' . $termSlug;
-        $is_current = ($filter_category==$termSlug) ? ' current':'';
-      ?>
-      <a href="<?php echo $pagelink ?>" data-catid="<?php echo $termId ?>" class="link<?php echo $is_current ?>"><?php echo $termName ?></a>  
-      <?php } ?>
-    </div>
-  </div>
-
-  <div class="mobile-category-selections">
-    <div class="selections">
-      <button class="select-category-btn" aria-expanded="false" aria-controls="CategorySelections"><span><?php echo $is_current_name ?></span> <i class="fa-solid fa-chevron-down"></i></button>
-      <ul id="CategorySelections" class="category-selections">
-        <li><a href="<?php echo get_permalink() ?>" class="mobile--link all<?php echo (empty($filter_category)) ? ' current':''; ?>">All</a></li>
-        <?php foreach ($categories as $term) { 
-          $termId = $term->term_id;
-          $termSlug = $term->slug;
-          $termName = $term->name;
-          $pagelink = get_permalink() . '?category=' . $termSlug;
-          $is_current = ($filter_category==$termSlug) ? ' current':'';
-          ?>
-          <li><a href="<?php echo $pagelink ?>" data-catid="<?php echo $termId ?>" class="mobile--link<?php echo $is_current ?>"><?php echo $termName ?></a></li> 
-        <?php } ?>
-      </ul>
-    </div>
-  </div>
-</div>
-<?php } ?>
 
 <div id="primary" class="content-area news-content">
   <main id="main" class="site-main" role="main">
@@ -107,12 +71,11 @@ $categories = false;
             <?php while ( $entries->have_posts() ) : $entries->the_post(); 
               $imageUrl = get_the_post_thumbnail_url( get_the_ID() );
               $content = get_the_content();
-              $excerpt = ($content) ? shortenText(strip_tags($content), 300, ' ', '...') : '';
+              $excerpt = ($content) ? shortenText(strip_tags($content), 250, ' ', '.') : '';
               if(empty($imageUrl)) {
-                $excerpt = ($content) ? shortenText(strip_tags($content), 400, ' ', '...') : '';
+                $excerpt = ($content) ? shortenText(strip_tags($content), 300, ' ', '.') : '';
               }
               ?>
-              <div class="grid-sizer"></div>
               <div class="fbox grid-item">
                 <figure class="the-image <?php echo ($imageUrl) ? 'has-image':'no-image' ?>">
                   <a href="<?php echo get_permalink() ?>" class="imageLink articleLink">
@@ -124,7 +87,7 @@ $categories = false;
                       <?php if ($excerpt) { ?>
                         <div class="excerpt"><?php echo $excerpt ?></div>
                       <?php } ?>
-                      <span class="read-more">Read More</span>
+                      <span class="read-more">Read More <span class="arrow"></span></span>
                     </figcaption>
                   </a>
                 </figure>
@@ -151,70 +114,71 @@ $categories = false;
 
 
 <script type="text/javascript">
-jQuery(document).ready(function($){
+// jQuery(document).ready(function($){
 
-  const $masonry = $('.masonry');
-  $masonry.imagesLoaded(function() {
-    $masonry.masonry({
-      itemSelector: '.grid-item',
-      columnWidth: '.grid-sizer',
-      percentPosition: true,
-      stagger: 20,
-      visibleStyle: { opacity: 1 },
-      hiddenStyle: { opacity: 0 },  
-    });
-  });
+//   const $masonry = $('.masonry');
+//   $masonry.imagesLoaded(function() {
+//     $masonry.masonry({
+//       itemSelector: '.grid-item',
+//       //columnWidth: '.grid-sizer',
+//       gutter: 30,
+//       percentPosition: true,
+//       stagger: 20,
+//       visibleStyle: { opacity: 1 },
+//       hiddenStyle: { opacity: 0 },  
+//     });
+//   });
 
 
-  $(document).on("click","#load-more-btn",function(e){
-    e.preventDefault();
-    var button = $(this);
-    var baseURL = $(this).attr("data-baseurl");
-    var currentPageNum = $(this).attr("data-current");
-    var nextPageNum = parseInt(currentPageNum) + 1;
-    var pageEnd = $(this).attr("data-end");
-    var nextURL = baseURL + '?pg=' + nextPageNum;
-    if(baseURL.indexOf('?')!==-1) {
-      nextURL = baseURL + '&pg=' + nextPageNum;
-    }
+//   $(document).on("click","#load-more-btn",function(e){
+//     e.preventDefault();
+//     var button = $(this);
+//     var baseURL = $(this).attr("data-baseurl");
+//     var currentPageNum = $(this).attr("data-current");
+//     var nextPageNum = parseInt(currentPageNum) + 1;
+//     var pageEnd = $(this).attr("data-end");
+//     var nextURL = baseURL + '?pg=' + nextPageNum;
+//     if(baseURL.indexOf('?')!==-1) {
+//       nextURL = baseURL + '&pg=' + nextPageNum;
+//     }
 
-    button.attr("data-current",nextPageNum);
-    if(nextPageNum==pageEnd) {
-      $(".load-more-wrap").remove();
-    }
+//     button.attr("data-current",nextPageNum);
+//     if(nextPageNum==pageEnd) {
+//       $(".load-more-wrap").remove();
+//     }
 
-    $.get(nextURL, function( content ) {
-      var newItems = $(content).find('.grid-item');
-      if(newItems.length) {
-        $masonry.append(newItems);
-        $masonry.masonry( 'appended', newItems );
-        $masonry.imagesLoaded(function() {
-          setTimeout(function(){
-            $masonry.masonry('layout');
-          }, 400);
-        });
-      }
-    });
+//     $.get(nextURL, function( content ) {
+//       var newItems = $(content).find('.grid-item');
+//       if(newItems.length) {
+//         $masonry.append(newItems);
+//         $masonry.masonry( 'appended', newItems );
+//         $masonry.imagesLoaded(function() {
+//           setTimeout(function(){
+//             $masonry.masonry('layout');
+//           }, 400);
+//         });
+//       }
+//     });
 
-  });
+//   });
 
-  function smoothScroll(hashTag) {
-    var target = $(hashTag);
-    if (target.length) {
-      $('html, body').animate({
-        scrollTop: target.offset().top - 50
-      }, 1500, function() {
-        target.focus();
-        if (target.is(":focus")) {
-          return false;
-        } else {
-          target.attr('tabindex','-1');
-          target.focus(); 
-        };
-      });
-    }
-  }
-});
+//   function smoothScroll(hashTag) {
+//     var target = $(hashTag);
+//     if (target.length) {
+//       $('html, body').animate({
+//         scrollTop: target.offset().top - 50
+//       }, 1500, function() {
+//         target.focus();
+//         if (target.is(":focus")) {
+//           return false;
+//         } else {
+//           target.attr('tabindex','-1');
+//           target.focus(); 
+//         };
+//       });
+//     }
+//   }
+// });
 </script>
 <?php
 get_footer();

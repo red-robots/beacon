@@ -2049,6 +2049,37 @@ body.popup-open{overflow:hidden}
 .lds-ring div:nth-child(3){-webkit-animation-delay:-0.15s;animation-delay:-0.15s}
 #overlay{display:none;cursor:pointer;position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(7,48,34,.8);z-index:300;-webkit-animation-duration:.5s;animation-duration:.5s}
 #overlay.show{display:block;-webkit-animation-name:"fadeIn";animation-name:"fadeIn"}
+.news-content #main{position:relative;z-index:2}
+.news-content #main:before{content:"";display:block;width:95%;height:150%;position:absolute;top:-30%;left:-40%;pointer-events:none;background-image:url("images/wood-pattern.svg");background-position:bottom left;background-repeat:no-repeat;background-size:80%;z-index:1}
+.news-content #main:after{content:"";display:block;width:85%;height:110%;position:absolute;top:2%;left:70%;pointer-events:none;background-image:url("images/wood-pattern.svg");background-position:top right;background-repeat:no-repeat;background-size:contain;z-index:1}
+.news-content .flexwrap{-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;position:relative;z-index:3}
+.news-content .flexwrap .fbox{background-color:#fffdf4;border-radius:5px;margin-bottom:30px;width:100%}
+.news-content .flexwrap .fbox figure{margin:0}
+.news-content .flexwrap .fbox figure figcaption{padding:0 30px 80px;position:relative}
+.news-content .flexwrap .fbox a{color:#073022;font-size:18px;text-decoration:none}
+.news-content .flexwrap .fbox a h3{font-family:"Merriweather",serif;font-size:18px}
+.news-content .flexwrap .fbox a .read-more{color:#c56f3e;display:-webkit-box;display:-ms-flexbox;display:flex;font-size:16px;font-weight:bold;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:10px;text-decoration:none;position:absolute;bottom:30px;left:30px}
+.news-content .flexwrap .fbox a .read-more span{display:inline-block;height:14px;width:14px;position:relative}
+.news-content .flexwrap .fbox a .read-more span:after{content:"";display:block;position:absolute;bottom:0;left:0;width:100%;height:100px;background-image:url("images/arrow-link.png");background-position:bottom center;background-size:contain;background-repeat:no-repeat}
+.news-content .flexwrap .fbox img{width:100%}
+.news-content .flexwrap .fbox:hover{background-color:#527338}
+.news-content .flexwrap .fbox:hover a,.news-content .flexwrap .fbox:hover .read-more{color:#fff}
+.news-content .flexwrap .fbox:hover a span:after,.news-content .flexwrap .fbox:hover .read-more span:after{background-image:url("images/arrow-link-hover.png")}
+.single-post{background-color:#f9f5eb}
+.single-post #main{background-color:#fffdf4;position:relative;z-index:20}
+.single-post #main:before{content:"";display:block;width:95%;height:150%;position:absolute;top:-30%;left:-40%;pointer-events:none;background-image:url("images/wood-pattern.svg");background-position:bottom left;background-repeat:no-repeat;background-size:80%}
+.single-post #main:after{content:"";display:block;width:85%;height:110%;position:absolute;top:2%;left:70%;pointer-events:none;background-image:url("images/wood-pattern.svg");background-position:top right;background-repeat:no-repeat;background-size:contain}
+.single-post .site-content .wrapper{background-color:#fffdf4;border-radius:0 0 5px 5px;max-width:930px;z-index:3}
+.single-post .site-content .wrapper h2,.single-post .site-content .wrapper h3,.single-post .site-content .wrapper h4,.single-post .site-content .wrapper h5,.single-post .site-content .wrapper h6{font-family:"Merriweather",serif;color:#527338}
+.single-post .site-content .wrapper .entry-content{padding:30px}
+.single-post .hero-wrapper{background-color:transparent;max-width:1120px !important;z-index:5}
+.single-post .hero{background-color:#527338;border-radius:5px;color:#fff;height:auto;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;max-width:930px;padding:30px;position:relative;z-index:1;-webkit-box-orient:vertical;-webkit-box-direction:reverse;-ms-flex-direction:column-reverse;flex-direction:column-reverse}
+.single-post .hero .textCol h1{color:#fff !important;font-family:"Merriweather",serif;font-size:32px}
+.single-post .hero .imageCol{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;margin:15px 0;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
+.single-post .hero .imageCol figure{width:320px;height:200px;margin:0;position:relative}
+.single-post .hero .imageCol figure img{display:block;width:100%;height:100%;position:absolute;top:0;left:0;-o-object-fit:contain;object-fit:contain;-o-object-position:center;object-position:center}
+.single-post .hero .imageCol figure .inner{height:100%;padding-bottom:60%;float:left;overflow:hidden;position:relative;width:81%;margin-left:12%;margin-bottom:15px}
+.single-post .hero .imageCol figure .inner img{-webkit-mask-image:url("images/story-image-1-mask.png");mask-image:url("images/story-image-1-mask.png");-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:100%;mask-size:100%;width:290px;height:290px;-o-object-fit:cover;object-fit:cover;width:100% !important;height:100% !important}
 @media(min-width:768px){.columns-locations .flexwrap .infoBox{width:50%}
 .columns-locations .flexwrap .infoBox .details{text-align:left}
 .about-page-content .repeatable_layout_4 .imageCol{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}
@@ -2056,6 +2087,8 @@ body.popup-open{overflow:hidden}
 .team-page .fxcol{width:50%}
 #popup-content .popup-content .flex-wrap .photo{width:35%}
 #popup-content .popup-content.activity .flex-wrap.half .text{width:63%;padding:0 0 0 30px}
+.news-content .flexwrap .fbox{width:48%}
+.news-content .flexwrap .fbox figure figcaption{min-height:368px}
 }@media(min-width:1024px){.repeatable_layout1 .fxcol,.repeatable_layout_1 .fxcol{width:47%}
 .repeatable_layout1 .fxcol.textCol,.repeatable_layout_1 .fxcol.textCol{padding-left:3vw}
 .repeatable_layout2 .images .ctaWrap{width:25%}
@@ -2105,6 +2138,16 @@ body:not(.home) .midcontent.wrapper{padding:50px}
 .form-page-content .form-columns .sidebar.sticky .inside ul{max-height:80vh;overflow-y:scroll}
 .form-page-content .form-columns .content{width:62%}
 #popup-content #closePopUp{top:-42px;right:42%;-webkit-transform:translateX(-42%);transform:translateX(-42%)}
+.news-content .flexwrap .fbox{width:31.5%}
+.single-post .site-content .wrapper .entry-content{padding:60px}
+.single-post .hero{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;padding:60px}
+.single-post .hero .textCol h1{font-size:40px}
+.single-post .hero .textCol{width:50%}
+.single-post .hero .imageCol{position:absolute;bottom:0;right:0}
+.single-post .hero .imageCol figure{width:100%}
+.single-post .hero .imageCol figure .hexagon{top:15px}
+.single-post .hero .imageCol figure .inner{overflow:visible;width:100%}
+.single-post .hero .imageCol figure{width:430px;height:325px}
 }@media(min-width:1250px){.columns-locations .wrapper{max-width:1700px}
 .columns-locations .flexwrap .infoBox{width:25%}
 .about-page-content .repeatable_layout_1:before{width:350px;height:583px}
@@ -2113,6 +2156,10 @@ body:not(.home) .midcontent.wrapper{padding:50px}
 .patient-education-content .resource-item{padding:30px;width:31.3%}
 .team-page .fxcol{width:25%}
 body:not(.home) .midcontent.wrapper{padding:clamp(40px,8vw,80px)}
+.single-post .site-content .wrapper .entry-content{padding:90px}
+.single-post .hero .imageCol{bottom:-40px;right:-105px}
+.single-post .hero .imageCol figure .hexagon{top:20px}
+.single-post .hero .imageCol figure{width:507px;height:378px}
 }@media(min-width:1380px){.repeatable_layout_2 .fxcol{padding:120px 160px}
 .about-page-content .repeatable_layout_3 .fxcol{padding:120px 160px}
 }@media screen and (min-width:1600px){.hero .bottom-wave{background-size:100%}

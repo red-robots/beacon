@@ -3794,3 +3794,337 @@ body.popup-open {
     @include animateEffect('fadeIn');
   }
 }
+
+/*** Blogs / News Page ***/
+.news-content {
+  #main {
+    position: relative;
+    z-index: 2;
+    &:before {
+      content:"";
+      display: block;
+      width: 95%;
+      height: 150%;
+      position: absolute;
+      top: -30%;
+      left: -40%;
+      pointer-events: none;
+      background-image: url('images/wood-pattern.svg');
+      background-position: bottom left;
+      background-repeat: no-repeat;
+      background-size: 80%;
+      z-index: 1;
+    }
+    &:after {
+      content:"";
+      display: block;
+      width: 85%;
+      height: 110%;
+      position: absolute;
+      top: 2%;
+      left: 70%;
+      pointer-events: none;
+      background-image: url('images/wood-pattern.svg');
+      background-position: top right;
+      background-repeat: no-repeat;
+      background-size: contain;
+      z-index: 1;
+    }
+   }
+
+  .flexwrap {
+    justify-content: space-between;
+    position: relative;
+    z-index: 3;
+    // .grid-sizer {
+    //   width: 50%;
+    // }
+    // .grid-item {
+    //   width: 100%;
+    // }
+    // .grid-item, .grid-item * {
+    //   box-sizing: border-box;
+    //   height: auto;
+    // }
+
+    .fbox {
+      background-color: $color_cream;
+      border-radius: 5px;
+      margin-bottom: 30px;
+      width: 100%;
+
+      @include sm {
+        width: 48%;
+      }
+      @include tab {
+        width: 31.5%;
+      }
+
+      figure {
+        margin: 0;
+
+        figcaption {
+          padding: 0 30px 80px;
+          position: relative;
+
+          @include sm {
+            min-height: 368px;
+          }
+        }
+      }
+
+      a {
+        color: $color_green;
+        font-size: 18px;
+        text-decoration: none;
+
+        h3 {
+          font-family: $font-secondary;
+          font-size: 18px;
+        }
+
+        .read-more {
+          color: $color_secondary;
+          display: flex;
+          font-size: 16px;
+          font-weight: bold;
+          align-items: center;
+          gap: 10px;
+          text-decoration: none;
+          position: absolute;
+          bottom: 30px;
+          left: 30px;
+
+          span {
+            display: inline-block;
+            height: 14px;
+            width: 14px;
+            position: relative;
+
+            &:after {
+              content: "";
+              display: block;
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 100%;
+              height: 100px;
+              background-image: url('images/arrow-link.png');
+              background-position: bottom center;
+              background-size: contain;
+              background-repeat: no-repeat;
+            }
+          }
+        }
+      }
+
+      img {
+        width: 100%;
+      }
+
+      &:hover {
+        background-color: $color_primary;
+
+        a,
+        .read-more {
+          color: $color_white;
+
+          span:after {
+            background-image: url('images/arrow-link-hover.png');
+          }
+        }
+      }
+    }
+  }
+}
+
+/*** Blogs / News Single Page ***/
+.single-post {
+  background-color: $color_white_bg;
+
+  #main {
+    background-color: $color_cream;
+    position: relative;
+    z-index: 20;
+    &:before {
+      content:"";
+      display: block;
+      width: 95%;
+      height: 150%;
+      position: absolute;
+      top: -30%;
+      left: -40%;
+      pointer-events: none;
+      background-image: url('images/wood-pattern.svg');
+      background-position: bottom left;
+      background-repeat: no-repeat;
+      background-size: 80%;
+    }
+    &:after {
+      content:"";
+      display: block;
+      width: 85%;
+      height: 110%;
+      position: absolute;
+      top: 2%;
+      left: 70%;
+      pointer-events: none;
+      background-image: url('images/wood-pattern.svg');
+      background-position: top right;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+
+  .site-content .wrapper {
+    background-color: $color_cream;
+    border-radius:  0 0 5px 5px;
+    max-width: 930px;
+    z-index: 3;
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: $font-secondary;
+      color: $color_primary;
+    }
+
+    .entry-content {
+      padding: 30px;
+
+      @include tab {
+        padding: 60px;
+      }
+      @include mid {
+        padding: 90px;
+      }
+    }
+  }
+
+  .hero-wrapper {
+    background-color: transparent;
+    max-width: 1120px !important;
+    z-index: 5;
+  }
+
+  .hero {
+    background-color: $color_primary;
+    border-radius: 5px;
+    color: $color_white;
+    height: auto;
+    justify-content: flex-start;
+    max-width: 930px;
+    padding: 30px;
+    position: relative;
+    z-index: 1;
+    flex-direction: column-reverse;
+
+    @include tab {
+      flex-direction: row;
+      padding: 60px;
+    }
+
+    .textCol {
+      h1 {
+        color: $color_white !important;
+        font-family: $font-secondary;
+        font-size: 32px;
+  
+        @include tab {
+          font-size: 40px;
+        }
+      }
+
+      @include tab {
+        width: 50%;
+      }
+    }
+
+    .imageCol {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 15px 0;
+      justify-content: center;
+
+      @include tab {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+      @include mid {
+        bottom: -40px;
+        right: -105px;
+      }
+      
+      figure {
+        width: 320px;
+        height: 200px;
+        margin: 0;
+        position: relative;
+        
+        @include tab {
+          width: 100%;
+
+          .hexagon {
+            top: 15px;
+          }
+        }
+        @include mid {
+          .hexagon {
+            top: 20px;
+          }
+        }
+
+        img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          object-fit: contain;
+          object-position: center;
+        }
+
+        .inner {
+          height: 100%;
+          padding-bottom: 60%;
+          float: left;
+          overflow: hidden;
+          position: relative;
+          width: 81%;
+          margin-left: 12%;
+          margin-bottom: 15px;
+
+          @include tab {
+            overflow: visible;
+            width: 100%;
+          }
+
+          img {
+            mask-image: url('images/story-image-1-mask.png');
+            mask-repeat: no-repeat;
+            mask-size: 100%;
+            width: 290px;
+            height: 290px;
+            object-fit: cover;
+            width: 100% !important;
+            height: 100% !important;
+          }
+        }
+
+        @include tab {
+          width: 430px;
+          height: 325px;
+        }
+
+        @include mid {
+          width: 507px;
+          height: 378px;
+        }
+      }
+    }
+  }
+}
