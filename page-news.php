@@ -5,32 +5,41 @@
 
 get_header(); 
 $filter_category = ( isset($_GET['category']) && $_GET['category'] ) ? $_GET['category'] : '';
-$perpage = 15;
+$perpage = -1;
 $paged = ( get_query_var( 'pg' ) ) ? absint( get_query_var( 'pg' ) ) : 1;
 $currentPageLink = get_permalink();
 if($filter_category) {
   $currentPageLink = get_permalink() . '?category=' . $filter_category;
 }
 
-$taxonomy = 'category';
-$post_type = 'post';
-$tax_args = array(
-  'taxonomy'   => $taxonomy,
-  'post_types' => array($post_type), 
-  'hide_empty' => false, 
-);
-$categories = get_terms($tax_args);
-$is_current_name = 'All';
-if ($categories) {
-  if($filter_category) {
-    foreach ($categories as $tm) { 
-      if($filter_category==$tm->slug) {
-        $is_current_name = $tm->name;
-      }
-    }
+$location = "";
+$page_landing_data = get_landing_page_data();
+
+// Get Location
+global $post; // Make sure the global $post object is available
+
+if($post && $post->post_parent){
+  // Get the immediate parent page
+  $parent_page = get_post($post->post_parent);
+
+  if($parent_page) {
+    $location = $parent_page->post_name;
   }
 }
-$categories = false;
+
+// Get all post matching the location
+$postArgs = array(
+    'post_type' => 'post', // Replace with your custom post type slug
+    'posts_per_page' => -1, // Retrieve all matching posts, or specify a number
+    'tax_query' => array(
+        array(
+            'taxonomy' => 'location-category', // Replace with your custom taxonomy slug
+            'field'    => 'slug', // Can be 'slug', 'term_id', or 'name'
+            'terms'    => $location, // Taxonomy term you want to filter by
+        ),
+    ),
+);
+$entries = new WP_Query($postArgs);
 ?>
 
 <div id="primary" class="content-area news-content">
@@ -43,28 +52,7 @@ $categories = false;
       <?php } ?>
     <?php endwhile; ?>  
 
-    <?php  
-      $args = array(
-        'posts_per_page'   => $perpage,
-        'paged'            => $paged,
-        'post_type'        => $post_type,
-        'post_status'      => 'publish'
-      );
-
-      if($filter_category) {
-        $args['tax_query'] = array(
-          array(
-            'taxonomy' => $taxonomy,
-            'terms' => $filter_category,
-            'field' => 'slug',
-            'include_children' => true,
-            'operator' => 'IN'
-          )
-        );
-      }
-
-      $entries = new WP_Query($args);
-      if ( $entries->have_posts() ) { ?>
+    <?php if ( $entries->have_posts() ) { ?>
       <section id="entries" class="gallery-list">
         <div class="wrapper grid-items-wrapper">
           <div class="flexwrap masonry grid">
@@ -78,7 +66,7 @@ $categories = false;
               ?>
               <div class="fbox grid-item">
                 <figure class="the-image <?php echo ($imageUrl) ? 'has-image':'no-image' ?>">
-                  <a href="<?php echo get_permalink() ?>" class="imageLink articleLink">
+                  <a href="<?php echo get_permalink() ?>?location=<?php echo $location; ?>" class="imageLink articleLink">
                     <?php if ($imageUrl) { ?>
                       <img src="<?php echo $imageUrl ?>" alt="" />
                     <?php } ?>

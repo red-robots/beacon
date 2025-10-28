@@ -10,7 +10,8 @@
 $placeholder = THEMEURI . 'images/rectangle.png';
 global $post;
 
-get_header('resources'); ?>
+get_header('resources');
+?>
 
 <div id="primary" class="content-area-full content-default page-default-template">
 	<main id="main" class="site-main" role="main">
@@ -18,6 +19,9 @@ get_header('resources'); ?>
 		<?php while ( have_posts() ) : the_post(); 
       $fullwidthContent = get_field('fullwidth_content');
     ?>
+      <div class="wrapper back-wrapper">
+        <a href="<?php echo wp_get_referer(); ?>" class="back-post"><span class="back-arrow"></span> Back to all posts</a>
+      </div>
       <div class="wrapper hero-wrapper">
         <div class="hero flexwrap">
           <div class="date"><?php echo get_the_date('F j, Y'); ?></div>

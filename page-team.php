@@ -16,9 +16,7 @@ get_header(); ?>
         <?php endwhile; ?>
 
       <?php
-        $postListperResource = array();
         $location = "";
-
         $page_landing_data = get_landing_page_data();
 
         // Get Location

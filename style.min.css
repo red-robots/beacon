@@ -2052,7 +2052,7 @@ body.popup-open{overflow:hidden}
 .news-content #main{position:relative;z-index:2}
 .news-content #main:before{content:"";display:block;width:95%;height:150%;position:absolute;top:-30%;left:-40%;pointer-events:none;background-image:url("images/wood-pattern.svg");background-position:bottom left;background-repeat:no-repeat;background-size:80%;z-index:1}
 .news-content #main:after{content:"";display:block;width:85%;height:110%;position:absolute;top:2%;left:70%;pointer-events:none;background-image:url("images/wood-pattern.svg");background-position:top right;background-repeat:no-repeat;background-size:contain;z-index:1}
-.news-content .flexwrap{-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;position:relative;z-index:3}
+.news-content .flexwrap{gap:30px;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;position:relative;z-index:3}
 .news-content .flexwrap .fbox{background-color:#fffdf4;border-radius:5px;margin-bottom:30px;width:100%}
 .news-content .flexwrap .fbox figure{margin:0}
 .news-content .flexwrap .fbox figure figcaption{padding:0 30px 80px;position:relative}
@@ -2073,10 +2073,14 @@ body.popup-open{overflow:hidden}
 .single-post .site-content .wrapper h2,.single-post .site-content .wrapper h3,.single-post .site-content .wrapper h4,.single-post .site-content .wrapper h5,.single-post .site-content .wrapper h6{font-family:"Merriweather",serif;color:#527338}
 .single-post .site-content .wrapper .entry-content{padding:30px}
 .single-post .site-content .wrapper .entry-content a{color:#c56f3e;font-weight:bold}
-.single-post .site-content .wrapper.hero-wrapper{background-color:transparent;max-width:1120px;z-index:5}
+.single-post .site-content .wrapper.hero-wrapper,.single-post .site-content .wrapper.back-wrapper{background-color:transparent;max-width:1120px;z-index:5}
 .single-post .site-content .wrapper.share-wrapper{background-color:transparent;max-width:930px;padding:15px 0;z-index:5}
 .single-post .site-content .wrapper.share-wrapper .share-button{-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end;gap:10px}
 .single-post .site-content .wrapper.share-wrapper .share-button span{color:#527338;font-weight:bold}
+.single-post .site-content .wrapper .back-post{color:#073022;display:-webkit-box;display:-ms-flexbox;display:flex;font-size:16px;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:10px;margin-bottom:10px;text-decoration:none}
+.single-post .site-content .wrapper .back-post .back-arrow{display:inline-block;height:14px;width:14px;position:relative}
+.single-post .site-content .wrapper .back-post .back-arrow:after{content:"";display:block;position:absolute;bottom:0;left:0;width:100%;height:100px;background-image:url("images/arrow-back.png");background-position:bottom center;background-size:contain;background-repeat:no-repeat}
+.single-post .site-content .wrapper .back-post:hover{color:#c56f3e;font-weight:bold}
 .single-post .hero{background-color:#527338;border-radius:5px;color:#fff;height:auto;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;max-width:930px;padding:30px;position:relative;z-index:1;-webkit-box-orient:vertical;-webkit-box-direction:reverse;-ms-flex-direction:column-reverse;flex-direction:column-reverse}
 .single-post .hero .textCol{text-align:center}
 .single-post .hero .textCol h1{color:#fff !important;font-family:"Merriweather",serif;font-size:32px}
