@@ -3919,6 +3919,8 @@ body.popup-open {
       }
 
       img {
+        border-radius: 5px 5px 0 0;
+        overflow: hidden;
         width: 100%;
       }
 
@@ -4000,13 +4002,37 @@ body.popup-open {
       @include mid {
         padding: 90px;
       }
-    }
-  }
 
-  .hero-wrapper {
-    background-color: transparent;
-    max-width: 1120px !important;
-    z-index: 5;
+      a {
+        color: $color_secondary;
+        font-weight: bold;
+      }
+    }
+
+    &.hero-wrapper {
+      background-color: transparent;
+      max-width: 1120px;
+      z-index: 5;
+    }
+
+    &.share-wrapper {
+      background-color: transparent;
+      max-width: 930px;
+      padding: 15px 0;
+      z-index: 5;
+
+      .share-button {
+        align-items: center;
+        justify-content: flex-end;
+        gap: 10px;
+
+        span {
+          color: $color_primary;
+          font-weight: bold;
+        }
+      }
+    }
+    
   }
 
   .hero {
@@ -4027,6 +4053,7 @@ body.popup-open {
     }
 
     .textCol {
+      text-align: center;
       h1 {
         color: $color_white !important;
         font-family: $font-secondary;
@@ -4038,7 +4065,25 @@ body.popup-open {
       }
 
       @include tab {
+        text-align: left;
         width: 50%;
+        position: relative;
+      }
+    }
+
+    .date {
+      background-color: $color_yellow;
+      border-radius: 5px;
+      color: $color_green;
+      display: inline-block;
+      padding: 10px 30px;
+      text-align: center;
+      width: auto;
+
+      @include tab {
+        position: absolute;
+        bottom: -30px;
+        left: 60px;
       }
     }
 
@@ -4127,4 +4172,51 @@ body.popup-open {
       }
     }
   }
+}
+
+.addtoany_share_save_container {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  position: absolute;
+  right: 0;
+  bottom: -60px;
+  gap: 10px;
+
+  .addtoany_header {
+    color: $color_primary;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 0;
+  }
+
+  .a2a_kit {
+    line-height: 1em !important;
+    a {
+      padding: 0 7px;
+    }
+  }
+}
+
+.share-button {
+  span {
+    font-size: 16px;
+  }
+
+  .fa {
+    font-size: 24px;
+    text-align: center;
+    text-decoration: none;
+  }
+  
+  .fa-square-facebook,
+  .fa-envelope {
+    color: $color_primary;
+
+    &:hover {
+      color: $color_secondary;
+    }
+  }
+  
 }

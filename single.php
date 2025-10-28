@@ -20,6 +20,7 @@ get_header('resources'); ?>
     ?>
       <div class="wrapper hero-wrapper">
         <div class="hero flexwrap">
+          <div class="date"><?php echo get_the_date('F j, Y'); ?></div>
           <div class="fxcol textCol">
             <h1 class="page-title"><?php the_title(); ?></h1>
           </div>
@@ -35,7 +36,7 @@ get_header('resources'); ?>
           <?php } ?>
         </div>
       </div>
-      <div class="wrapper ">
+      <div class="wrapper">
         <div class="entry-content">
           <article>
             <?php the_content(); ?>

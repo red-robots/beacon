@@ -738,3 +738,6 @@ function get_team_content() {
   }
   die();
 }
+
+/*** AddToAny ***/
+add_shortcode( 'addtoany', 'A2A_SHARE_SAVE_shortcode' );
