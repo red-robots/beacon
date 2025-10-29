@@ -442,19 +442,16 @@ jQuery(document).ready(function ($) {
   /*** Teams page for content height ***/
 
   if ($('.team-page').length) {
-    var maxHeight = 0; // Select all divs with a specific class, for example, 'my-divs'
-
-    $('.my-divs').each(function () {
+    var maxHeight = 0;
+    $('.fxcol .titleWrap').each(function () {
       // Get the height of the current div
       var currentHeight = $(this).height(); // Compare with the current maxHeight and update if necessary
 
       if (currentHeight > maxHeight) {
         maxHeight = currentHeight;
       }
-    }); // Now, 'maxHeight' holds the longest height among the selected divs
-
-    console.log('The longest height is:', maxHeight); // Optional: Set all selected divs to this maxHeight
-    // $('.my-divs').height(maxHeight);
+    });
+    $('.fxcol .titleWrap').height(maxHeight);
   }
   /* Pop-up Teams */
 
