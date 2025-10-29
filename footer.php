@@ -2,6 +2,7 @@
 
   <?php 
   $global_footer_text = get_field('footer_bottom_text','option');
+  $global_footer_url = get_field('footer_bottom_text_link','option');
   if ( !is_front_page() && !is_home() ) { 
     $page_template = '';
     $foot = '';
@@ -118,7 +119,17 @@
               <?php } ?>
             </div>
             <?php if ($global_footer_text) { ?>
-            <div class="global-footer-text"><span><?php echo $global_footer_text ?></span></div>  
+              <div class="global-footer-text">
+                <?php
+                  if($global_footer_url){
+                    echo '<a href="'.$global_footer_url.'" class="global-footer-url">';
+                  }
+                    echo '<span>'. $global_footer_text .'</span>';
+                  if($global_footer_url){
+                    echo '</a>';
+                  }
+              ?>
+              </div>  
             <?php } ?>
           </div>
         </div>

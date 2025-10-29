@@ -3132,6 +3132,11 @@ body:not(.home) {
       color: #FFF;
       transform: translateY(-2px);
     }
+
+    &.global-footer-url {
+      text-decoration: none;
+      color: $color_white;
+    }
   }
   .flexwrap {
     margin-left: -30px;

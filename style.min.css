@@ -1977,6 +1977,7 @@ body:not(.home) .midcontent.wrapper .inner-content{position:relative;z-index:5}
 .site-footer .footer-inner .wrapper{z-index:5}
 .site-footer a{display:inline-block;text-decoration:underline;text-underline-offset:2px;color:#ffeda7;-webkit-transition:all ease .3s;transition:all ease .3s}
 .site-footer a:hover,.site-footer a:focus{color:#fff;-webkit-transform:translateY(-2px);transform:translateY(-2px)}
+.site-footer a.global-footer-url{text-decoration:none;color:#fff}
 .site-footer .flexwrap{margin-left:-30px;margin-right:-30px;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}
 .site-footer .footCol{padding-left:30px;padding-right:30px}
 .site-footer .infoTitle{font-size:18px;font-weight:500;line-height:1.2;text-transform:uppercase;letter-spacing:.08em;color:#fffdf4;margin-bottom:25px;padding-bottom:10px;border-bottom:1px solid #fffdf4}
