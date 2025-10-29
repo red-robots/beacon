@@ -30,13 +30,11 @@ get_header(); ?>
             $photo_placeholder = get_stylesheet_directory_uri() . '/images/photo-coming-soon.jpg';
             ?>
             <div class="staff-info">
+            <?php if ($staffPhoto) { ?>
               <figure class="photo">
-                <?php if ($staffPhoto) { ?>
-                  <img src="<?php echo $staffPhoto['url'] ?>" alt="" />
-                <?php } else { ?>
-                  <img src="<?php echo $photo_placeholder ?>" alt="" />
-                <?php } ?>
+                <img src="<?php echo $staffPhoto['url'] ?>" alt="" />                
               </figure>
+              <?php } ?>
               <div class="info">
                 <?php if ($staffJobTitle) { ?>
                 <h3 class="h3 jobtitle"><?php echo $staffJobTitle ?></h3>
