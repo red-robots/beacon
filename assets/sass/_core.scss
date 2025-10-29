@@ -752,7 +752,7 @@ body.home {
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: 0.02em;
-  color: #FFF;
+  color: $color_white !important;
   transition: all ease .4s;
   border: 1px solid $color_secondary;
   background: $color_secondary;
