@@ -853,6 +853,15 @@ body.home {
       @include tab {
         padding-left: 3vw;
       }
+      a {
+        color: inherit;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+          text-decoration-color: inherit;
+        }
+      }
     }
     .images {
       display: flex;
@@ -927,6 +936,15 @@ body.home {
       margin: 0 auto;
       strong, b {
         color: $color_secondary;
+      }
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+        text-decoration-color: inherit;
       }
     }
   }
@@ -1319,6 +1337,16 @@ body:not(.home) .patient-experience-content #main {
     @include xl {
       padding: 120px 160px;
     }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+        text-decoration-color: inherit;
+      }
+    }
   }
 
   .leftCol {
@@ -1524,6 +1552,16 @@ body:not(.home) .patient-experience-content #main {
     color: inherit;
     line-height: 1.4;
   }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+      text-decoration-color: inherit;
+    }
+  }
 }
 
 /*** About Page ***/
@@ -1684,6 +1722,16 @@ body:not(.home) .about-page-content #main {
   
       @include xl {
         padding: 120px 160px;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+          text-decoration-color: inherit;
+        }
       }
     }
   
@@ -1911,6 +1959,15 @@ body:not(.home) .about-page-content #main {
         @include tab {
           padding-left: 3vw;
         }
+        a {
+          color: inherit;
+          text-decoration: none;
+  
+          &:hover {
+            text-decoration: underline;
+            text-decoration-color: inherit;
+          }
+        }
       }
       &.imageCol {
         display: flex;
@@ -2026,6 +2083,15 @@ body:not(.home) .about-page-content #main {
 
     .textCol {
       text-align: center;
+      a {
+        color: inherit;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+          text-decoration-color: inherit;
+        }
+      }
     }
   
     h2, h3 {
@@ -2312,6 +2378,47 @@ body.page-template-landing-page {
   }
   #primary {
     min-height: 30em;
+  }
+}
+
+#alert-banner {
+  background-color: $color_yellow;
+  font-weight: 500;
+  text-align: center;
+  padding: 10px 30px;
+  position: relative;
+  display: none;
+
+  p {
+    margin: 0;
+  }
+
+  a {
+    font-weight: bold;
+    color: $color_green;
+    transition: all ease .3s;
+    text-decoration: none;
+
+    &:hover {
+      transform: translateY(-2px);
+      text-decoration: underline;
+    }
+  }
+
+  #closeAlert {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      padding: 0;
+      z-index: 1;
+
+      i {
+        color: $color_green;
+        font-size: 21px;
+      }
   }
 }
 

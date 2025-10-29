@@ -442,4 +442,20 @@ jQuery(document).ready(function ($) {
     $('#popup-content .popup-content').remove();
   }
 
+  /*** Alert Banner ***/
+	const alertBanner = document.getElementById('alert-banner');
+	const closeAlertBtn = document.getElementById('closeAlert');
+
+	function showPopup() {
+		alertBanner.style.display = 'block';
+	}
+
+	function hidePopup() {
+		alertBanner.style.display = 'none';
+	}
+
+	showPopup();
+
+	closeAlertBtn.addEventListener('click', hidePopup);
+
 }); 

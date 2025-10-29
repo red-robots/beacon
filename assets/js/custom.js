@@ -505,4 +505,20 @@ jQuery(document).ready(function ($) {
     $('#overlay').removeClass('show');
     $('#popup-content .popup-content').remove();
   }
+  /*** Alert Banner ***/
+
+
+  var alertBanner = document.getElementById('alert-banner');
+  var closeAlertBtn = document.getElementById('closeAlert');
+
+  function showPopup() {
+    alertBanner.style.display = 'block';
+  }
+
+  function hidePopup() {
+    alertBanner.style.display = 'none';
+  }
+
+  showPopup();
+  closeAlertBtn.addEventListener('click', hidePopup);
 });

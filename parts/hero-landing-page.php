@@ -9,7 +9,17 @@ $static_title = (isset($static['title'])) ? $static['title'] : '';
 $static_description = (isset($static['description'])) ? $static['description'] : '';
 $static_buttons = (isset($static['buttons'])) ? $static['buttons'] : '';
 $sliderImages = get_field('slider');
-if($static_image) { ?>
+$message = get_field('message');
+
+if($message) {
+?>
+<section id="alert-banner">
+  <div class="wrapper">
+    <?php echo $message; ?>
+  </div>
+  <button id="closeAlert"><i class="fa fa-times" aria-hidden="true"></i></button>
+</section>
+<?php } if($static_image) { ?>
 <section class="hero" role="banner" aria-label="Main promotional banner">
   <div class="hero_inner_content">
     <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><clipPath id="wavePath" clipPathUnits="objectBoundingBox"><path d="M0,0h1919.1v949.1s-55.9,24.5-118,22.9c-115.4-3-182-36.9-331-49.9-56.5-3.8-139.3,2.7-198,15.9-96.2,22.2-193.5,48.1-314,37.1-135.6-10.6-172.2-50.3-332.1-49.1-187.2,1.4-349.2,48.2-466.9,49.1C56.1,977.6,0,932,0,932V0Z" transform="scale(0.00054, 0.00102)" /></clipPath></defs></svg>
