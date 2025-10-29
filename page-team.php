@@ -61,7 +61,7 @@ get_header(); ?>
             <div class="popup-activity fxcol flexwrap" data-postid="<?php echo $post_id ?>">
                 <figure class="photo">
                     <?php if ($team_img) { ?>
-                        <img src="<?php echo $team_img['sizes']['medium'] ?>" alt="" />
+                        <img src="<?php echo $team_img['sizes']['medium_large'] ?>" alt="<?php echo $team_name; ?>" />
                     <?php } else { ?>
                         <img src="<?php echo $photo_placeholder ?>" alt="" />
                     <?php } ?>
