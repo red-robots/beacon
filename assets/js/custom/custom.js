@@ -374,34 +374,53 @@ jQuery(document).ready(function ($) {
     }
   });
 
-  /* Pop-up Teams */
-  $('.popup-activity').on("click",function(e){
-    e.preventDefault();
-    var id = $(this).attr('data-postid');
-    $.ajax({
-      url : frontajax.ajaxurl,
-      type : 'post',
-      dataType : "json",
-      data : {
-        action : 'get_team_content',
-        postid : id
-      },
-      beforeSend:function(){
-        $('#loader').show();
-      },
-      success : function( response ) {
-        if(response.content) {
-          $('#popup-content').html(response.content);
-          $('#popup-content').addClass('show');
-          $('#overlay').addClass('show');
-          $('body').addClass('popup-open');
-        } 
-      },
-      complete: function() {
-        $('#loader').hide();
+  /*** Teams page for content height ***/
+  if( $('.team-page').length ) {
+    let maxHeight = 0;
+  
+    $('.fxcol .titleWrap').each(function() {
+      // Get the height of the current div
+      const currentHeight = $(this).height();
+  
+      // Compare with the current maxHeight and update if necessary
+      if (currentHeight > maxHeight) {
+        maxHeight = currentHeight;
       }
     });
-  });
+    
+    $('.fxcol .titleWrap').height(maxHeight);
+  }
+
+  /* Pop-up Teams */
+  if( $('.popup-activity').length ) {
+    $('.popup-activity').on("click",function(e){
+      e.preventDefault();
+      var id = $(this).attr('data-postid');
+      $.ajax({
+        url : frontajax.ajaxurl,
+        type : 'post',
+        dataType : "json",
+        data : {
+          action : 'get_team_content',
+          postid : id
+        },
+        beforeSend:function(){
+          $('#loader').show();
+        },
+        success : function( response ) {
+          if(response.content) {
+            $('#popup-content').html(response.content);
+            $('#popup-content').addClass('show');
+            $('#overlay').addClass('show');
+            $('body').addClass('popup-open');
+          } 
+        },
+        complete: function() {
+          $('#loader').hide();
+        }
+      });
+    });
+  }
 
   /* Close custom pop-up */
   $(document).click(function() {
