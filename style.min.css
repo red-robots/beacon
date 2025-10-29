@@ -1854,11 +1854,13 @@ body:not(.home) .about-page-content #main{padding-bottom:0}
 .patient-education-content .resource-container{margin-top:50px}
 .patient-education-content .resource-icon{text-align:center}
 .patient-education-content .resource-icon figure{margin:0}
-.patient-education-content .resource-item{background-color:#fffdf4;border-radius:5px;padding:25px;width:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;gap:15px;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}
+.patient-education-content .resource-content{color:#073022}
+.patient-education-content .resource-item{background-color:#fffdf4;border-radius:5px;width:100%}
+.patient-education-content .resource-item a{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;gap:15px;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;padding:25px;text-decoration:none}
 .patient-education-content .resource-item h3{color:#073022;font-family:"Merriweather",serif;font-size:18px;font-weight:bold;margin:0}
-.patient-education-content .resource-item a{color:#c56f3e;display:-webkit-box;display:-ms-flexbox;display:flex;font-size:16px;font-weight:bold;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:10px;margin-top:10px;text-decoration:none}
-.patient-education-content .resource-item a span{display:inline-block;height:14px;width:14px;position:relative}
-.patient-education-content .resource-item a span:after{content:"";display:block;position:absolute;bottom:0;left:0;width:100%;height:100px;background-image:url("images/arrow-link.png");background-position:bottom center;background-size:contain;background-repeat:no-repeat}
+.patient-education-content .resource-item .read-more{color:#c56f3e;display:-webkit-box;display:-ms-flexbox;display:flex;font-size:16px;font-weight:bold;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:10px;margin-top:10px;text-decoration:none}
+.patient-education-content .resource-item .read-more span{display:inline-block;height:14px;width:14px;position:relative}
+.patient-education-content .resource-item .read-more span:after{content:"";display:block;position:absolute;bottom:0;left:0;width:100%;height:100px;background-image:url("images/arrow-link.png");background-position:bottom center;background-size:contain;background-repeat:no-repeat}
 .patient-education-content .resource-item:hover{background-color:#c1dfb7;cursor:pointer}
 .team-page #main{position:relative;z-index:20}
 .team-page #main:before{content:"";display:block;width:95%;height:150%;position:absolute;top:-30%;left:-40%;pointer-events:none;background-image:url("images/wood-pattern.svg");background-position:bottom left;background-repeat:no-repeat;background-size:80%}
@@ -2174,7 +2176,8 @@ body:not(.home) .midcontent.wrapper{padding:50px}
 .about-page-content .repeatable_layout_1:before{width:350px;height:583px}
 .about-page-content .repeatable_layout_5 .fxcol.imageCol figure{width:460px;height:460px}
 .about-page-content .repeatable_layout_5 .fxcol.imageCol figure .inner img{width:430px;height:430px}
-.patient-education-content .resource-item{padding:30px;width:31.3%}
+.patient-education-content .resource-item{width:31.3%}
+.patient-education-content .resource-item a{padding:30px}
 .team-page .fxcol{width:25%}
 body:not(.home) .midcontent.wrapper{padding:clamp(40px,8vw,80px)}
 .news-content .flexwrap .fbox{width:31.5%}

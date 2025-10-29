@@ -117,6 +117,7 @@ get_header(); ?>
                     $post_excerpt = get_field('excerpt_shorten', $post_id);
               ?>
                   <div class="fxcol resource-item">
+                    <a href="<?php echo $post_url; ?>?location=<?php echo $location; ?>">
                     <h3><?php the_title(); ?></h3>
                     <?php if( $post_content || $post_excerpt ){ ?>
                       <div class="resource-content">
@@ -129,7 +130,8 @@ get_header(); ?>
                         ?>
                       </div>
                     <?php } ?>
-                    <a href="<?php echo $post_url; ?>?location=<?php echo $location; ?>">Read more <span class="arrow"></span></a>
+                    <div class="read-more">Read more <span class="arrow"></span></div>
+                    </a>
                   </div>
               <?php
                   wp_reset_postdata();
