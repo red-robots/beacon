@@ -1932,7 +1932,7 @@ body:not(.home) .about-page-content #main {
             position: absolute;
             top: 0;
             left: 0;
-            object-fit: contain;
+            object-fit: cover;
             object-position: center;
           }
 
@@ -1982,7 +1982,6 @@ body:not(.home) .about-page-content #main {
           height: auto;
           @include tab {
             width: 100%;
-
             .hexagon {
               top: -30px;
             }
@@ -2007,6 +2006,7 @@ body:not(.home) .about-page-content #main {
           img {
             width: 100%;
             height: 100%;
+            object-fit: contain;
           }
         }
       }
