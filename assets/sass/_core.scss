@@ -3861,22 +3861,37 @@ body.popup-open {
       width: 100%;
 
       @include sm {
-        width: 48%;
+        width: 47.5%;
       }
       @include tab {
+        width: 31.1%;
+      }
+      @include mid {
         width: 31.5%;
       }
 
       figure {
         margin: 0;
+        position: relative;
+        padding-bottom: 80%;
+        overflow: hidden;
+        img {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          object-fit: cover;
+          object-position: center;
+        }
+      }
 
-        figcaption {
-          padding: 0 30px 80px;
-          position: relative;
+      figcaption {
+        padding: 0 30px 80px;
+        position: relative;
 
-          @include sm {
-            min-height: 368px;
-          }
+        @include sm {
+          min-height: 368px;
         }
       }
 

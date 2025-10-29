@@ -65,10 +65,11 @@ $entries = new WP_Query($postArgs);
               }
               ?>
               <div class="fbox grid-item">
-                <figure class="the-image <?php echo ($imageUrl) ? 'has-image':'no-image' ?>">
                   <a href="<?php echo get_permalink() ?>?location=<?php echo $location; ?>" class="imageLink articleLink">
                     <?php if ($imageUrl) { ?>
-                      <img src="<?php echo $imageUrl ?>" alt="" />
+                      <figure class="the-image <?php echo ($imageUrl) ? 'has-image':'no-image' ?>">
+                        <img src="<?php echo $imageUrl ?>" alt="" />
+                      </figure>
                     <?php } ?>
                     <figcaption>
                       <h3 class="title"><?php echo get_the_title() ?></h3>
@@ -78,7 +79,7 @@ $entries = new WP_Query($postArgs);
                       <span class="read-more">Read More <span class="arrow"></span></span>
                     </figcaption>
                   </a>
-                </figure>
+                
               </div>
             <?php endwhile; wp_reset_postdata(); ?>
           </div>

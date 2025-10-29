@@ -2055,8 +2055,9 @@ body.popup-open{overflow:hidden}
 .news-content #main:after{content:"";display:block;width:85%;height:110%;position:absolute;top:2%;left:70%;pointer-events:none;background-image:url("images/wood-pattern.svg");background-position:top right;background-repeat:no-repeat;background-size:contain;z-index:1}
 .news-content .flexwrap{gap:30px;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;position:relative;z-index:3}
 .news-content .flexwrap .fbox{background-color:#fffdf4;border-radius:5px;margin-bottom:30px;width:100%}
-.news-content .flexwrap .fbox figure{margin:0}
-.news-content .flexwrap .fbox figure figcaption{padding:0 30px 80px;position:relative}
+.news-content .flexwrap .fbox figure{margin:0;position:relative;padding-bottom:80%;overflow:hidden}
+.news-content .flexwrap .fbox figure img{width:100%;height:100%;position:absolute;top:0;left:0;-o-object-fit:cover;object-fit:cover;-o-object-position:center;object-position:center}
+.news-content .flexwrap .fbox figcaption{padding:0 30px 80px;position:relative}
 .news-content .flexwrap .fbox a{color:#073022;font-size:18px;text-decoration:none}
 .news-content .flexwrap .fbox a h3{font-family:"Merriweather",serif;font-size:18px}
 .news-content .flexwrap .fbox a .read-more{color:#c56f3e;display:-webkit-box;display:-ms-flexbox;display:flex;font-size:16px;font-weight:bold;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:10px;text-decoration:none;position:absolute;bottom:30px;left:30px}
@@ -2106,8 +2107,8 @@ body.popup-open{overflow:hidden}
 .team-page .fxcol{width:50%}
 #popup-content .popup-content .flex-wrap .photo{width:35%}
 #popup-content .popup-content.activity .flex-wrap.half .text{width:63%;padding:0 0 0 30px}
-.news-content .flexwrap .fbox{width:48%}
-.news-content .flexwrap .fbox figure figcaption{min-height:368px}
+.news-content .flexwrap .fbox{width:47.5%}
+.news-content .flexwrap .fbox figcaption{min-height:368px}
 }@media(min-width:1024px){.repeatable_layout1 .fxcol,.repeatable_layout_1 .fxcol{width:47%}
 .repeatable_layout1 .fxcol.textCol,.repeatable_layout_1 .fxcol.textCol{padding-left:3vw}
 .repeatable_layout2 .images .ctaWrap{width:25%}
@@ -2157,7 +2158,7 @@ body:not(.home) .midcontent.wrapper{padding:50px}
 .form-page-content .form-columns .sidebar.sticky .inside ul{max-height:80vh;overflow-y:scroll}
 .form-page-content .form-columns .content{width:62%}
 #popup-content #closePopUp{top:-42px;right:42%;-webkit-transform:translateX(-42%);transform:translateX(-42%)}
-.news-content .flexwrap .fbox{width:31.5%}
+.news-content .flexwrap .fbox{width:31.1%}
 .single-post .site-content .wrapper .entry-content{padding:60px}
 .single-post .hero{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;padding:60px}
 .single-post .hero .textCol h1{font-size:40px}
@@ -2176,6 +2177,7 @@ body:not(.home) .midcontent.wrapper{padding:50px}
 .patient-education-content .resource-item{padding:30px;width:31.3%}
 .team-page .fxcol{width:25%}
 body:not(.home) .midcontent.wrapper{padding:clamp(40px,8vw,80px)}
+.news-content .flexwrap .fbox{width:31.5%}
 .single-post .site-content .wrapper .entry-content{padding:90px}
 .single-post .hero .imageCol{bottom:-40px;right:-105px}
 .single-post .hero .imageCol figure .hexagon{top:20px}
