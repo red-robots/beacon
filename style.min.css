@@ -1876,7 +1876,7 @@ body:not(.home) .about-page-content #main{padding-bottom:0}
 .patient-education-content .resource-item .read-more span{display:inline-block;height:14px;width:14px;position:relative}
 .patient-education-content .resource-item .read-more span:after{content:"";display:block;position:absolute;bottom:0;left:0;width:100%;height:100px;background-image:url("images/arrow-link.png");background-position:bottom center;background-size:contain;background-repeat:no-repeat}
 .patient-education-content .resource-item:hover{background-color:#c1dfb7;cursor:pointer}
-.team-page #main{position:relative;z-index:20}
+.team-page #main{padding-top:50px;position:relative;z-index:20}
 .team-page #main:before{content:"";display:block;width:95%;height:150%;position:absolute;top:-30%;left:-40%;pointer-events:none;background-image:url("images/wood-pattern.svg");background-position:bottom left;background-repeat:no-repeat;background-size:80%}
 .team-page #main:after{content:"";display:block;width:85%;height:110%;position:absolute;top:2%;left:70%;pointer-events:none;background-image:url("images/wood-pattern.svg");background-position:top right;background-repeat:no-repeat;background-size:contain}
 .team-page h1{font-size:42px;margin-bottom:45px;text-align:center}

@@ -2235,6 +2235,7 @@ body:not(.home) .about-page-content #main {
 /*** Team Page ***/
 .team-page {
  #main {
+  padding-top: 50px;
   position: relative;
   z-index: 20;
   &:before {
