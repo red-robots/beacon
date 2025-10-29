@@ -2482,16 +2482,17 @@ body.page-template-landing-page {
     }
   }
 }
-
+body:not(.page-template-landing-page){
+  .site-footer:before {
+    display: none!important;
+  }
+}
 body:not(.home) {
   #main {
     background: #F9F5EB;
     padding-bottom: 150px;
     padding-left: 20px;
     padding-right: 20px;
-  }
-  .site-footer:before {
-    display: none!important;
   }
   .midcontent.wrapper {
     background: #FFFDF4;

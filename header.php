@@ -19,7 +19,6 @@ $navigation = ( isset($opt['navigation']) && $opt['navigation'] ) ? $opt['naviga
 $landingpageLogo = ( isset($opt['logo']) && $opt['logo'] ) ? $opt['logo'] : '';
 $landing_page_home = ( isset($opt['home_url']) && $opt['home_url'] ) ? $opt['home_url'] : '';
 $landing_page_home_title = ( isset($opt['home_title']) && $opt['home_title'] ) ? $opt['home_title'] : '';
-
 $post_name = '';
 if ( is_single() || is_page() ) { 
   global $post;
