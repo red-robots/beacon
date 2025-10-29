@@ -1883,7 +1883,7 @@ body.page-template-landing-page #primary{min-height:30em}
 .hero-internal .hero-title h1{margin:0;font-size:clamp(35px,5vw,55px);font-weight:600;line-height:1.1;color:#fff;background:#527338;max-width:500px;min-width:500px;min-height:110px;border-radius:8px 8px 0 0;padding:20px 30px;position:relative;z-index:5}
 .hero-internal .hero-image{margin:0;position:absolute;top:0;left:0;width:100%;height:100%}
 .hero-internal .hero-image .image{position:absolute;top:0;left:0;width:100%;height:100%;background-size:cover;background-position:center;background-repeat:no-repeat}
-.hero-about{position:relative;height:700px;z-index:100;overflow:visible}
+.hero-about{position:relative;height:500px;z-index:100;overflow:visible}
 .hero-about .hero-title{position:absolute;top:0;left:0;width:100%;height:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-align:end;-ms-flex-align:end;align-items:flex-end;z-index:10}
 .hero-about .hero-title .titlewrap{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;position:relative}
 .hero-about .hero-title .titlewrap h1{margin:0;font-size:clamp(35px,5vw,55px);font-weight:600;line-height:1.1;color:#fff;max-width:500px;min-width:500px;min-height:110px;padding:20px 0;position:relative;z-index:5}
