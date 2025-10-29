@@ -785,7 +785,7 @@ body.home {
   }
   &:hover, &:focus {
     background: transparent;
-    color: $color_secondary;
+    color: $color_secondary !important;
     &:after {
       opacity: 1;
       width: 18px;
