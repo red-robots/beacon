@@ -300,11 +300,11 @@ jQuery(document).ready(function ($) {
     doSmoothScrolling(currentHash);
   }
 
-  $('a[href*="#"]').on('click', function(e){
-    e.preventDefault();
-    var ElementID = $(this).attr('href');
-    doSmoothScrolling(ElementID);
-  });
+  // $('a[href*="#"]').on('click', function(e){
+  //   e.preventDefault();
+  //   var ElementID = $(this).attr('href');
+  //   doSmoothScrolling(ElementID);
+  // });
 
   if($(".sidebar").length) {
     let stickyNav = $(".sidebar");

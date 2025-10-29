@@ -353,13 +353,12 @@ jQuery(document).ready(function ($) {
 
   if (currentHash) {
     doSmoothScrolling(currentHash);
-  }
+  } // $('a[href*="#"]').on('click', function(e){
+  //   e.preventDefault();
+  //   var ElementID = $(this).attr('href');
+  //   doSmoothScrolling(ElementID);
+  // });
 
-  $('a[href*="#"]').on('click', function (e) {
-    e.preventDefault();
-    var ElementID = $(this).attr('href');
-    doSmoothScrolling(ElementID);
-  });
 
   if ($(".sidebar").length) {
     var stickyNav = $(".sidebar");
