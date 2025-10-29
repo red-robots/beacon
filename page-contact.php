@@ -11,39 +11,41 @@ get_header(); ?>
     <div class="midcontent wrapper">
       <div class="inner-content">
         <?php  
-        $title = get_field('title');
-        $staff = get_field('manager');
-        $details = get_field('contact_details');
-        $address = (isset($details['address']) && $details['address']) ? $details['address'] : '';
-        $phone = (isset($details['phone']) && $details['phone']) ? $details['phone'] : '';
-        $map = (isset($details['map']) && $details['map']) ? $details['map'] : '';
-        $hours = (isset($details['hours']) && $details['hours']) ? $details['hours'] : '';
+          $title = get_field('title');
+          $details = get_field('contact_details');
+          $address = (isset($details['address']) && $details['address']) ? $details['address'] : '';
+          $phone = (isset($details['phone']) && $details['phone']) ? $details['phone'] : '';
+          $map = (isset($details['map']) && $details['map']) ? $details['map'] : '';
+          $hours = (isset($details['hours']) && $details['hours']) ? $details['hours'] : '';
         ?>
         <div class="infoCol detailCol">
           <?php if ($title) { ?>
           <h2 class="h2"><span><?php echo $title ?></span></h2> 
           <?php } ?>
-          <?php if($staff) { 
-            $staffName = $staff->post_title;
-            $staffPhoto = get_field('photo', $staff->ID);
-            $staffJobTitle = get_field('job_title', $staff->ID);
-            $photo_placeholder = get_stylesheet_directory_uri() . '/images/photo-coming-soon.jpg';
-            ?>
-            <div class="staff-info">
-            <?php if ($staffPhoto) { ?>
-              <figure class="photo">
-                <img src="<?php echo $staffPhoto['url'] ?>" alt="" />                
-              </figure>
-              <?php } ?>
-              <div class="info">
-                <?php if ($staffJobTitle) { ?>
-                <h3 class="h3 jobtitle"><?php echo $staffJobTitle ?></h3>
-                <?php } ?>
-                <div class="name"><?php echo $staffName ?></div>
-              </div>
-            </div>
-            <?php } ?>
-
+          <?php
+            if( have_rows('manager_contact') ):
+              while( have_rows('manager_contact') ): the_row(); 
+                $image = get_sub_field('manager_image');
+                $name = get_sub_field('manager_name');
+                $job_title = get_sub_field('job_title');
+              ?>
+                <div class="staff-info">
+                  <?php if ($image) { ?>
+                    <figure class="photo">
+                      <img src="<?php echo $image['sizes']['medium'] ?>" alt="" />                
+                    </figure>
+                  <?php } ?>
+                  <div class="info">
+                    <?php if ($job_title) { ?>
+                    <h3 class="h3 jobtitle"><?php echo $job_title ?></h3>
+                    <?php } ?>
+                    <div class="name"><?php echo $name ?></div>
+                  </div>
+                </div>
+              <?php
+                endwhile;
+            endif;
+          ?>
             <div class="info-row">
 
               <div class="group">
