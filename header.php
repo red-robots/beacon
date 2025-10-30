@@ -62,7 +62,7 @@ $getPageTitle = get_the_title();
 	<div id="overlay"></div>
 	<a class="skip-link" href="#content"><?php esc_html_e( 'Skip to content', 'bellaworks' ); ?></a>
 
-  <?php if ( is_front_page() || $post_name=='homepage' ) { ?>
+  <?php if ( is_front_page() || $post_name=='homepage' || $post_name=='sitemap' ) { ?>
   <header id="masthead" class="site-header-home">
     <div class="wrapper">
       <div class="site-logo">

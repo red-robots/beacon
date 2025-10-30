@@ -4393,5 +4393,38 @@ body.popup-open {
       color: $color_secondary;
     }
   }
-  
+}
+
+.sitemap {
+  .site-main {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .wrapper {
+    max-width: 930px;
+  }
+  &-links {
+    ul {
+      list-style-type: disc;
+
+      li {
+        a {
+          color: $color_secondary;
+          font-weight: 500;
+          text-decoration: none;
+
+          &:hover {
+            color: $color_green;
+            text-decoration: underline;
+          }
+        }
+        &::marker {
+          color: $color_green;
+        }
+      }
+      > ul {
+        margin-left: 30px;
+      }
+    }
+  }
 }
