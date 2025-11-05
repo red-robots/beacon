@@ -1905,10 +1905,10 @@ body.page-template-landing-page #primary{min-height:30em}
 .hero-internal .hero-title{position:absolute;top:0;left:0;width:100%;height:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-align:end;-ms-flex-align:end;align-items:flex-end;z-index:10}
 .hero-internal .hero-title .titlewrap{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;position:relative}
 .hero-internal .hero-title .titlewrap:after{pointer-events:none;content:"";display:block;position:absolute;bottom:-38px;left:0;width:100%;height:100px;background-image:url("images/hero-title-curve.svg");background-position:bottom center;background-size:135%;background-repeat:no-repeat}
-.hero-internal .hero-title h1{margin:0;font-size:clamp(35px,5vw,55px);font-weight:600;line-height:1.1;color:#fff;background:#527338;max-width:500px;min-height:110px;border-radius:8px 8px 0 0;padding:20px 30px;position:relative;z-index:5}
+.hero-internal .hero-title h1{margin:0;font-size:clamp(35px,5vw,55px);font-weight:600;line-height:1.1;color:#fff;background:#527338;max-width:500px;border-radius:8px 8px 0 0;padding:20px 30px;position:relative;z-index:5}
 .hero-internal .hero-image{margin:0;position:absolute;top:0;left:0;width:100%;height:100%}
 .hero-internal .hero-image .image{position:absolute;top:0;left:0;width:100%;height:100%;background-size:cover;background-position:center;background-repeat:no-repeat}
-.page-template-page-contact .hero-internal .hero-title .titlewrap:after{bottom:-22px}
+.page-template-page-contact .hero-internal .hero-title .titlewrap:after{bottom:-16px}
 .hero-about{position:relative;height:500px;z-index:100;overflow:visible}
 .hero-about .hero-title{position:absolute;top:0;left:0;width:100%;height:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-align:end;-ms-flex-align:end;align-items:flex-end;z-index:10}
 .hero-about .hero-title .titlewrap{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;position:relative}
@@ -2183,7 +2183,10 @@ body.popup-open{overflow:hidden}
 .patient-education-content .resource-container{margin-top:120px}
 .team-page h1{font-size:64px;margin-bottom:70px}
 .team-page .fxcol{width:33%}
-.page-template-page-contact .hero-internal .hero-title .titlewrap:after{bottom:-30px}
+.hero-internal .hero-title h1{min-width:500px}
+.page-template-page-contact .hero-internal .hero-title .titlewrap:after{bottom:-40px}
+.hero-about .hero-title .titlewrap h1{min-width:500px}
+.hero-about .hero-title .contentwrap{min-width:500px}
 body:not(.home) .midcontent.wrapper{padding:50px}
 .contact-page-content .h2 span{min-width:450px}
 .contact-page-content .inner-content:has(.detailCol):has(.mapCol) .infoCol{width:60%}

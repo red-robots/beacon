@@ -2514,12 +2514,15 @@ body.page-template-landing-page {
       color: #FFF;
       background: $color_primary;
       max-width: 500px;
-      // min-width: 500px;
-      min-height: 110px;
+      // min-height: 110px;
       border-radius: 8px 8px 0 0;
       padding: 20px 30px;
       position: relative;
       z-index: 5;
+
+      @include tab {
+        min-width: 500px;
+      }
     }
   }
   .hero-image {
@@ -2543,9 +2546,9 @@ body.page-template-landing-page {
 }
 
 .page-template-page-contact .hero-internal .hero-title .titlewrap:after {
-  bottom: -22px;
+  bottom: -16px;
   @include tab {
-    bottom: -30px;
+    bottom: -40px;
   }
 }
 
@@ -2575,11 +2578,14 @@ body.page-template-landing-page {
         line-height: 1.1;
         color: #FFF;
         max-width: 500px;
-        // min-width: 500px;
         min-height: 110px;
         padding: 20px 0;
         position: relative;
         z-index: 5;
+
+        @include tab {
+          min-width: 500px;
+        }
       }
     }
     .contentwrap {
@@ -2590,12 +2596,15 @@ body.page-template-landing-page {
       color: #FFF;
       background: $color_primary;
       max-width: 500px;
-      // min-width: 500px;
       min-height: 110px;
       border-radius: 8px 8px 0 0;
       padding: 20px 30px;
       position: relative;
       z-index: 5;
+
+      @include tab {
+        min-width: 500px;
+      }
 
       &:after {
         pointer-events: none;
