@@ -1666,11 +1666,19 @@ body:not(.home) .about-page-content #main {
       position: relative;
       z-index: 20;
       width: 100%;
-      padding: 0 50px;
+      padding: 30px;
+
+      @include  sm {
+        padding: 0 50px;
+      }
     }
     &:has(.textCol):has(.imageCol) {
       .fxcol {
         width: 100%;
+
+        &.imageCol {
+          padding: 0;
+        }
 
         @include tab {
           width: 50%;

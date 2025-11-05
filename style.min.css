@@ -1803,8 +1803,9 @@ body:not(.home) .about-page-content #main{padding-bottom:0}
 .about-page-content .repeatable_layout_2{position:relative;padding-top:150px;padding-bottom:150px}
 .about-page-content .repeatable_layout_2 .wrapper{background:#fffdf4;border-radius:5px;max-width:1024px}
 .about-page-content .repeatable_layout_2 .flexwrap{-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-orient:vertical;-webkit-box-direction:reverse;-ms-flex-direction:column-reverse;flex-direction:column-reverse}
-.about-page-content .repeatable_layout_2 .fxcol{position:relative;z-index:20;width:100%;padding:0 50px}
+.about-page-content .repeatable_layout_2 .fxcol{position:relative;z-index:20;width:100%;padding:30px}
 .about-page-content .repeatable_layout_2:has(.textCol):has(.imageCol) .fxcol{width:100%}
+.about-page-content .repeatable_layout_2:has(.textCol):has(.imageCol) .fxcol.imageCol{padding:0}
 .about-page-content .repeatable_layout_2:has(.textCol):has(.imageCol) .fxcol img{width:100%}
 .about-page-content .repeatable_layout_3{margin-right:-20px;margin-left:-20px;position:relative;padding-top:0;padding-bottom:0}
 .about-page-content .repeatable_layout_3 .flexwrap{-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}
@@ -2131,6 +2132,7 @@ body.popup-open{overflow:hidden}
 .sitemap-links ul>ul,.error404-links ul>ul{margin-left:30px}
 @media(min-width:768px){.columns-locations .flexwrap .infoBox{width:50%}
 .columns-locations .flexwrap .infoBox .details{text-align:left}
+.about-page-content .repeatable_layout_2 .fxcol{padding:0 50px}
 .about-page-content .repeatable_layout_4 .imageCol{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}
 .about-page-content .repeatable_layout_4 .ctaWrap{width:31%}
 .team-page .fxcol{width:50%}
