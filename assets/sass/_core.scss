@@ -2525,6 +2525,13 @@ body.page-template-landing-page {
   }
 }
 
+.page-template-page-contact .hero-internal .hero-title .titlewrap:after {
+  bottom: -22px;
+  @include tab {
+    bottom: -30px;
+  }
+}
+
 .hero-about {
   position: relative;
   height: 500px; /* 700px */
