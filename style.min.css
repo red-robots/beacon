@@ -1676,6 +1676,7 @@ body.home .site-main{padding-top:0;padding-bottom:100px}
 .columns-locations .flexwrap .infoBox a.button{min-width:215px;text-align:center}
 .site-content{position:relative}
 .site-main{padding-top:150px;position:relative;z-index:10;overflow:hidden}
+.no-hero-image .site-main{padding-top:80px}
 .button{display:inline-block;text-decoration:none;text-align:center;-webkit-appearance:none;-moz-appearance:none;appearance:none;border:0;border-radius:100px;padding:14px 20px 15px;font-family:"Quicksand",sans-serif;font-size:16px;font-weight:500;line-height:1.2;letter-spacing:.02em;color:#fff !important;-webkit-transition:all ease .4s;transition:all ease .4s;border:1px solid #c56f3e;background:#c56f3e;position:relative;overflow:hidden;z-index:2;min-width:160px}
 .button:after{content:"";display:inline-block;opacity:0;width:0;height:18px;overflow:hidden;-webkit-transform:translateX(-20px);transform:translateX(-20px);-webkit-transition:all ease .3s;transition:all ease .3s;position:absolute;background-image:url("images/arrow.svg");background-size:contain;background-position:center;background-repeat:no-repeat}
 .button span{display:inline-block;-webkit-transition:all ease .3s;transition:all ease .3s}
@@ -2142,7 +2143,8 @@ body.popup-open{overflow:hidden}
 #popup-content .popup-content.activity .flex-wrap.half .text{width:63%;padding:0 0 0 30px}
 .news-content .flexwrap .fbox{width:47.5%}
 .news-content .flexwrap .fbox figcaption{min-height:368px}
-}@media(min-width:1024px){.repeatable_layout1 .fxcol,.repeatable_layout_1 .fxcol{width:47%}
+}@media(min-width:1024px){.no-hero-image .site-main{padding-top:100px}
+.repeatable_layout1 .fxcol,.repeatable_layout_1 .fxcol{width:47%}
 .repeatable_layout1 .fxcol.textCol,.repeatable_layout_1 .fxcol.textCol{padding-left:3vw}
 .repeatable_layout2 .images .ctaWrap{width:25%}
 .repeatable_layout3 .flexwrap{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}

@@ -738,6 +738,15 @@ body.home {
   z-index: 10;
   overflow: hidden;
 }
+.no-hero-image {
+  .site-main {
+    padding-top: 80px;
+
+    @include tab {
+      padding-top: 100px;
+    }
+  }
+}
 
 .button {
   display: inline-block;
