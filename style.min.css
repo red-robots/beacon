@@ -1845,10 +1845,10 @@ body:not(.home) .about-page-content #main{padding-bottom:0}
 .about-page-content .repeatable_layout_5 .fxcol.textCol a{color:inherit;text-decoration:none}
 .about-page-content .repeatable_layout_5 .fxcol.textCol a:hover{text-decoration:underline;-webkit-text-decoration-color:inherit;text-decoration-color:inherit}
 .about-page-content .repeatable_layout_5 .fxcol.imageCol{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;margin:15px 0;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
-.about-page-content .repeatable_layout_5 .fxcol.imageCol figure{width:320px;height:320px;margin:0;position:relative;padding:15px}
+.about-page-content .repeatable_layout_5 .fxcol.imageCol figure{width:290px;height:290px;margin:0;position:relative;padding:15px}
 .about-page-content .repeatable_layout_5 .fxcol.imageCol figure img{display:block;width:100%;height:100%;position:absolute;top:0;left:0;-o-object-fit:cover;object-fit:cover;-o-object-position:center;object-position:center}
 .about-page-content .repeatable_layout_5 .fxcol.imageCol figure .inner{width:100%;height:100%;padding-bottom:60%;float:left;overflow:hidden;position:relative}
-.about-page-content .repeatable_layout_5 .fxcol.imageCol figure .inner img{-webkit-mask-image:url("images/story-image-2.png");mask-image:url("images/story-image-2.png");-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:100%;mask-size:100%;width:290px;height:290px}
+.about-page-content .repeatable_layout_5 .fxcol.imageCol figure .inner img{-webkit-mask-image:url("images/story-image-2.png");mask-image:url("images/story-image-2.png");-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:100%;mask-size:100%;width:260px;height:260px}
 .about-page-content .repeatable_layout_5 .fxcol.image-1 figure{padding:6px;width:100%;height:auto}
 .about-page-content .repeatable_layout_5 .fxcol.image-1 figure .inner{width:81%;height:100%;margin-left:15%;margin-bottom:15px}
 .about-page-content .repeatable_layout_5 .fxcol.image-1 figure .inner img{-webkit-mask-image:url("images/story-image-1-mask.png");mask-image:url("images/story-image-1-mask.png");width:100% !important;height:100% !important;-o-object-fit:cover;object-fit:cover}
