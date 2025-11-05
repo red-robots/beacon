@@ -1988,7 +1988,6 @@ body:not(.home) .about-page-content #main {
           height: 290px;
           margin: 0 0;
           position: relative;
-          padding: 15px;
 
           img {
             display: block;
@@ -2073,6 +2072,15 @@ body:not(.home) .about-page-content #main {
             height: 100%;
             object-fit: contain;
           }
+        }
+      }
+      &.image-2 {
+        figure {
+          border-radius: 50%;
+          border: 15px solid $color_light_green;
+          overflow: hidden;
+          width: 260px;
+          height: 260px;
         }
       }
     }

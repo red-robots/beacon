@@ -27,12 +27,13 @@
                 <figure class="imgwrap">
                   <?php if ($count==1) { ?>
                     <img src="<?php echo get_stylesheet_directory_uri() ?>/images/story-image-1.png" alt="" aria-hidden="true" role="presentation" class="hexagon" style="pointer-events:none;">
+                    <div class="inner">
+                      <img src="<?php echo $imageUrl ?>" alt="<?php echo $imageTitle ?>">
+                    </div> 
                   <?php } else { ?>
-                    <img src="<?php echo get_stylesheet_directory_uri() ?>/images/story-image-2.png" alt="" aria-hidden="true" role="presentation" class="circle" style="pointer-events:none;">
-                  <?php } ?>
-                  <div class="inner">
+                    <!-- <img src="<?php echo get_stylesheet_directory_uri() ?>/images/story-image-2.png" alt="" aria-hidden="true" role="presentation" class="circle" style="pointer-events:none;"> -->
                     <img src="<?php echo $imageUrl ?>" alt="<?php echo $imageTitle ?>">
-                  </div> 
+                  <?php } ?>
                 </figure>
               </div>
             <?php } ?>
