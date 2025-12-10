@@ -98,3 +98,19 @@
     }
   }
 }
+
+
+body.post-type-team .acf-postbox .inside.acf-fields.-top:has([data-name="first_name"]):has([data-name="last_name"]) {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  .acf-field {
+    width: 100%;
+  }
+  .acf-field-text[data-name="first_name"],
+  .acf-field-text[data-name="last_name"] {
+    width: 50%;
+  }
+}
+
+

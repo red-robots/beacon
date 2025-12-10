@@ -35,7 +35,8 @@ get_header(); ?>
         $locationArg = array(
             'post_type' => 'team', // Replace with your custom post type slug
             'posts_per_page' => -1, // Retrieve all matching posts, or specify a number
-            'orderby'        => 'title',
+            'meta_key'       => 'last_name',      // ACF field name
+            'orderby'        => 'meta_value',
             'order'          => 'ASC',
             'tax_query' => array(
                 array(

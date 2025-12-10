@@ -77,4 +77,17 @@
   min-height: 150px !important;
 }
 
+body.post-type-team .acf-postbox .inside.acf-fields.-top:has([data-name=first_name]):has([data-name=last_name]) {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+body.post-type-team .acf-postbox .inside.acf-fields.-top:has([data-name=first_name]):has([data-name=last_name]) .acf-field {
+  width: 100%;
+}
+body.post-type-team .acf-postbox .inside.acf-fields.-top:has([data-name=first_name]):has([data-name=last_name]) .acf-field-text[data-name=first_name],
+body.post-type-team .acf-postbox .inside.acf-fields.-top:has([data-name=first_name]):has([data-name=last_name]) .acf-field-text[data-name=last_name] {
+  width: 50%;
+}
+
 /*# sourceMappingURL=admin.css.map */
